@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本の地方創生における人材関連企業の役割と変遷：労働市場の構造転換と地域経営の高度化に関する総合調査報告書</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260517_03_地方創生③人材企業</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260517_03_地方創生③人材企業
+      </div>
+      <h1 class="report-title">日本の地方創生における人材関連企業の役割と変遷：労働市場の構造転換と地域経営の高度化に関する総合調査報告書</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　人材会社の取り組みの変遷：政策フェーズに呼応した支援形態の進化</a></li><li><a href="#sec-3">第２章　人材系シンクタンクの主張と提言：労働市場の構造変化を読み解く</a></li><li><a href="#sec-4">第３章　具体的実践事例と地域への波及効果：各社の独自性と成果</a></li><li><a href="#sec-5">第４章　政策の最新フェーズ：デジタル田園都市国家構想と人材の還流戦略</a></li></ol></div>
+
+    <article class="article">
+      <div class="summary-box"><p>この報告書は、過去10年における日本の地方創生が、単なる人口の奪い合いから<strong>デジタル技術と多様な働き方を活用した新社会システムの構築</strong>へと進化した過程を分析しています。当初は都市部からの労働力移動を助ける仲介者であった人材サービス企業が、現在は<strong>地域企業の経営変革パートナー</strong>や自ら雇用を創出する主体へと役割を高度化させている実態を明らかにしています。特にコロナ禍を経て普及した\<em>\</em>「転職なき移住」<strong>や、外部の専門知見を副業・兼業で取り入れる</strong>プロフェッショナル人材の活用<strong>が、地方経済の持続可能性を担保する鍵として示されています。最終的に本書は、深刻な構造的人手不足を乗り越えるため、</strong>「生産性の向上」と「個人のウェルビーイング」\<em>\</em>を両立させる自律的な地域経営の重要性を提言しています。</p></div>
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <h3>はじめに</h3>
+
+
+<p>2014年、日本創成会議が発表したいわゆる「増田レポート」は、日本の地方自治体の半数が消滅する可能性があるという衝撃的な予測を提示し、国家的な危機感を煽った。これを受けて政府は「まち・ひと・しごと創生法」を制定し、東京一極集中の是正と地方の活性化を最優先課題に掲げた。それから約10年、地方創生のフェーズは、単なる「人口の奪い合い」から、デジタル技術を活用した「付加価値の創造」や、関係人口を基軸とした「地域経営の高度化」へと大きく舵を切っている。</p>
+
+<p>この変革の過程において、人材サービス企業やその傘下のシンクタンクが果たしてきた役割は極めて大きい。当初、人材会社の立ち位置は「都市部から地方への労働力移動」の仲介者に過ぎなかった。しかし、地域の労働力不足が「構造的」なものへと深刻化し、さらに新型コロナウイルス感染症の影響で「場所にとらわれない働き方」が普及するにつれ、その役割は「地域企業の経営変革パートナー」や「移住者のウェルビーイング支援者」、さらには「自治体DXの実行部隊」へと多角化・高度化してきた。</p>
+
+<p>本報告書では、政府の地方創生施策の変遷を背景に、人材系企業やシンクタンクがどのような調査・発信を行い、いかなる具体的取り組みを展開してきたかを時系列に沿って網羅的に分析する。これにより、日本の労働市場が直面する「令和の転換点」において、人材ビジネスが地方創生の持続可能性をいかに担保し得るかを明らかにする。</p>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　人材会社の取り組みの変遷：政策フェーズに呼応した支援形態の進化</h2>
+          <h3>1.1　創生初期：プロフェッショナル人材による地域企業の「攻めの経営」支援</h3>
+
+
+<p>地方創生が本格化した2015年頃、政府は地域経済を牽引する中堅・中小企業が、新事業展開や販路開拓、生産性向上を果たすための「経営体質の強化」を急務とした。これを受けて内閣府が主導した「プロフェッショナル人材事業」は、人材会社の役割を定義する最初の大きな契機となった <sup class="ref">[1]</sup>。</p>
+
+<p>この事業において、人材会社は各道府県に設置された「プロフェッショナル人材戦略拠点」と連携し、地域企業のニーズを具体化した上で、都市部の高度な知見を持つ人材をマッチングする実務を担った。2026年3月時点での累計マッチング件数は39,446件に達しており、地域企業が「新しい風」を取り入れるための重要なインフラとなっている <sup class="ref">[1]</sup>。当初は「転職」を前提とした正社員採用が中心であったが、地域企業にとって高年収のプロフェッショナルを固定費として抱えることはリスクも伴うため、人材会社は次第に「副業・兼業」という、より柔軟な参画形態を提案し始めた <sup class="ref">[1, 2]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>フェーズ</strong></th><th><strong>政策の重点</strong></th><th><strong>人材会社の主な役割</strong></th><th><strong>マッチング形態</strong></th></tr></thead><tbody><tr><td>第1期(2015-)</td><td>地域での「しごと」創出</td><td>地域企業の経営革新支援</td><td>正社員転職が主流</td></tr><tr><td>第2期(2020-)</td><td>地方への人の流れ、関係人口</td><td>移住支援、リモートワーク推進</td><td>副業・兼業、転職なき移住</td></tr><tr><td>第3期(2023-)</td><td>デジタル田園都市国家構想</td><td>自治体・企業のDX、デジタル人材育成</td><td>専門家派遣、BPO、リスキリング</td></tr></tbody></table></div>
+
+
+<h3>1.2　コロナ禍と「転職なき移住」の台頭</h3>
+
+
+<p>2020年の新型コロナウイルス感染症の拡大は、テレワークの急速な普及をもたらし、地方創生の文脈を劇的に変えた。リクルートやパーソル、アデコといった大手人材会社は、これを「一極集中是正の絶好の機会」と捉え、場所にとらわれない働き方を提唱し始めた。</p>
+
+<p>パーソル総合研究所の調査によれば、移住経験者の53.4％が移住に伴う転職をしておらず、移住者の約60％が収入に変化がなかったと回答している <sup class="ref">[3, 4]</sup>。これは、従来の「地方に行けば仕事がなく、給与も下がる」という常識を覆すデータであり、人材会社はこの「転職なき移住」を地方創生の新たなドライバーとして位置づけた。また、リクルートは「Airワーク 採用管理」などのビジネスツールを地域の農家や中小企業に提供することで、ウェブ上での情報発信を容易にし、都市部の人材が地方の求人にアクセスしやすくなる環境を整えた <sup class="ref">[5]</sup>。</p>
+
+
+<h3>1.3　デジタル田園都市国家構想下の高度専門人材派遣</h3>
+
+
+<p>現在、地方創生は「デジタル技術による地域課題の解決」というフェーズに入っている。政府が掲げる「2026年度までに230万人のデジタル推進人材を育成」という目標に対し、人材会社は単なるマッチングを超え、教育や自治体業務の代行（BPO）まで踏み込んでいる <sup class="ref">[6]</sup>。</p>
+
+<p>アデコは「地域課題ソリューションベース」を運営し、山形県酒田市などの自治体と連携して、地域の女性をIT人材として育成する「サンロクIT女子育成プロジェクト」などを展開している <sup class="ref">[7]</sup>。これは、単にスキルを教えるだけでなく、実際に業務を委託し「稼ぐ力」を身につけさせることで、地域内での経済循環を生み出す仕組みである。また、サーキュレーションなどのプロシェアリング企業は、内閣官房の「地方創生人材支援制度」に参画し、DXに特化した外部専門家を自治体や企業に送り込むことで、スマートシティやスマート農業の社会実装を加速させている <sup class="ref">[8, 9]</sup>。</p>
+
+
+<h3>1.4　自ら地方に拠点を移す実証実験：パソナの淡路島移転</h3>
+
+
+<p>人材会社の取り組みの中で、最も急進的かつ大規模な事例がパソナグループによる兵庫県淡路島への本社機能移転である。2020年から開始されたこのプロジェクトは、単なるコスト削減のための移転ではなく、「BCP（事業継続計画）の強化」「豊かな生き方・働き方の実現」「夢のある新産業の創造」を掲げた実験的なアプローチである <sup class="ref">[10, 11]</sup>。</p>
+
+<p>2024年時点で、目標を大きく上回る2,000名以上の社員が淡路島で勤務しており、地元採用も積極的に行われている <sup class="ref">[12, 13]</sup>。パソナは淡路島において、廃校を利用した観光施設、レストラン、宿泊施設などを次々と開発し、地域全体を一つの「Well-being産業」の拠点へと変貌させた <sup class="ref">[12, 14]</sup>。これは、人材会社が「労働力を提供する側」から「雇用を創出する主体」へと進化した象徴的な事例と言える。</p>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　人材系シンクタンクの主張と提言：労働市場の構造変化を読み解く</h2>
+          <h3>2.1　「令和の転換点」と構造的人手不足への警告</h3>
+
+
+<p>リクルートワークス研究所は、現在の日本が直面している状況を「令和の転換点」と呼び、従来とは本質的に異なる人手不足に警鐘を鳴らしている <sup class="ref">[15]</sup>。景気動向に左右される「循環的人手不足」から、人口動態そのものに起因する「構造的人手不足」へと移行したことで、もはや「求人を出せば人が集まる」という前提は崩壊した。</p>
+
+<p>同研究所の提言では、需要サイド（高齢化による医療・介護、単身世帯増による物流・インフラサービスの需要増）と供給サイド（生産年齢人口の激減）の乖離を埋めるためには、単なる人材確保だけでは不十分であり、「タスク改革（業務の標準化や削除）」「テクノロジー導入」「タスクシェア（異業種間での協力）」を組み合わせた現場改革が必要であると主張している <sup class="ref">[15]</sup>。特に、1世帯あたりの小規模化が進むことで、水道・電気・ガスや宅配サービスの提供効率が低下し、「一人を支えるためにより多くの労働が必要になる」という課題が、地方においてより顕著に現れることを指摘している <sup class="ref">[15]</sup>。</p>
+
+
+<h3>2.2　移住・多拠点居住と個人の幸福（ウェルビーイング）</h3>
+
+
+<p>パーソル総合研究所は、地方移住や多拠点居住を「個人の幸福度向上」の観点から分析している。調査結果によると、自ら能動的に多拠点居住を選択している層は、主観的幸福感や地域貢献度が高い傾向にある <sup class="ref">[16]</sup>。また、多拠点居住のきっかけとして「在宅勤務・テレワークの浸透」が最も多く、働き方の柔軟性が移住のハードルを下げていることが裏付けられた <sup class="ref">[16]</sup>。</p>
+
+<p>シンクタンクとしての提言では、企業に対して「従業員の移住支援は人的資本への投資である」と位置づけるよう求めている <sup class="ref">[3]</sup>。優秀な学生はテレワーク環境が整備されている企業を好む傾向があり、地方移住を許容することは、人材の獲得とリテンション（定着）に直結する。また、自治体に対しては、ハード面の整備（補助金等）だけでなく、移住者が地域住民と「ゆるい関係性」を築けるようなコミュニティ支援の重要性を説いている <sup class="ref">[3, 16]</sup>。</p>
+
+
+<h3>2.3　移住タイプ別の特徴と支援ニーズの可視化</h3>
+
+
+<p>パーソル総合研究所の「地方移住に関する実態調査」は、移住者のタイプ（Uターン、Jターン、Iターン等）によって、重視する項目や不安要素が異なることを詳細に示している <sup class="ref">[3, 17]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>移住タイプ</strong></th><th><strong>割合(意向者)</strong></th><th><strong>主な特徴</strong></th><th><strong>重視する項目(共通上位)</strong></th></tr></thead><tbody><tr><td>Uターン型</td><td>14.6%</td><td>地元回帰。親・子供世帯との同居意向が最も高い。</td><td>1位：買い物の利便性(76.4%)</td></tr><tr><td>Iターン型</td><td>56.7%</td><td>縁のない地域へ。20代男性が特徴的に多い。</td><td>2位：医療体制の充実(75.0%)</td></tr><tr><td>多拠点居住型</td><td>40.1%</td><td>複数拠点を往来。貯蓄保有割合が高く、幸福度も高い。</td><td>3位：街並みの雰囲気(72.2%)</td></tr><tr><td>配偶者地縁型</td><td>10.3%</td><td>配偶者の地元へ。現在の暮らしの評価が高い。</td><td>4位：穏やかな暮らし(72.1%)</td></tr></tbody></table></div>
+
+<p>このデータから、移住を促進するためには「自然の豊かさ」や「生活コストの低さ」といったステレオタイプな魅力発信だけでなく、医療や買い物といった「生活の持続可能性」を具体的に提示することが不可欠であるという示唆が得られる <sup class="ref">[17]</sup>。</p>
+
+
+<h3>2.4　エッセンシャルワークの現場実態と「賃上げ」の必要性</h3>
+
+
+<p>リクルートワークス研究所の報告書は、生活維持サービス（医療、介護、物流等）に携わるエッセンシャルワーカーの過酷な労働環境にも焦点を当てている。現場の約4割が業務量増加を実感し、36.5％がサービス残業を経験しているというデータは、地方におけるサービス維持の限界が近いことを示している <sup class="ref">[15]</sup>。</p>
+
+<p>シンクタンク側は、政策目標を従来の「失業率重視」から「実質賃金の向上」や「労働生産性（1時間あたりGDP）」の向上へと転換すべきだと提言している <sup class="ref">[15, 18]</sup>。特に地方においては、低賃金の非正規雇用に頼るモデルから脱却し、デジタル技術の活用による高付加価値化と、それに伴う賃上げを実現しなければ、地域の生活基盤そのものが崩壊するという危機感が強調されている <sup class="ref">[18, 19]</sup>。</p>
+        </section>
+        <section id="sec-4">
+          <h2>第３章　具体的実践事例と地域への波及効果：各社の独自性と成果</h2>
+          <h3>3.1　プロフェッショナル人材の「参画」による地域企業の変革事例</h3>
+
+
+<p>「プロフェッショナル人材事業」等を通じて提供される外部知見が、いかに地域企業を変えるかについて、人材各社は多くの成功事例を発信している。</p>
+
+<ul><li><strong>海外展開の実現</strong>: 元大手メーカー部長が週2日のリモートワークで地方の製造業に参画。30年の海外営業経験を活かし、半年で輸出取引を実現させた事例がある <sup class="ref">[2]</sup>。</li></ul>
+
+<ul><li><strong>アナログ企業のDX</strong>: ITベンダー出身者が老舗卸売業に参画。単なるシステム導入にとどまらず、業務プロセスの再設計から社内教育まで伴走し、生産性を30％向上させた <sup class="ref">[2]</sup>。</li></ul>
+
+<ul><li><strong>事業承継のサポート</strong>: 経営課題の整理や若手後継者の育成を、元大手メーカーOBが顧問として支援。スピード感のある経営体制構築を後押しした <sup class="ref">[2]</sup>。</li></ul>
+
+<p>これらの事例に共通するのは、人材が「固定費」ではなく「投資」として活用されている点である。プロジェクト単位での参画を可能にすることで、地域企業は高度な知見を必要な分だけ活用でき、一方で都市部の人材は自身の市場価値を地方で試す「関係人口」としての第一歩を踏み出している <sup class="ref">[2, 9]</sup>。</p>
+
+
+<h3>3.2　女性・若者の「稼ぐ力」を育む地域DXプロジェクト</h3>
+
+
+<p>アデコが進める山形県酒田市の「サンロクIT女子育成プロジェクト」は、地方における「良質な雇用の欠如」という根本的課題に対する一つの解を提示している <sup class="ref">[7, 20]</sup>。</p>
+
+<p>このプロジェクトでは、酒田市内の女性がライティング、SNS運用、動画制作、LP制作などのITスキルを習得する場を提供している。特筆すべきは、アデコが自社で受託した東京や地域の企業の業務を、これらの育成した人材に委託している点である <sup class="ref">[7]</sup>。これにより、「学んだが仕事がない」という地方にありがちな問題を回避し、未経験者が実務を通じて「自律自走」できるまでの伴走支援を行っている <sup class="ref">[7]</sup>。このような取り組みは、女性がライフステージに関わらず自分の望む働き方を選択できる環境づくりに貢献しており、他自治体からの視察も絶えない。</p>
+
+
+<h3>3.3　農業×IT：JAみやざきとの連携による採用革命</h3>
+
+
+<p>リクルートがJAみやざきと展開している「Airワーク 採用管理」の活用事例は、第一次産業における採用インフラの整備を象徴している <sup class="ref">[5]</sup>。</p>
+
+<p>宮崎県の農家は慢性的な人材不足に悩まされていたが、個々の農家が独自に採用情報を発信し、応募者とコミュニケーションを取る手段が乏しかった。リクルートは、簡単に採用サイトを構築できるデジタルツールをJAを通じて普及させることで、農家の「募集する力」を強化した <sup class="ref">[5]</sup>。その結果、これまでハローワーク等の限られた範囲にしか届かなかった求人がウェブ上で広く可視化され、農家における雇用課題の解決に繋がっている <sup class="ref">[5]</sup>。これは、汎用的なビジネスツールを地域特有の課題に合わせて最適化し、導入を支援した好例である。</p>
+
+
+<h3>3.4　地方創生テレワークと交付金を活用したサテライトオフィス誘致</h3>
+
+
+<p>政府の「地方創生テレワーク交付金」を効果的に活用し、人材会社が運営に関与したり、企業の進出を促したりする事例も増えている。</p>
+
+<ul><li><strong>長野県塩尻市 (Shio-Lab)</strong>: 空きビルをリノベーションしたサテライトオフィスにICT企業や広告代理店など5社が進出し、20名以上の移住を実現。地元IT企業との協業も生まれている <sup class="ref">[21]</sup>。</li></ul>
+
+<ul><li><strong>和歌山県白浜町 (Anchor)</strong>: 廃校を活用したワーケーション施設に東京や大阪の大手IT企業が利用。年間延べ1,000人以上の利用者を達成し、地域の観光・飲食業にも波及効果をもたらしている <sup class="ref">[21]</sup>。</li></ul>
+
+<ul><li><strong>福島県会津若松市</strong>: スマートシティ関連企業の拠点化により、30名以上の社員が移住。地元大学との産学連携も進んでいる <sup class="ref">[21]</sup>。</li></ul>
+
+<p>これらの事例では、人材会社が「どのような企業がどのような環境を求めているか」というマーケット感覚を自治体に提供することで、単なる箱モノ整備に終わらない、実効性のある誘致戦略の策定を支援している。</p>
+        </section>
+        <section id="sec-5">
+          <h2>第４章　政策の最新フェーズ：デジタル田園都市国家構想と人材の還流戦略</h2>
+          <h3>4.1　「デジタル人材地域還流戦略パッケージ」の全容</h3>
+
+
+<p>政府は2022年より「デジタル田園都市国家構想」を掲げ、地方の社会課題をデジタルの力で解決する取り組みを加速させている。その中核となるのが「デジタル人材地域還流戦略パッケージ」である <sup class="ref">[6]</sup>。</p>
+
+<p>この政策では、デジタル人材が都市部に偏在することを防ぐため、以下の施策を人材会社や金融機関と連携して実施している。</p>
+
+<ul><li><strong>地域企業へのマッチング支援</strong>: プロフェッショナル人材戦略拠点、地域金融機関、ベンチャーキャピタル、スタートアップ専門の職業紹介事業者などが緊密に連携し、DXを牽引する人材を地方へ送り込む <sup class="ref">[6]</sup>。</li></ul>
+
+<ul><li><strong>地方公共団体への人材派遣</strong>: 自治体のDXを推進するため、スキルの高い外部人材を「地域活性化起業人」や「デジタル推進委員」として派遣。2027年度までにデジタル推進委員を5万人に増やす計画である <sup class="ref">[6, 19]</sup>。</li></ul>
+
+<ul><li><strong>起業・移住支援</strong>: デジタルを活用した地域課題解決型の起業に対し、最大200万円の移住支援金や最大300万円の起業支援金を支給する等の強力なインセンティブを設けている <sup class="ref">[6]</sup>。</li></ul>
+
+<p>人材会社はこの政府方針に基づき、自社のデータベースから最適なデジタル人材を抽出し、地方での「新たなキャリア」を提案するエージェントとしての役割を強めている。</p>
+
+
+<h3>4.2　リスキリングとリカレント教育の地域実装</h3>
+
+
+<p>「デジタル人材」を外部から呼ぶだけでなく、地域内部で育成すること（リスキリング）も現在の大きなテーマである。政府は3年間で4,000億円規模の施策パッケージを創設し、人材開発支援助成金の拡充等を通じて、企業内でのデジタル教育を後押ししている <sup class="ref">[6, 22]</sup>。</p>
+
+<p>人材各社はこの公的資金を活用した研修プログラムの受託を拡大させている。例えば、アデコが提供する「Adecco Academy」のようなEラーニングプラットフォームは、場所を選ばずに高度なデジタルスキルを習得できるため、地方自治体の職員研修や地域中小企業の従業員教育に最適である <sup class="ref">[7]</sup>。また、数理・データサイエンス・AI教育を全国の大学等で推進する「コンソーシアム」の形成により、地方の高等教育機関から継続的にデジタル人材が輩出される体制構築が進んでいる <sup class="ref">[6]</sup>。</p>
+
+
+<h3>4.3　「転職なき移住」と「関係人口」のKPI化</h3>
+
+
+<p>政府は、2027年度までに東京圏との転入・転出を均衡させるという目標を掲げている <sup class="ref">[19]</sup>。この目標達成のため、かつての「完全移住」一辺倒から、テレワークや副業・兼業を活用した「転職なき移住」や「関係人口」の創出へと重点を移している。</p>
+
+<p>リクルートワークス研究所やパーソル総合研究所の発信は、この政策転換の理論的支柱となっている。例えば、「関係人口」を単なるボランティアではなく、「都市部でのスキルを地方に還元する高度専門職」と定義し直すことで、都市部の人材にとってはキャリアアップの機会となり、地方にとっては低コストで専門知見を得られるという、ウィンウィンの関係性が強調されている <sup class="ref">[19]</sup>。また、子育て世帯に対する「保育園留学」のような、家族単位での期間限定移住をきっかけにした「段階的な移住」の仕組みも、民間企業の創意工夫によって次々と生まれている <sup class="ref">[23]</sup>。</p>
+
+
+<h3>まとめ</h3>
+
+
+<p>日本の地方創生はこの10年で、単なる「人口減少への抵抗」から、デジタル技術と多様な働き方を武器にした「新しい社会システムの構築」へと進化した。人材関連企業の役割もまた、労働力の仲介者から、地域社会のOS（基盤）を書き換える変革の主体へと変容を遂げた。</p>
+
+<p>本報告書の分析を通じて得られた、今後の地方創生における重要な示唆は以下の通りである。</p>
+
+<p>第一に、<strong>「人材の質」へのシフト</strong>である。人口総数が減少する中で、もはや単純な頭数の確保は不可能である。リクルートワークス研究所が提言するように、業務自体の削減（タスク改革）とデジタル活用を前提とした「生産性の大幅な向上」なしには、地域の生活基盤は維持できない。人材会社は、単に人を送るのではなく、業務効率化とセットで人材戦略を提案する「コンサルティング機能」をより一層強化すべきである。</p>
+
+<p>第二に、<strong>「個人のウェルビーイング」と「地域の価値」の合致</strong>である。パーソル総合研究所の調査が示した通り、移住の成功は個人の幸福感に直結する。場所にとらわれない働き方が普及した今、地方は「生活の質」で選ばれる時代となった。人材会社は、仕事のマッチングだけでなく、住まい、教育、コミュニティ、医療といった「生活のトータルコーディネート」を通じて、移住者がその地域に「愛着」を持てるような支援を行う必要がある。</p>
+
+<p>第三に、<strong>「産学官公の共創」によるエコシステムの構築</strong>である。パソナの淡路島事例やアデコの酒田市事例が示すように、民間企業の実行力と自治体のリソース、さらには政府の財政支援が三位一体となることで、初めて地域に新産業が根付く。人材会社は、このマルチステークホルダー間の「触媒」として、都市部の人材や知見、資金を地方へ還流させるハブ機能を担い続けることが期待される。</p>
+
+<p>地方創生の未来は、もはや中央政府の号令だけでなく、それぞれの地域が「どのような人材を惹きつけ、どのような付加価値を生み出すか」という、独自の経営戦略にかかっている。人材サービス産業は、その戦略を実行するための最も重要な「武器」であり、これからの10年、日本の労働市場が「令和の転換点」を乗り越え、真に豊かな多極分散型社会を実現できるかどうかの鍵を握っている。</p>
+
+<hr>
+
+<ol class="ref-list"><li>内閣府 プロフェッショナル人材戦略ポータルサイト,<br><a href="https://www.pro-jinzai.go.jp/index.html" target="_blank" rel="noopener">https://www.pro-jinzai.go.jp/index.html</a></li><li>プロ人材向け｜「転職」ではなく「参画」という新しい働き方｜テクパス専門家支援サービス（ATS）,<br><a href="https://www.ats-jp.com/pro-lp/" target="_blank" rel="noopener">https://www.ats-jp.com/pro-lp/</a></li><li>地方移住に関する実態調査 - パーソル総合研究所,<br><a href="https://rc.persol-group.co.jp/thinktank/data/migration-to-rural-areas/" target="_blank" rel="noopener">https://rc.persol-group.co.jp/thinktank/data/migration-to-rural-areas/</a></li><li>就業者の地方移住に関する調査報告書 - パーソル総合研究所,<br><a href="https://rc.persol-group.co.jp/wp-content/uploads/thinktank/data/migration-to-rural-areas.pdf" target="_blank" rel="noopener">https://rc.persol-group.co.jp/wp-content/uploads/thinktank/data/migration-to-rural-areas.pdf</a></li><li>取組事例：サステナビリティ活動レポート「地方創生」｜株式会社 …,<br><a href="https://www.recruit.co.jp/sustainability/report/sustainability-keyword/keyword-regionalrevitalization/" target="_blank" rel="noopener">https://www.recruit.co.jp/sustainability/report/sustainability-keyword/keyword-regionalrevitalization/</a></li><li>デジタル人材の育成・確保｜デジタル田園都市国家構想 - 内閣官房,<br><a href="https://www.cas.go.jp/jp/seisaku/digitaldenen/about/digital-resources.html" target="_blank" rel="noopener">https://www.cas.go.jp/jp/seisaku/digitaldenen/about/digital-resources.html</a></li><li>地域課題ソリューションベース-地方創生事例のポータルサイト,<br><a href="https://local-solution-base.com/" target="_blank" rel="noopener">https://local-solution-base.com/</a></li><li>内閣官房新設の地方創生人材支援制度（デジタル専門人材）「人材紹介型」にサーキュレーションが参画、DXに特化したプロシェアリングを提供開始,<br><a href="https://circu.co.jp/news/20230912-4176/" target="_blank" rel="noopener">https://circu.co.jp/news/20230912-4176/</a></li><li>サーキュレーションのプロシェアリングを活用した累計プロジェクト数が20000件突破 - PR TIMES,<br><a href="https://prtimes.jp/main/html/rd/p/000000072.000015163.html" target="_blank" rel="noopener">https://prtimes.jp/main/html/rd/p/000000072.000015163.html</a></li><li>淡路プロジェクト \| プロジェクトストーリー \| パソナの採用情報 \| 株式会社パソナ（旧パソナテック）｜ITエンジニア・ものづくりエンジニアの求人情報・転職情報,<br><a href="https://x-tech.pasona.co.jp/recruit/project/13/" target="_blank" rel="noopener">https://x-tech.pasona.co.jp/recruit/project/13/</a></li><li>地方創生（淡路島） \| パソナグループ,<br><a href="https://www.pasonagroup.co.jp/awaji.html" target="_blank" rel="noopener">https://www.pasonagroup.co.jp/awaji.html</a></li><li>【パソナ】淡路島地方創生・移転プロジェクトはどうなった？,<br><a href="https://pasona-awaji-matome.qloba.com/" target="_blank" rel="noopener">https://pasona-awaji-matome.qloba.com/</a></li><li>地方創生、その先へ～変貌する淡路島からのメッセージ～ \| BS朝日,<br><a href="https://www.bs-asahi.co.jp/sonosakie/" target="_blank" rel="noopener">https://www.bs-asahi.co.jp/sonosakie/</a></li><li>PASONA GROUP 2025 - パソナグループ,<br><a href="https://www.pasonagroup.co.jp/Portals/0/resources/koken/pdf/csr2025.pdf" target="_blank" rel="noopener">https://www.pasonagroup.co.jp/Portals/0/resources/koken/pdf/csr2025.pdf</a></li><li>日本社会を変える構造的労働供給制約の実態と未来への提言ー『報告書「令和の転換点」』から考える - note,<br><a href="https://note.com/hidemaru1976/n/n8cb7576bc654" target="_blank" rel="noopener">https://note.com/hidemaru1976/n/n8cb7576bc654</a></li><li>パーソル総合研究所、就業者の多拠点居住に関する調査結果を発表能動的に多拠点居住を選択している人ほどウェルビーイングが高い結果に,<br><a href="https://rc.persol-group.co.jp/news/202302221000/" target="_blank" rel="noopener">https://rc.persol-group.co.jp/news/202302221000/</a></li><li>Vol175 地方移住に関する移住意向者の実態調査【株式会社パーソル総合研究所】 - note,<br><a href="https://note.com/iju\_planner/n/n8a511a21448b" target="_blank" rel="noopener">https://note.com/iju\_planner/n/n8a511a21448b</a></li><li>骨太方針2025 - 経済社会総合研究所,<br><a href="https://www.esri.cao.go.jp/jp/esri/esr/data/esr\_049.pdf" target="_blank" rel="noopener">https://www.esri.cao.go.jp/jp/esri/esr/data/esr\_049.pdf</a></li><li>デジタル田園都市国家構想総合戦略 - 総務省,<br><a href="https://www.soumu.go.jp/main\_content/000853677.pdf" target="_blank" rel="noopener">https://www.soumu.go.jp/main\_content/000853677.pdf</a></li><li>デジタル田園都市国家構想交付金 活用事例集 - 地方創生,<br><a href="https://www.chisou.go.jp/sousei/pdf/r5\_katsuyoujireishuugaiyou.pdf" target="_blank" rel="noopener">https://www.chisou.go.jp/sousei/pdf/r5\_katsuyoujireishuugaiyou.pdf</a></li><li>【地方創生テレワーク交付金を徹底解説】概要と事例をわかりやすく解説！ - Labid,<br><a href="https://labid.jp/article/gmpohbjv" target="_blank" rel="noopener">https://labid.jp/article/gmpohbjv</a></li><li>デジタル人材育成に関する提言 2025 - 自由民主党,<br><a href="https://storage.jimin.jp/pdf/news/policy/210615\_10.pdf" target="_blank" rel="noopener">https://storage.jimin.jp/pdf/news/policy/210615\_10.pdf</a></li><li>地方創生テレワークの推進に向けて,<br><a href="https://www.soumu.go.jp/main\_content/000957482.pdf" target="_blank" rel="noopener">https://www.soumu.go.jp/main\_content/000957482.pdf</a></li></ol>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260517_04/index.html">← 地方創生における自治体主導の多角的アプロ…</a><a href="../260517_02/index.html">日本の地方創生における10年の軌跡と「地… →</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-22</footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本における副業・兼業の変遷と地方創生への波及効果：IT人材不足解消に向けた官民の戦略的アプローチ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260518_02_副業・兼業</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260518_02_副業・兼業
+      </div>
+      <h1 class="report-title">日本における副業・兼業の変遷と地方創生への波及効果：IT人材不足解消に向けた官民の戦略的アプローチ</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　事実関係の時系列整理</a></li><li><a href="#sec-3">第２章　議論の状況と事実ベースの課題整理</a></li><li><a href="#sec-4">第３章　自治体および企業における副業・兼業の活用事例</a></li><li><a href="#sec-5">第４章　実態調査と事例を踏まえた示唆</a></li></ol></div>
+
+    <article class="article">
+      <div class="summary-box"><p>この報告書は、かつて一般的だった<strong>単一就業モデル</strong>から、<strong>副業・兼業</strong>を成長戦略の柱とする新しい労働制度への転換を詳しく考察しています。特に地方における<strong>IT・デジタル人材の不足</strong>という構造的課題に対し、外部プロフェッショナルのスキルを「小分け」に活用する戦略や、副業を入口とした\<em>\</em>「副業転職」<strong>という新たな人材流動化の流れを浮き彫りにしています。塩尻市や広島県の事例を通じて、副業人材を単なる外注先ではなく、地域課題を解決する</strong>「パートナー」<strong>や質の高い</strong>「関係人口」<strong>として定義し直す重要性を説いています。最終的には、労働時間通算ルールなどの法的な実務障壁を改善し、官民が連携して柔軟な働き方を社会の</strong>「新しいOS」\<em>\</em>として定着させることが、人口減少時代の日本再生に不可欠であると提言しています。</p></div>
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <h3>はじめに</h3>
+
+
+<p>日本における労働慣行は、長らく「終身雇用」と「メンバーシップ型雇用」を基軸とした単一就業モデルに依存してきた。しかし、人口減少に伴う深刻な労働力不足、特に地方におけるIT・デジタル人材の偏在は、既存の雇用システムだけでは解消し得ない構造的な課題となっている。こうした中、政府が2018年を「副業元年」と位置づけ、モデル就業規則を改定して以来、副業・兼業は単なる「個人の小遣い稼ぎ」という次元を超え、企業の成長戦略や地方創生の鍵を握る重要な政策的ツールへと変貌を遂げている。</p>
+
+<p>本報告書では、副業・兼業を巡る国の政策動向、企業における導入実態、そして自治体によるIT人材確保の取り組みを多角的に分析する。特に、最新の統計データに基づき、副業・兼業が地方のIT人材不足にどのように寄与し、それが地方創生とどのような因果関係にあるのかを明らかにする。読み手としては、変革を迫られる経営者、政策立案を担う官僚、そして現場で課題に直面する自治体職員を想定し、理論と実践の両面から示唆を提供することを目指す。</p>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　事実関係の時系列整理</h2>
+          <h3>1.1 過去：副業禁止時代の終焉と政策の転換（2017年以前〜2019年）</h3>
+
+
+<p>日本の労働市場において、かつて副業・兼業は「例外的な行為」であった。多くの企業が、従業員の職務専念義務の阻害、機密情報の漏洩リスク、および長時間労働による健康被害を懸念し、就業規則によって一律に禁止していた。しかし、2017年に策定された「働き方改革実行計画」において、政府は労働の柔軟性を高めるための柱の一つとして副業・兼業の促進を掲げた。</p>
+
+<p>2018年、厚生労働省は「副業・兼業の促進に関するガイドライン」を作成し、同時に「モデル就業規則」の規定を「許可なく他の会社等の業務に従事しないこと」から「原則として副業・兼業を認める」方向へと大幅に改定した <sup class="ref">[1]</sup>。これが「副業元年」と呼ばれる契機である。この時期、先駆的なIT企業や一部の大手企業が副業解禁に踏み切ったものの、日本全体としては「本業への悪影響」を危惧する保守的な空気が根強く残っていた。2019年時点での正社員の副業実施率は10.3%程度に留まっており、初期の普及は限定的であった <sup class="ref">[2]</sup>。</p>
+
+
+<h3>1.2 現状：コロナ禍を経た浸透と「副業転職」の台頭（2020年〜2024年）</h3>
+
+
+<p>2020年以降、新型コロナウイルス感染症の拡大に伴うテレワークの普及は、副業・兼業のハードルを劇的に下げた。通勤時間の消滅により創出された「可処分時間」が、個人のスキルアップや副収入確保のための活動へと向けられたのである。政府もこの動きを後押しし、2020年にはガイドラインを改定して労働時間管理や健康管理のルールを明確化した <sup class="ref">[3]</sup>。</p>
+
+<p>2024年の調査結果によれば、企業の副業容認率は49.0%に達し、約半数の企業が何らかの形で副業を認めている <sup class="ref">[4]</sup>。特に注目すべきは、副業を「認める」理由が「従業員の収入増」（68%）から、「スキル獲得」「自律性の向上」へとシフトしている点である <sup class="ref">[4, 5]</sup>。また、正社員の副業実施率は2025年調査で11.0%と過去最高を更新しており、特に20代男性において顕著な上昇が見られる <sup class="ref">[2]</sup>。</p>
+
+<p>このフェーズにおける最も重要な変化は、副業が「転職」のプレステップとして機能し始めたことである。副業経験者の6.7%（20代では13.6%）が副業先へ実際に転職しており、これを「副業転職」と呼ぶ動きが広がっている <sup class="ref">[2]</sup>。企業側も、副業人材の受け入れを通じて自社への適性を評価する「お試し採用」としてのメリットを享受し始めており、受入企業の55.6%が副業人材の正社員化を経験している <sup class="ref">[2]</sup>。</p>
+
+
+<h3>1.3 今後：法改正の見通しと「労働時間通算」の議論（2025年以降）</h3>
+
+
+<p>今後の展望として、制度面での最大の焦点は「労働基準法第38条第1項」に基づく労働時間通算ルールの見直しである。現行法では、異なる事業主の下で働く場合でも労働時間を通算して割増賃金を支払う義務があり、これが企業の副業解禁や受け入れを阻む最大の「実務的障壁」となっている <sup class="ref">[6, 7]</sup>。</p>
+
+<p>2025年1月に公表された労働基準関係法制研究会の報告書では、割増賃金算定における通算を廃止する方向性が示された <sup class="ref">[6]</sup>。これにより、企業は他社での労働時間を気にすることなく副業を認めやすくなることが期待されている。ただし、健康確保のための時間把握義務は維持される見通しであり、施行は早くとも2027年以降となると予測される <sup class="ref">[6]</sup>。</p>
+
+<p>以下の表は、副業・兼業を巡る主要な政策・実態の時系列推移をまとめたものである。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>期間</strong></th><th><strong>主な政策・出来事</strong></th><th><strong>実態・トレンドの特徴</strong></th></tr></thead><tbody><tr><td><strong>〜2017年</strong></td><td>副業一律禁止が一般的</td><td>「本業専念」が美徳とされる時代</td></tr><tr><td><strong>2018年</strong></td><td>「副業元年」ガイドライン策定</td><td>大手企業の一部で解禁が始まる</td></tr><tr><td><strong>2020年</strong></td><td>コロナ禍、テレワーク普及</td><td>在宅時間の増加により副業志向が急増</td></tr><tr><td><strong>2022年</strong></td><td>副業容認状況の開示推奨</td><td>企業の「透明性」が採用力に直結し始める</td></tr><tr><td><strong>2024年</strong></td><td>副業実施率が過去最高(11%)</td><td>「副業転職」など高度な人材流動化が顕在化</td></tr><tr><td><strong>2025年〜</strong></td><td>労働時間通算ルールの見直し議論</td><td>法改正による「実務的障壁」の撤廃へ</td></tr></tbody></table></div>
+
+<p><sup class="ref">[1, 2, 3, 6]</sup></p>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　議論の状況と事実ベースの課題整理</h2>
+          <h3>2.1 副業・兼業の実態：収入・時間・モチベーションの分析</h3>
+
+
+<p>副業・兼業の実態を詳細に分析すると、かつての「小遣い稼ぎ」というイメージとは異なる、プロフェッショナルな側面が浮かび上がる。2025年の調査における副業の平均時給は3,617円（中央値2,083円）と、調査開始以来最高水準に達している <sup class="ref">[2]</sup>。これは、Web開発、マーケティング、経営コンサルティングといった高単価な専門業務に携わる人材が市場を牽引していることを示唆している。</p>
+
+<p>労働時間に関しては、副業のみの週平均時間は14.3時間であり、本業と合わせた合計は47.7時間となっている <sup class="ref">[8]</sup>。ボリュームゾーンは本業・副業合わせて「40時間以上60時間未満」であるが、1割前後の層は週60時間以上の過重労働ラインを超えており、健康リスクの管理が課題として残っている <sup class="ref">[8, 9]</sup>。</p>
+
+<p>モチベーションの観点では、「収入補填」という切実な理由も依然として高いものの、「キャリア形成」「自己実現」「成長」を求める層が20代を中心に増加している <sup class="ref">[2]</sup>。また、副業経験者は未経験者に比べて資産形成（新NISA、株式投資等）に積極的であり、ふるさと納税の実施率も67.2%と非常に高い <sup class="ref">[10]</sup>。これは、副業が単なる労働力の提供ではなく、個人の「経済的自立」と「社会参画」を促すエコシステムの一部となっていることを示している。</p>
+
+
+<h3>2.2 地方のIT人材不足に対する貢献とメカニズム</h3>
+
+
+<p>地方企業にとって、IT人材の確保は存亡に関わる課題である。2024年の帝国データバンクの調査では、情報サービス業の70.2%が正社員不足を訴えており、この数値は他業種を引き離してトップである <sup class="ref">[11, 12, 13]</sup>。地方の中小企業が都市部から年収1,000万円級のエンジニアをフルタイムで雇用することは、予算面でも居住面でも現実的ではない。</p>
+
+<p>ここで副業・兼業が「解決策」として機能するメカニズムは、以下の3点に集約される。</p>
+
+<ol><li><strong>高度スキルの「小分け」利用：</strong> 地方企業が必要とするDX（デジタルトランスフォーメーション）の課題（EC構築、基幹システム刷新、データ分析等）は、必ずしも常駐のフルタイム人材を必要としない。週に数時間、リモートでプロフェッショナルな知見を借りることで、圧倒的な低コストで課題解決が可能になる <sup class="ref">[14]</sup>。</li><li><strong>ノウハウの還流：</strong> 都市部の大手企業やスタートアップで働く現役のIT人材が、副業として地方のプロジェクトに参画することで、地方にはない最新の技術スタックや開発手法、プロジェクト管理のノウハウが直接的に伝達される <sup class="ref">[5, 15]</sup>。</li><li><strong>採用ミスマッチの防止：</strong> 前述の「副業転職」のデータが示す通り、まずは副業としてプロジェクトに参加してもらうことで、企業の文化や課題との適合性を互いに確認できる。これにより、地方移住を伴う採用の失敗リスクを最小化できる <sup class="ref">[2]</sup>。</li></ol>
+<div class="table-wrap"><table><thead><tr><th><strong>IT人材不足の現状（2024年）</strong></th><th><strong>不足を感じている企業の割合</strong></th><th><strong>主な背景</strong></th></tr></thead><tbody><tr><td><strong>情報サービス（全般）</strong></td><td>70.2% 〜 77.0%</td><td>旺盛なシステム刷新需要、AIブーム <sup class="ref">[12, 13]</sup></td></tr><tr><td><strong>地方企業のDX課題</strong></td><td>28.1%（IT人材不足）</td><td>自社内での人材育成が困難な現状 <sup class="ref">[14]</sup></td></tr><tr><td><strong>物流・建設・医療</strong></td><td>約70.0%</td><td>「2024年問題」による効率化ニーズの急増 <sup class="ref">[12]</sup></td></tr></tbody></table></div>
+
+
+<h3>2.3 副業・兼業と地方創生の相関性：関係人口から経済波及へ</h3>
+
+
+<p>副業・兼業は、地方創生における「関係人口」の創出において決定的な役割を果たす。関係人口とは、移住した「定住人口」でもなく、観光に来た「交流人口」でもない、特定の地域と継続的かつ多様に関わる人々を指す。副業人材は、業務を通じて地域企業や自治体職員と深く関わるため、最も質の高い関係人口となる。</p>
+
+<p>経済的なインパクトも無視できない。和歌山県や長崎県の試算によれば、ワーケーションや副業を通じて関わる人のわずか1%が二拠点居住へと移行するだけで、10年間で100億円を超える経済波及効果が見込まれる <sup class="ref">[16]</sup>。さらに、副業を通じてその地域のファンになった人材が、ふるさと納税を行ったり、将来的な起業の場としてその地を選んだりする「長期的エンゲージメント」が構築される <sup class="ref">[10]</sup>。</p>
+
+
+<h3>2.4 現状の議論における課題と論点</h3>
+
+
+<p>一方で、副業・兼業の拡大には慎重な議論が必要な論点も存在する。</p>
+
+<ul><li><strong>労働時間通算の形骸化：</strong> 現在、本業先が副業の労働時間を「把握していないし、報告も受けていない」とする回答が7割に上る <sup class="ref">[17]</sup>。これは現行法が実態に即していないことを示しており、コンプライアンスの観点から深刻な課題である。</li></ul>
+
+<ul><li><strong>「労働者性」のグレーゾーン：</strong> 副業の多くが「業務委託（準委任・請負）」形式で行われているが、実際には発注者から強い指揮命令を受けているケースがあり、55.2%のケースで「労働者（雇用契約）」とみなされるリスクを抱えている <sup class="ref">[2]</sup>。これにより、労働者保護の網から漏れる人材が発生している。</li></ul>
+
+<ul><li><strong>契約リテラシーの不足：</strong> 副業を行う個人の約70%が、契約内容に疑問や不満があっても変更を申し出ないというデータがある <sup class="ref">[2]</sup>。特に若年層において、法的知識の不足が不当な労働条件の受け入れに繋がっている。</li></ul>
+        </section>
+        <section id="sec-4">
+          <h2>第３章　自治体および企業における副業・兼業の活用事例</h2>
+          <h3>3.1 自治体の事例：長野県塩尻市の「特任CMO・CHRO」</h3>
+
+
+<p>長野県塩尻市は、地方自治体として日本で最も早く、かつ戦略的に副業人材を活用した成功例である。同市はパーソルキャリア（doda X）と提携し、副業限定の「特任CMO（最高マーケティング責任者）」および「特任CHRO（最高人事責任者）」を公募した <sup class="ref">[18]</sup>。</p>
+
+<p>この事例の特異性は、外部人材を単なる「アドバイザー」ではなく、市役所の組織内部に入り込み、意思決定を支援する「当事者」として遇した点にある。</p>
+
+<ul><li><strong>DX推進本部と「KADO」：</strong> 副市長をトップとするDX推進本部の下に、民間パートナーや地元の時短就労者が働く組織「KADO」を設置した。外部の高度人材（副業）が戦略を描き、KADOのスタッフが実務を担うという連携体制により、市民ニーズに基づいたデジタルサービスをスピーディーに提供している <sup class="ref">[19]</sup>。</li></ul>
+
+<ul><li><strong>成果：</strong> 新型コロナワクチンの接種予約システムにおいて、デジタルデバイド解消のためにKADOのスタッフが窓口で徹底的なサポートを行い、円滑な実施を支援した。これは、外部の知見と地域の現場力が融合した理想的な形である <sup class="ref">[19]</sup>。</li></ul>
+
+
+<h3>3.2 自治体の事例：広島県の「デジタル戦略策定と補助金制度」</h3>
+
+
+<p>広島県は、県全体のDXを加速させるために、民間のプロフェッショナル人材を副業形態で積極的に受け入れる体制を整えている。2025年度に向けた新しいデジタル戦略の策定にあたっては、民間からCDO（最高デジタル責任者）を募集し、行政と民間がワンチームで動く文化を醸成している <sup class="ref">[20]</sup>。</p>
+
+<ul><li><strong>副業人材活用補助金：</strong> 広島県は、県内の中小企業が副業・兼業人材を活用する際の経費を最大200万円（補助率8/10）まで支援する強力な補助金制度を運用している <sup class="ref">[21]</sup>。これにより、資金力に乏しい小規模事業者でも、都市部のプロエンジニアやマーケターをプロジェクトに招き入れることが可能となった。</li></ul>
+
+<ul><li><strong>広域連携「DXShipひろしま」：</strong> 県と市町が連携し、情報システム人材の共同採用・育成・活用を行う取り組みを進めている。これは、リソースが限られた小規模な自治体が個別に人材を奪い合うのではなく、副業人材を「シェア」することで全県的なデジタル底上げを図る高度な戦略である <sup class="ref">[22]</sup>。</li></ul>
+
+
+<h3>3.3 企業の事例：人材流動化と「副業転職」の実践</h3>
+
+
+<p>民間企業においても、副業を「人材の出口」ではなく「入り口」として捉え直す動きがある。ある企業では、専門職の採用に際して、いきなり正社員として雇用するのではなく、まず3ヶ月から半年の副業プロジェクトを依頼するフローを標準化している。</p>
+
+<ul><li><strong>効果：</strong> 副業期間を通じて、スキルだけでなく「コミュニケーションのスタイル」や「企業文化へのフィット感」を双方が確認できる。調査によれば、副業を経て入社した社員は、通常の経路で入社した社員よりもワーク・エンゲイジメントが高い傾向にある <sup class="ref">[2]</sup>。</li></ul>
+
+<ul><li><strong>人手不足の緩和：</strong> 飲食店や旅館・ホテルといった非正社員比率の高い業種においても、スポットワークや多様な働き方の普及により、2024年には人手不足割合が緩和傾向に転じている事例が見られる <sup class="ref">[11]</sup>。これは、特定の職種に縛られない柔軟な労働力の供給が、マクロ経済の需給調整に寄与していることを示している。</li></ul>
+        </section>
+        <section id="sec-5">
+          <h2>第４章　実態調査と事例を踏まえた示唆</h2>
+          <h3>4.1 経営者・事業責任者への示唆：副業人材を「パートナー」として再定義する</h3>
+
+
+<p>本調査を通じて得られた最大の示唆は、副業人材を単なる「安価な外注先」として扱うべきではないということである。現在の副業市場には、平均時給3,600円を超えるような高度なプロフェッショナルが流入している <sup class="ref">[2]</sup>。経営者は、以下の3点を意識すべきである。</p>
+
+<ol><li><strong>「お試し」期間としての戦略的活用：</strong> 採用難が続くIT人材において、副業は最も精度の高い選考プロセスである。副業から転職へのコンバージョン率は若年層で1割を超えており、自社の魅力を伝える機会として副業プロジェクトを設計することが肝要である。</li><li><strong>ナレッジトランスファーの制度化：</strong> 外部人材が持つ知見が、契約終了後に社内に残らない「ブラックボックス化」を防ぐ必要がある。副業人材の役割に「自社社員の育成」や「業務プロセスの可視化」を組み込むことが、長期的な競争力に繋がる。</li><li><strong>労働時間管理の透明化：</strong> 法改正を待つまでもなく、従業員の副業状況を把握することは安全配慮義務の観点から不可欠である。ただし、監視ではなく「健康と成長を支えるための共有」という文脈で対話を行うことが、信頼関係の維持には重要である。</li></ol>
+<h3>4.2 自治体職員・官僚への示唆：地域課題を「プロフェッショナルの遊び場」に変える</h3>
+
+
+<p>自治体における副業人材活用の成功は、報酬の高さよりも「課題の魅力」と「裁量の大きさ」に依存している。塩尻市の事例が示す通り、地域が抱える切実な課題を、都市部のプロフェッショナルが自身の腕を試せる「プロジェクト」として定義し直す編集能力が求められる。</p>
+
+<ul><li><strong>補助金から「エコシステム」へ：</strong> 広島県のように金銭的支援を行うことも有効だが、それ以上に副業人材が地域で活動しやすいコミュニティ（DXShipひろしま等）を整備し、継続的に関わるための「居場所」を作ることが、定住やさらなる投資を呼び込むトリガーとなる <sup class="ref">[22]</sup>。</li></ul>
+
+<ul><li><strong>関係人口の「質」の重視：</strong> 数としての観光客を増やすよりも、1人の高度な副業人材が地域の中小企業の生産性を10%向上させる方が、長期的には大きな税収増と雇用創出をもたらす。</li></ul>
+
+
+<h3>4.3 研究者・政策立案者への示唆：新しい「労働者」の定義と保護</h3>
+
+
+<p>現状の副業市場は、労働基準法（雇用）と民法（請負・委任）の狭間で、多くの人材が法的な不安定さに晒されている。特に「労働者性」が認められる可能性が高いにもかかわらず、個人事業主として契約されている実態は、将来的な労働紛争の火種となり得る <sup class="ref">[2]</sup>。</p>
+
+<ul><li><strong>法制度のアップデート：</strong> 2027年以降の施行が見込まれる労働時間通算の見直しは、副業の活性化に大きく寄与する。しかし、同時に「実質的な雇用」を偽装した業務委託の蔓延を防ぐための、新たな労働者概念の整理が必要である。</li></ul>
+
+<ul><li><strong>スキル・ポータビリティの推進：</strong> 副業を通じて獲得したスキルが、客観的に評価され、キャリアアップに繋がるような「スキル認証」の仕組みを整備することで、労働市場全体の流動性と生産性を向上させることができる。</li></ul>
+
+
+<h3>まとめ</h3>
+
+
+<p>副業・兼業は、もはや一時的なブームではなく、日本の労働市場における「新しいOS」として定着しつつある。2024年から2025年にかけての統計データは、実施率の向上、時給の上昇、そして「副業転職」という新しい人材流動化モデルの確立を鮮明に映し出している。</p>
+
+<p>地方のIT人材不足という難題に対し、副業人材は「スキルの小分け利用」と「関係人口の創出」という、これまでにないアプローチで解決の糸口を提供している。塩尻市や広島県の先駆的な取り組みは、自治体が単なる行政サービス提供者から、地域課題を解決するための「プラットフォーム」へと進化する必要があることを示唆している。</p>
+
+<p>一方で、過重労働や契約のグレーゾーンといった課題も根強く、これらを解消するための法制度の抜本的な見直しが待たれる。経営者、行政、個人の三者が、副業を「相互の成長を促すパートナーシップ」と再定義し、それぞれの立場で責任と権利のバランスを取りながら、この柔軟な働き方を社会全体で育てていくことが、人口減少時代における日本再生の鍵となる。</p>
+
+<hr>
+
+<ol class="ref-list"><li>Untitled,<br><a href="https://www.persol-group.co.jp/service/business/article/2607/" target="_blank" rel="noopener">https://www.persol-group.co.jp/service/business/article/2607/</a></li><li>「第四回 副業の実態・意識に関する定量調査」を発表 副業実施率 …,<br><a href="https://rc.persol-group.co.jp/news/release-20251028-1000-1/" target="_blank" rel="noopener">https://rc.persol-group.co.jp/news/release-20251028-1000-1/</a></li><li>報告「副業・兼業の促進について」 - 独立行政法人 労働政策研究・研修機構（JILPT）,<br><a href="https://www.jil.go.jp/event/ro\_forum/20220125/houkoku/02\_houkoku.html" target="_blank" rel="noopener">https://www.jil.go.jp/event/ro\_forum/20220125/houkoku/02\_houkoku.html</a></li><li>「副業・兼業」に関する企業の実態調査。約半数の企業が社員の副業・兼業を容認。前年調査より3ポイント上昇。副業人材を受け入れる企業は24％。狙いは「人手不足解消」「専門人材の獲得」。 \| エン株式会社のプレスリリース - PR TIMES,<br><a href="https://prtimes.jp/main/html/rd/p/000001092.000000725.html" target="_blank" rel="noopener">https://prtimes.jp/main/html/rd/p/000001092.000000725.html</a></li><li>副業・兼業の促進に関するガイドライン - 厚生労働省,<br><a href="https://www.mhlw.go.jp/content/11200000/000962665.pdf" target="_blank" rel="noopener">https://www.mhlw.go.jp/content/11200000/000962665.pdf</a></li><li>見直し議論の現在地 「自社労働時間のみで残業代計算」案の行方と中小企業の備え,<br><a href="https://www.mh5.jp/announce\_95474.html" target="_blank" rel="noopener">https://www.mh5.jp/announce\_95474.html</a></li><li>副業の労働時間通算ルールはいつから見直される？改正の最新動向 - ジンジャー（jinjer）,<br><a href="https://hcm-jinjer.com/blog/kintai/hukugyo\_roudoujikan\_total-up\_from-when/" target="_blank" rel="noopener">https://hcm-jinjer.com/blog/kintai/hukugyo\_roudoujikan\_total-up\_from-when/</a></li><li>2025年6月16日 第200回労働政策審議会労働条件分科会 議事録 - 厚生労働省,<br><a href="https://www.mhlw.go.jp/stf/newpage\_59697.html" target="_blank" rel="noopener">https://www.mhlw.go.jp/stf/newpage\_59697.html</a></li><li>副業兼業に関する調査 2024,<br><a href="https://files.microcms-assets.io/assets/c3cd69bb37354c7585915b242fdd0236/d17a372c0377412c951b9aecbff92c75/%E3%80%8C%E5%89%AF%E6%A5%AD%E5%85%BC%E6%A5%AD%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E8%AA%BF%E6%9F%BB%202024%E3%80%8D%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88.pdf" target="_blank" rel="noopener">https://files.microcms-assets.io/assets/c3cd69bb37354c7585915b242fdd0236/d17a372c0377412c951b9aecbff92c75/%E3%80%8C%E5%89%AF%E6%A5%AD%E5%85%BC%E6%A5%AD%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E8%AA%BF%E6%9F%BB%202024%E3%80%8D%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88.pdf</a></li><li>副業マッチングサービス『lotsful』、副業とお金の実態調査を実施 - パーソルイノベーション,<br><a href="https://www.persol-innovation.co.jp/news/2025-0129-1" target="_blank" rel="noopener">https://www.persol-innovation.co.jp/news/2025-0129-1</a></li><li>人手不足に対する企業の動向調査（2024年10月） - 帝国データバンク,<br><a href="https://www.tdb.co.jp/report/economic/20241113-laborshortage202410/" target="_blank" rel="noopener">https://www.tdb.co.jp/report/economic/20241113-laborshortage202410/</a></li><li>人手不足に対する企業の動向調査（2024年1月） - 帝国データバンク,<br><a href="https://www.tdb.co.jp/report/economic/xjuo74il-3vf/" target="_blank" rel="noopener">https://www.tdb.co.jp/report/economic/xjuo74il-3vf/</a></li><li>人手不足に対する企業の動向調査（2024年4月） - 帝国データバンク,<br><a href="https://www.tdb.co.jp/report/economic/36b\_1n7eo81t/" target="_blank" rel="noopener">https://www.tdb.co.jp/report/economic/36b\_1n7eo81t/</a></li><li>都市部の副業・兼業人材の活用と地方創生,<br><a href="https://www.jfc.go.jp/n/findings/pdf/ronbun2408\_03.pdf" target="_blank" rel="noopener">https://www.jfc.go.jp/n/findings/pdf/ronbun2408\_03.pdf</a></li><li>地方企業の約7割が副業IT人材の受け入れに興味を持つ結果に - レバテック,<br><a href="https://levtech.co.jp/research/2203976/" target="_blank" rel="noopener">https://levtech.co.jp/research/2203976/</a></li><li>ワーケーションがもたらす効果と地方創生への展開 従業員のイノベーション、メンタルヘルス、 生産性、エンゲージメントの向上に対する効果と地方自治体への経済波及効果 \| SOMPOインスティチュート・プラス,<br><a href="https://www.sompo-ri.co.jp/2023/06/12/8553/" target="_blank" rel="noopener">https://www.sompo-ri.co.jp/2023/06/12/8553/</a></li><li>2025年11月18日 第205回労働政策審議会労働条件分科会 議事録 - 厚生労働省,<br><a href="https://www.mhlw.go.jp/stf/newpage\_68076.html" target="_blank" rel="noopener">https://www.mhlw.go.jp/stf/newpage\_68076.html</a></li><li>塩尻市と日本一おかしな公務員。ハイクラス人材×副業が地方創生を活性化する,<br><a href="https://www.dodadsj.com/content/200925\_shioziri/" target="_blank" rel="noopener">https://www.dodadsj.com/content/200925\_shioziri/</a></li><li>長野県塩尻市に見る自治体DX推進のポイント \| SOMPOインスティチュート・プラス,<br><a href="https://www.sompo-ri.co.jp/2022/03/31/4671/" target="_blank" rel="noopener">https://www.sompo-ri.co.jp/2022/03/31/4671/</a></li><li>広島県福山市,<br><a href="https://www.bizreach.jp/job-feed/public-advertising/9ocyw53/" target="_blank" rel="noopener">https://www.bizreach.jp/job-feed/public-advertising/9ocyw53/</a></li><li>支援メニュー - 【広島県公式】DX簡易診断ツール,<br><a href="https://dx-hiroshima.jp/shien/" target="_blank" rel="noopener">https://dx-hiroshima.jp/shien/</a></li><li>令和７年度ＤＸ関連事業について - 広島県,<br><a href="https://www.pref.hiroshima.lg.jp/uploaded/attachment/624134.pdf" target="_blank" rel="noopener">https://www.pref.hiroshima.lg.jp/uploaded/attachment/624134.pdf</a></li></ol>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260519_01/index.html">← 日本におけるリスキリング施策の変遷と展望…</a><a href="../260518_01/index.html">沖縄における地方創生と振興政策の構造的変… →</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-22</footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>

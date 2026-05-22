@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我が国におけるミドルシニア雇用の現状、課題、および活性化に向けた展望</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260521_02_ミドルシニア雇用①公的機関</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260521_02_ミドルシニア雇用①公的機関
+      </div>
+      <h1 class="report-title">我が国におけるミドルシニア雇用の現状、課題、および活性化に向けた展望</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　ミドルシニア雇用における法制度と政策の時系列整理</a></li><li><a href="#sec-3">第２章　シニア労働市場の実態と企業組織が直面する構造的論点</a></li><li><a href="#sec-4">第３章　ミドルシニア雇用の先進的な取り組み事例</a></li><li><a href="#sec-5">第１章　企業経営者・人事に向けた提言：エイジフリーな「役割・成果主義」へのシフト</a></li><li><a href="#sec-6">第２章　サービス開発者・事業責任者に向けた提言：「学習＋社外経験」一体型プラットフォームの構築</a></li><li><a href="#sec-7">第３章　自治体・官僚・政策担当者に向けた提言：地域社会のハブ機能強化と、包摂的セーフティネットの拡張</a></li></ol></div>
+
+    <article class="article">
+      <div class="summary-box"><p>少子高齢化による労働力不足を背景に、本書は<strong>ミドルシニア層を「保護の対象」から「価値創出の主体」へと転換させる</strong>ための多角的な戦略を論じています。2025年の完全義務化を含む<strong>法制度の変遷</strong>を整理した上で、ホワイトカラー職から現場仕事への押し出しという<strong>労働市場の構造的ミスマッチ</strong>や、役職定年による意欲減退といった組織課題を鋭く指摘しています。その解決策として、年齢ではなく役割を評価する<strong>ジョブ型人事制度</strong>への移行や、社外インターンシップを通じた<strong>キャリア自律の支援</strong>など、先進的な企業や自治体による実践的な成功事例が提示されています。最終的に、個人の\<em>\</em>「生涯キャリアオーナーシップ」\<em>\</em>と企業の「人材ポートフォリオの再設計」を同期させることが、日本経済の持続的な成長に不可欠であると提言しています。</p></div>
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <h3>はじめに</h3>
+
+
+<p>現在の我が国が直面している最も深刻なマクロ経済的課題の一つは、少子高齢化に伴う労働供給制約の激化である。かつてのように若年労働力の継続的な流入を前提とした経済・経営システムは完全に機能不全に陥っており、40代・50代の「ミドル世代」、および60代以上の「シニア世代」を包摂した、いわゆるミドルシニア層の活用が日本経済の持続的な成長において不可欠なピースとなっている。</p>
+
+<p>国や地方自治体は、高年齢者雇用安定法の段階的な改正をはじめとする法制面での整備を進め、雇用確保義務を延長する政策を実行してきた <sup class="ref">[1, 2]</sup>。一方で、多くの日本企業においては、未だに昭和期から引き継がれた年齢一律の人事管理慣行や役職定年制度が残存しており、これがミドルシニア層の就業意欲の減退や能力の陳腐化という摩擦を引き起こしている <sup class="ref">[3, 4]</sup>。このギャップを埋め、ミドルシニアが「保護される対象」から「価値を創出する主体」へと移行するためには、法制度、労働市場、企業の人事制度、そして個人のキャリアコンサルティングを連動させた総合的なアプローチが必要とされる。</p>
+
+<p>本報告書では、官公庁、東京都、各地方自治体、および外郭団体による最新の一次データや調査結果をベースに、ミドルシニア雇用の法制度的・政策的変遷を時系列で整理する。また、労働市場の実態から浮かび上がる構造的な論点やミスマッチを定量的に分析し、先進的な企業や自治体、民間教育機関による具体的な取り組み事例を提示する。これらを通じて、企業経営者、人事担当者、サービス開発者、研究者、および官僚・自治体職員がこれからの人事・雇用戦略を設計する上での実践的な提言を導き出す。</p>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　ミドルシニア雇用における法制度と政策の時系列整理</h2>
+          <h3>1.1 法制度の歴史的変遷と2025年改正のインパクト</h3>
+
+
+<p>我が国の高年齢者雇用政策は、社会保障費の増大や労働力不足に対応するため、企業に対して「雇用の確保」と「就業機会の創出」を段階的に義務付ける方向で推移してきた。これまでの法改正の流れと、今後の方向性を時系列で整理すると、以下の表の通りとなる。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>時期</strong></th><th><strong>主な法改正・制度設計の内容</strong></th><th><strong>企業・自治体に求められる対応</strong></th></tr></thead><tbody><tr><td><strong>過去（〜2021年3月）</strong></td><td>高年齢者雇用安定法第9条に基づく65歳までの雇用確保義務の厳格化 <sup class="ref">[2, 5]</sup>。</td><td>65歳未満の定年を定める企業に対し、「定年の引き上げ」「希望者全員の65歳までの継続雇用制度導入」「定年廃止」のいずれかを義務付け <sup class="ref">[2, 5]</sup>。ただし、経過措置として労使協定による対象者限定基準の適用が段階的に認められていた（例：2022年3月までは63歳以上、2025年3月までは64歳以上が対象） <sup class="ref">[2, 5]</sup>。</td></tr><tr><td><strong>現状（2021年4月〜2025年3月）</strong></td><td>改正高年齢者雇用安定法の施行による「70歳までの就業確保措置」の努力義務化（第10条の2） <sup class="ref">[1, 6]</sup>。</td><td>従来の65歳までの雇用確保義務に加え、70歳までの就業機会確保措置が努力義務として上乗せされた <sup class="ref">[1, 6]</sup>。定年延長や継続雇用に加え、業務委託契約の締結や、社会貢献事業に従事させる制度など、雇用類似の多様な契約形態も選択肢として公認された <sup class="ref">[1, 7]</sup>。</td></tr><tr><td><strong>直近の転換点（2025年4月以降）</strong></td><td>65歳までの希望者全員雇用の完全義務化 <sup class="ref">[2]</sup>、および高年齢雇用継続給付の縮小 <sup class="ref">[2]</sup>。</td><td>労使協定による対象者限定基準の経過措置が完全に終了し、希望者全員への65歳雇用確保が完全義務化された <sup class="ref">[2]</sup>。並行して、給付金依存の雇用維持を是正するため、高年齢雇用継続給付の支給率が15％から10％へと縮小され、段階的廃止へ向けた舵が切られた <sup class="ref">[2]</sup>。</td></tr><tr><td><strong>今後（2025年10月予定〜）</strong></td><td>「リ・スキリング等教育訓練支援融資制度」の創設 <sup class="ref">[8]</sup>。</td><td>厚生労働省が、雇用保険未加入のフリーランスや離職者等を対象とした新たな公的融資制度を開始 <sup class="ref">[8]</sup>。一定の要件（3年以上の就業実績等）を満たすシニアの学び直しを、一部返済免除（就職・賃金アップ時）というインセンティブによって支援する <sup class="ref">[8]</sup>。</td></tr></tbody></table></div>
+
+<p>これらの一連の改正プロセスは、単に就業可能年齢の上限を引き上げるだけでなく、従来の「雇用」という枠組みを超え、個々の能力や体力、ライフスタイルに応じた「多様な契約形態（業務委託等）」を包含する形へと進化している点に特徴がある <sup class="ref">[7, 9]</sup>。</p>
+
+<p>また、シルバー人材センター等を通じた「臨時的・短期的または軽易な業務」への就労についても制度拡充が進んだ。2016年4月には、都道府県知事の指定を受けた地域において、派遣や職業紹介における就業時間の上限を従来の「週20時間」から「週40時間」へと緩和する特例措置が施行された <sup class="ref">[9]</sup>。これは、単なる生きがい活動としてのシニア就労から、地域労働力の本格的な補完への転換を促す政策的意思の表れである <sup class="ref">[9, 10]</sup>。</p>
+
+
+<h3>1.2 東京都および地方自治体における推進政策と支援事業</h3>
+
+
+<p>法制面での整備と並行して、国や地方自治体はミドルシニア層の就業・キャリア転換を支援する実戦的な事業パッケージを構築してきた。高年齢者雇用安定法第36条・37条において、国および地方公共団体は、高年齢退職者の福祉増進や就業相談、機会確保のための必要な措置を講じるよう努めることと規定されている <sup class="ref">[11, 12]</sup>。</p>
+
+<p>東京都は、この責務を先進的な事業モデルへと具体化している。都内での就業を希望する30歳から54歳のミドル世代に対しては、「東京しごとセンター ミドルコーナー」が中核的なワンストップ支援窓口として機能している <sup class="ref">[13, 14]</sup>。ここでは、プロのカウンセラーによる担当制の個別カウンセリング、月50本以上開催される就活力UPセミナー、書類選考を経ずに面接が受けられる合同就職面接会など、就職活動における主要プロセスが一気通貫で提供されている <sup class="ref">[13, 14]</sup>。さらに、就職氷河期世代をターゲットとする専門の支援窓口も統合されており、求職者の生活設計からキャリアの再構築、採用後の職場定着までをきめ細かくサポートする体制が整備されている <sup class="ref">[14, 15]</sup>。</p>
+
+<p>プレシニアからシニア層（50代以上）に向けては、「プラチナ・キャリアセンター」を設置し、副業・兼業といった多様な働き方を強力に推進している <sup class="ref">[16]</sup>。これは、中小企業の人材不足解消とシニアのキャリアの多角化を同時に狙う政策である <sup class="ref">[16]</sup>。また、2024年には国の「経済財政運営と改革の基本方針2024」に基づき、産官学金等が協働して都内の中高年世代の支援機運を高め、活躍支援策の進捗管理を行う「東京中高年世代活躍応援プロジェクト協議会」を設置した <sup class="ref">[15]</sup>。2025年以降は、働く高齢者が派遣社員として参画し、双方がスキルや活用ノウハウを相互に蓄積していく「東京キャリア・トライアル65」などを新たに開始し、実戦的な就労経験の機会を積極的に拡げている <sup class="ref">[17]</sup>。</p>
+
+<p>一方、地方自治体においては、2016年の法改正によって「地域高年齢者就業機会確保計画」の策定が可能になったことを機に、厚生労働省の「生涯現役促進地域連携事業」が広く実施されるようになった <sup class="ref">[9, 18]</sup>。この事業は、自治体、商工会議所、金融機関等から構成される協議会が主体となり、地域のシニアを対象とした活躍ガイドブックの作成、求職者・求人企業向けセミナー、独自の雇用創出といった多角的なメニューを開発・実施するものであり、地域特性を活かしたシニア活性化モデルとして全国へ波及している <sup class="ref">[9, 19, 20]</sup>。</p>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　シニア労働市場の実態と企業組織が直面する構造的論点</h2>
+          <h3>2.1 統計データから紐解く労働市場の現状と求職ミスマッチ</h3>
+
+
+<p>総務省の労働力調査などの一次データを踏まえると、我が国の労働市場において高齢就業者が「絶対的なボリューム」として急増していることは明白である。2014年から2023年にかけて、65歳以上の雇用者数は約230万人増加して648万人に達した <sup class="ref">[21]</sup>。この間、15〜59歳の就業者数の伸び率がわずか3.1％に留まるのに対し、60歳以上の就業者の伸び率は約20％に達しており、特に70〜74歳では60.3％増、75歳以上では76.7％増という驚異的な伸び率を示している <sup class="ref">[21]</sup>。これは団塊の世代が70代に移行したという人口動態の影響を強く反映している <sup class="ref">[21]</sup>。</p>
+
+<p>しかし、これらのシニア層がどのような環境で働いているかを詳細に見ると、深刻な構造的ミスマッチと就業の非正規化が浮かび上がる。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>年齢層・状況</strong></th><th><strong>雇用形態・職種の構造的動向</strong></th><th><strong>賃金・求人の市場実態</strong></th></tr></thead><tbody><tr><td><strong>50代後半</strong></td><td>正規・無期雇用の比率が約6割を維持。事務職や専門技術職などのデスクワークが主流 <sup class="ref">[21]</sup>。</td><td>現役世代としての高い処遇水準が維持される一般的なキャリア段階 <sup class="ref">[21]</sup>。</td></tr><tr><td><strong>60〜64歳</strong></td><td>正規・無期比率は約3割へ急落し、非正規比率（無期・有期合計）が約5割へ上昇。事務職比率は50代後半に比して大幅に低下 <sup class="ref">[21]</sup>。</td><td>転職した者のうち6割超が賃金減少を経験。60歳での定年退職に伴う一律の処遇リセットの影響 <sup class="ref">[21]</sup>。</td></tr><tr><td><strong>65歳以上</strong></td><td>正規・無期比率は約2割へ。非正規比率が約7割に達し、サービス業、運搬・清掃・包装等の軽作業セクターへ雇用が集中 <sup class="ref">[21]</sup>。</td><td>「60歳以上歓迎求人」の比率は、2020年7月をピークに、2024年9月には約4割にまで急落。シニア求職者の増加に求人側が追いついていない <sup class="ref">[21]</sup>。</td></tr></tbody></table></div>
+
+<p>このデータから、シニアの就業機会は、サービス産業をはじめとした第3次産業の非正規セクターに偏っており、年齢とともに事務職や専門職といったホワイトカラー領域から、物理的な稼働を伴う現場仕事（清掃、軽作業、警備等）へ押し出されている構図が見て取れる <sup class="ref">[21]</sup>。シニア求職者の持っている職務経験と、実際に開拓される求人内容との間には、依然として極めて大きな「質のミスマッチ」が存在していることを示す結果と言える <sup class="ref">[21]</sup>。</p>
+
+
+<h3>2.2 役職定年制度とリスキリングを巡る課題および議論</h3>
+
+
+<p>このような求職ミスマッチやモチベーション低下が起きる根源的な要因は、企業内における硬直的な人事管理慣行、および従業員自身のキャリア自律の欠如にある。</p>
+
+<p>第1の論点は、50代後半で一律に適用される「役職定年」やポストオフ制度の功罪である。役職定年は、組織の新陳代謝を促す目的で導入されてきたが、直面する社員にとっては「漠然と抱いていた将来への期待」と「現実に直面する処遇低下」のギャップを拡大させ、働く意欲の壊滅的な低下（モチベーション・クラッシュ）を引き起こす引き金となっている <sup class="ref">[3, 4]</sup>。多くの社員が65歳までの雇用延長を保障されて安心する一方で、自律的に自身のキャリアを設計し、外部に汎用的な価値を高めるための準備を怠っており、定年後に向けた主体的な備えをしない習慣が構造的に温存されてきた <sup class="ref">[4]</sup>。</p>
+
+<p>第2の論点は、ミドルシニアにおける「リスキリング（学び直し）」が十分に機能していない実態である。調査によれば、40代・50代のミドルシニア層において、学び直しへの意向はおよそ半分に達しており、意欲そのものは決して低くない <sup class="ref">[22, 23]</sup>。しかし、現実には多くの企業がミドルシニアに対してリスキリングを積極的に支援しておらず、社員個人の学習をサポートする体制（学習機会の提供、上司との目的のすり合わせ、成果に対する明確なコミットメントなど）を欠いている <sup class="ref">[24]</sup>。結果として、学び直しの必要性を感じつつも行動に移せないシニアが多数を占めるという「知識とスキルの不全状態」が生じ、これが年齢を重ねた際、より処遇の低い職務へと移動せざるを得ないスパイラルを形成している <sup class="ref">[21, 23]</sup>。</p>
+
+<p>2025年10月に開始が予定されている「リ・スキリング等教育訓練支援融資制度」は、雇用保険未加入で在職・就業しているフリーランスや離職者らに対する、公的な経済支援の空白地帯を埋める画期的な制度として期待される <sup class="ref">[8]</sup>。しかし、これらが機能するためには、単に融資などの経済支援を行うだけでなく、自らが将来のキャリアプランを主体的に描けるような「キャリアカウンセリング」とセットで提供されなければならない <sup class="ref">[25]</sup>。</p>
+        </section>
+        <section id="sec-4">
+          <h2>第３章　ミドルシニア雇用の先進的な取り組み事例</h2>
+          <h3>3.1 人事・処遇制度改革を実行する企業事例</h3>
+
+
+<p>労働市場の構造転換と労働力不足に対し、先進的な企業は単に「65歳までの雇用維持」という義務を満たすだけでなく、年齢に関わらず社員が実力を発揮できるような「人事・給与制度の抜本的見直し」に踏み切っている。以下に、厚生労働省によるヒアリングに基づき公表された、人事・給与制度の改革を完了している主要企業の取組内容とポイントを一覧で示す <sup class="ref">[26]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>企業名</strong></th><th><strong>定年・再雇用年齢の設計</strong></th><th><strong>役職定年の見直しの有無</strong></th><th><strong>処遇制度・人事管理の工夫とポイント</strong></th></tr></thead><tbody><tr><td><strong>太陽生命保険</strong></td><td>65歳定年（70歳までの継続雇用制度あり） <sup class="ref">[26]</sup>。</td><td><strong>完全廃止</strong> <sup class="ref">[26]</sup>。</td><td>年齢による一律の処遇引き下げを撤廃。高齢期の就業と健康維持、家庭環境などの事情を両立させるため、独自の「太陽の元気プロジェクト」を設計・運用 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>ダイキン工業</strong></td><td>65歳定年（70歳まで継続雇用。スペシャリストは上限なし） <sup class="ref">[26]</sup>。</td><td><strong>完全廃止</strong>（ダイキンでは役職離任と呼称） <sup class="ref">[26]</sup>。</td><td>56歳到達時の一律賃金見直しを廃止。65歳までの間、能力・役割を適正に評価し、年齢のみによって下げない仕組みへと一新 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>ＹＫＫ</strong></td><td><strong>定年制そのものを廃止</strong>（上限なし） <sup class="ref">[26]</sup>。</td><td>一部廃止（役員等の役職定年は維持） <sup class="ref">[26]</sup>。</td><td>会社の理念である「公正」を基軸とし、成果・実力主義に即した役割ベースの人事・評価制度を先行導入。これにより、年齢不問の実力評価と組織の新陳代謝を両立 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>イオンリテール</strong></td><td>65歳定年（継続70歳、時間給社員は75歳） <sup class="ref">[26]</sup>。</td><td><strong>完全廃止</strong> <sup class="ref">[26]</sup>。</td><td>定年到達後の再雇用区分として「エルダー社員」を創設。担う役割が変わらない限り均等・均衡な処遇を保障。店舗での役職登用は定年以降も実施 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>オムロン</strong></td><td>60歳定年（継続雇用70歳） <sup class="ref">[26]</sup>。</td><td><strong>完全廃止</strong> <sup class="ref">[26]</sup>。</td><td>全社に「ジョブ型人事制度」を導入。シニア層の再雇用時においても、「年齢」ではなく「役割と成果に基づく処遇」を徹底する形に刷新 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>リコー</strong></td><td>60歳定年（継続雇用65歳） <sup class="ref">[26]</sup>。</td><td><strong>完全廃止</strong> <sup class="ref">[26]</sup>。</td><td>欧米型を日本流にアレンジした「リコー式ジョブ型人事制度」を導入。再雇用者であっても重要ポスト・役職へ登用される可能性を制度上確保 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>日本電気 (NEC)</strong></td><td>60歳定年（継続雇用70歳） <sup class="ref">[26]</sup>。</td><td><strong>完全廃止</strong> <sup class="ref">[26]</sup>。</td><td>年齢フリーの人事を進めるため、役職定年によるポストオフを廃止。一方で厳格な評価による人材配置、社内公募制、専門子会社を通じた伴走研修を実施 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>川崎重工業</strong></td><td>65歳定年（継続雇用70歳） <sup class="ref">[26]</sup>。</td><td><strong>完全廃止</strong> <sup class="ref">[26]</sup>。</td><td>幹部職員を対象に「職務等級制度」を導入し、職務価値と報酬を完全に連動。ポスト任期制を導入し、適正な人材代謝を担保 <sup class="ref">[26]</sup>。</td></tr><tr><td><strong>東急リバブル</strong></td><td>60歳定年（継続雇用70歳） <sup class="ref">[26]</sup>。</td><td>一部廃止（部長職等は継続） <sup class="ref">[26]</sup>。</td><td>再雇用時の労働日数に多様な選択肢を設けるほか、業務委託契約への切り替えなど、高齢者の個別事情に合わせた柔軟な働き方の受け皿を整備 <sup class="ref">[26]</sup>。</td></tr></tbody></table></div>
+
+
+<h3>（※その他、沖電気工業が役割等級導入に合わせて役職定年を廃止、阿波銀行が全社的な職務給制度を構築して定年を65歳に引き上げ、大和ハウス工業が役職定年の廃止と再雇用制度の複線化を行うなど、いずれも「年齢一律」からの脱却という一貫した志向を持つ <sup class="ref">[26]</sup>。）</h3>
+
+
+<p>これらの企業事例から導かれる本質的なアプローチは、シニアを「定年後に単一の雇用・職種で一律再雇用する」のをやめ、職務（ジョブ）の重要度や役割の価値を明確に定め、年齢を問わずにその職務に基づいた評価を行う「同一労働同一賃金」を人事評価の根底に据えている点にある <sup class="ref">[26]</sup>。</p>
+
+
+<h3>3.2 キャリア自律と地域活性化を繋ぐ自治体・民間プログラム事例</h3>
+
+
+<p>企業組織の外においても、ミドルシニアの「キャリアオーナーシップ」を喚起し、社外活動へブリッジするための極めて実戦的な学習プログラムや自治体の先進連携スキームが立ち上がっている。</p>
+
+<p>その優れた先駆的事例が、 Dialogue for Everyoneが展開する「セカンドキャリア塾」である <sup class="ref">[27]</sup>。このプログラムは、ただ机の上で講義を聴くだけの一般的な研修とは異なり、徹底した自己分析とキャリアの棚卸しの後に、現在の会社に在籍しながらフルリモートで地方企業の課題解決に伴走する「大人のインターンシップ（約2ヶ月、月平均10時間程度）」を融合した設計となっている <sup class="ref">[27]</sup>。提供される主要な2つのプログラム仕様は以下の通りである。</p>
+
+<ul><li><strong>6ヶ月ワークショップコース（198,000円/税込）</strong>：異業種の仲間（同期生）とオンラインで対話しながら、キャリアの棚卸しやプラン作成（STEP 1）を行い、個別調整された地方企業への「大人のインターンシップ（STEP 2）」へと進み、修了後は卒業生コミュニティで継続的に交流する <sup class="ref">[27]</sup>。</li></ul>
+
+<ul><li><strong>3ヶ月集中マンツーマンコース（248,000円/税込）</strong>：専任のキャリアコーチ（全員が50代中心の独立経験者）と1対1で対話を重ね、受入企業のニーズに合わせた目標設計と、インターンシップ中の会議フォロー、終了後の契約手続きまでオーダーメイドで支援を受ける <sup class="ref">[27]</sup>。</li></ul>
+
+<p>この「セカンドキャリア塾」のプログラムで実際に行われている「大人のインターンシップ」のプロジェクト案件は、単なる作業補助ではなく、高度なビジネススキルの移転を目的としている。以下は、その代表的なマッチング実例である。</p>
+
+<ul><li><strong>株式会社オヅ商会（茨城県/科学・医療機器販売）</strong>：分断された社内ITインフラの刷新に向けて、現状のシステム運用フローを第三者視点から可視化し、システム導入の優先順位付けと業務整理を実行 <sup class="ref">[27]</sup>。</li></ul>
+
+<ul><li><strong>株式会社Smartgive（東京都/公教育支援）</strong>：事業の急成長に伴う属人化課題をクリアするため、学校への「SDGs出張授業」における事務局マニュアルの作成と業務フローの標準化を推進 <sup class="ref">[27]</sup>。</li></ul>
+
+<ul><li><strong>株式会社PDnavi（東京都/医療機関連携オンライン相談）</strong>：新規事業の販路を確立するため、ボトルネックを整理した上での営業戦略の構築、および営業プロセスの成功パターンの定義 <sup class="ref">[27]</sup>。</li></ul>
+
+<p>これらの実践を通じて、参加者は「自分自身のCAN（できること）が会社の看板を外した社外でも十分に通用する」という揺るぎない自信を獲得する <sup class="ref">[27]</sup>。実際にプログラム修了者の約4割が、インターンシップ期間終了後も無償または有償の副業契約などを締結し、セカンドキャリアにおける新たな就業の足がかりを構築している <sup class="ref">[27]</sup>。</p>
+
+<p>一方、自治体の先進連携事例として際立つのが、千葉県柏市のセカンドライフプラットフォーム事業（通称：柏モデル）である <sup class="ref">[10]</sup>。柏市では、シニア層が希望する多様な就業形態（週2〜3日程度の勤務や軽作業、趣味を活かした生きがい就労）を地域の介護施設や農家、小規模店舗などの人手不足ニーズと結びつけるため、シルバー人材センターの中に「ジョブコーディネーター」と呼ばれる専任職員を配置するシステムを構築した <sup class="ref">[10, 28]</sup>。このジョブコーディネーターが地域を駆け回って求人ニーズを掘り起こし、就業を希望する高齢者が初めて現場に向かう際には同行して条件調整や役割の説明を行うなど、極めて親身な伴走を行う <sup class="ref">[10, 28]</sup>。この伴走こそが、高齢者が新たな世界に一歩を踏み出す際の心理的障壁を打破し、地域内での就労やボランティア、創業といった多面的なセカンドライフへのスムーズなデビューを力強く支えている <sup class="ref">[10, 29]</sup>。</p>
+
+
+<h3>まとめ</h3>
+
+
+<p>本報告書で詳述したマクロデータ、法改正の推移、および先進的な取り組み事例を統合すると、これからの日本におけるミドルシニア雇用は、企業の持続可能な「人材ポートフォリオの再設計」と、個人の「生涯キャリアオーナーシップの確立」が完全にシンクロしなければ成り立たないステージに移行していることが分かる。</p>
+
+<p>これらを踏まえ、企業経営者、企業人事、サービス開発者、および行政のリーダーが取り組むべき戦略的な示唆と提言を以下にまとめる。</p>
+        </section>
+        <section id="sec-5">
+          <h2>第１章　企業経営者・人事に向けた提言：エイジフリーな「役割・成果主義」へのシフト</h2>
+          <p>人事部門は、定年後の再雇用を「定年までの職務の単なる延長（ただし給与は半分）」という、モチベーションを削ぐ安易な温存システムにするのをやめなければならない <sup class="ref">[3, 4]</sup>。オムロンやリコー、ダイキンのように、全社的なジョブ定義を明確にした上での「ジョブ型人事制度」をミドルシニア層にも貫徹し、提供されるパフォーマンスや職務の重要度（バリュー）に応じて処遇を決定する同一労働同一賃金を徹底することが、若手からシニアまでの全社的な納得感と組織の活力を維持するための大前提となる <sup class="ref">[26]</sup>。</p>
+
+<p>また、従業員が40代・50代のうちに、「社外での武者修行（インターンシップや副業、地域活性化プログラムへの参画）」を積極的に支援・容認し、自社の「看板」に頼らずに成果を出すためのキャリア自律マインドを早期に醸成することが、シニア期におけるパフォーマンスの持続に繋がる <sup class="ref">[27, 29]</sup>。</p>
+        </section>
+        <section id="sec-6">
+          <h2>第２章　サービス開発者・事業責任者に向けた提言：「学習＋社外経験」一体型プラットフォームの構築</h2>
+          <p>転職やリスキリングに関連するサービスを開発・運営する事業責任者は、単に「シニアに特化した求人票のデータベース」を提供するだけでは、現在の労働市場のミスマッチ（ホワイトカラーから軽作業への偏重）を解決できないことを認識すべきである <sup class="ref">[21]</sup>。</p>
+
+<p>ミドルシニアが自らの強みを活かし、スタートアップや地方企業の多様な課題（マーケティング、人事、IT効率化など）に貢献できるよう、「セカンドキャリア塾」のように「キャリアカウンセリングによるマインドチェンジ」＋「スキルの学び直し」＋「フルリモートでの短期社外インターンシップ（実践機会）」を一体化したユーザー体験（UX）を設計することが必要となる <sup class="ref">[27, 30]</sup>。これらは、中高年層に新たな就業機会を提供し、同時に地方や中小企業の人材不足を解決する極めて高い付加価値ビジネスへと成長する可能性を秘めている <sup class="ref">[26, 27]</sup>。</p>
+        </section>
+        <section id="sec-7">
+          <h2>第３章　自治体・官僚・政策担当者に向けた提言：地域社会のハブ機能強化と、包摂的セーフティネットの拡張</h2>
+          <p>自治体および官僚機構は、これまでの「生活保障」「雇用維持」という福祉的な高齢者政策から脱却し、シニア層を地域経済をドライブする「貴重な労働力」として戦略的に位置づけるべきである。千葉県柏市のジョブコーディネーターシステムのように、デジタルや効率化が進む現代だからこそ、シニアと就業現場を物理的・心理的に繋ぐ「人的な伴走メカニズム」を、シルバー人材センターやアクティブシニアセンターなどの既存インフラに組み込む予算・政策支援が極めて重要となる <sup class="ref">[10, 16]</sup>。</p>
+
+<p>さらに、2025年10月に開始予定の「リ・スキリング等教育訓練支援融資制度」のように、従来の雇用保険制度のセーフティネットから漏れていたフリーランスや無職・離職中などの層に対して、自己への投資・学び直しを促す新たなファイナンシャルスキームと伴走型のキャリアコンサルティングの提供を、今後も拡充していくことが求められる <sup class="ref">[8, 25]</sup>。</p>
+
+<p>ミドルシニア雇用は、これまでの「高齢者雇用確保」という福祉的文脈を完全に超え、我が国の国力維持、企業の生産性向上、そして個人のウェルビーイングを大きく変える構造改革の主戦場である。一律の「年齢」という障壁を自律的な「役割」によって打破し、あらゆる年代の労働者が躍動できる社会を構築していくことが、少子高齢化を乗り越える我が国の唯一最大の成長戦略となる。</p>
+
+<hr>
+
+<ol class="ref-list"><li>高年齢者就業確保措置について - 社会保険労務士法人ASUMI,<br><a href="https://www.asumi.tokyo/blog/roumukanri/%E9%AB%98%E5%B9%B4%E9%BD%A2%E8%80%85%E5%B0%B1%E6%A5%AD%E7%A2%BA%E4%BF%9D%E6%8E%AA%E7%BD%AE%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.html" target="_blank" rel="noopener">https://www.asumi.tokyo/blog/roumukanri/%E9%AB%98%E5%B9%B4%E9%BD%A2%E8%80%85%E5%B0%B1%E6%A5%AD%E7%A2%BA%E4%BF%9D%E6%8E%AA%E7%BD%AE%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.html</a></li><li>65歳定年は義務？2025年4月から改正される高年齢者雇用安定法とは？ - PCA,<br><a href="https://pca.jp/p-tips/articles/fl240901.html" target="_blank" rel="noopener">https://pca.jp/p-tips/articles/fl240901.html</a></li><li>ミドルシニア課題に対する私たちの視点｜パーソルキャリア,<br><a href="https://co-development.persol-career.co.jp/approach/middle-senior-issue/" target="_blank" rel="noopener">https://co-development.persol-career.co.jp/approach/middle-senior-issue/</a></li><li>人の活躍ワーキング・グループにおける これまでの議論の … - 内閣府,<br><a href="https://www5.cao.go.jp/keizai-shimon/kaigi/special/future/1001/shiryou\_04.pdf" target="_blank" rel="noopener">https://www5.cao.go.jp/keizai-shimon/kaigi/special/future/1001/shiryou\_04.pdf</a></li><li>高年齢者雇用安定法ガイドブック,<br><a href="https://jsite.mhlw.go.jp/tokyo-roudoukyoku/var/rev0/0145/7995/20131212143349.pdf" target="_blank" rel="noopener">https://jsite.mhlw.go.jp/tokyo-roudoukyoku/var/rev0/0145/7995/20131212143349.pdf</a></li><li>高年齢者の雇用 - 厚生労働省,<br><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou\_roudou/koyou/jigyounushi/page09\_00001.html" target="_blank" rel="noopener">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou\_roudou/koyou/jigyounushi/page09\_00001.html</a></li><li>高年齢者雇用安定法の改正～70歳までの就業機会確保 - 厚生労働省,<br><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou\_roudou/koyou/koureisha/topics/tp120903-1\_00001.html" target="_blank" rel="noopener">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou\_roudou/koyou/koureisha/topics/tp120903-1\_00001.html</a></li><li>【2025年最新】フリーランスも対象！リ・スキリング等教育訓練支援融資制度の全貌,<br><a href="https://ichidokiri.co.jp/column/0007/" target="_blank" rel="noopener">https://ichidokiri.co.jp/column/0007/</a></li><li>日本の高齢者雇用対策に ついて,<br><a href="https://www.jil.go.jp/foreign/event/ko\_work/documents/20220615/japan\_01.pdf" target="_blank" rel="noopener">https://www.jil.go.jp/foreign/event/ko\_work/documents/20220615/japan\_01.pdf</a></li><li>第 2 章 柏市（千葉県）の事例－自治体を中心とした取組のさきがけ－ - 労働政策研究・研修機構,<br><a href="https://www.jil.go.jp/institute/siryo/2018/documents/198\_02.pdf" target="_blank" rel="noopener">https://www.jil.go.jp/institute/siryo/2018/documents/198\_02.pdf</a></li><li>高年齢者等の雇用の安定等に関する法律 - e-Gov 法令検索,<br><a href="https://laws.e-gov.go.jp/law/346AC0000000068" target="_blank" rel="noopener">https://laws.e-gov.go.jp/law/346AC0000000068</a></li><li>高年齢者等の雇用の安定等に関する法律｜条文 - 法令リード,<br><a href="https://hourei.net/law/346AC0000000068" target="_blank" rel="noopener">https://hourei.net/law/346AC0000000068</a></li><li>【公式】東京しごとセンター ミドルコーナースペシャルサイト 30歳〜54歳の就職・転職活動をサポート,<br><a href="https://tokyoshigoto-middle.jp/" target="_blank" rel="noopener">https://tokyoshigoto-middle.jp/</a></li><li>ミドルコーナー 30歳〜54歳の方 - 東京しごとセンター,<br><a href="https://www.tokyoshigoto.jp/middle/" target="_blank" rel="noopener">https://www.tokyoshigoto.jp/middle/</a></li><li>ミドル世代の皆さまへ \| 東京ハローワーク,<br><a href="https://jsite.mhlw.go.jp/tokyo-hellowork/kyushokusha/\_120809\_00010.html" target="_blank" rel="noopener">https://jsite.mhlw.go.jp/tokyo-hellowork/kyushokusha/\_120809\_00010.html</a></li><li>高齢者の就業支援 - TOKYOはたらくネット,<br><a href="https://www.hataraku.metro.tokyo.lg.jp/senior/shien/index.html" target="_blank" rel="noopener">https://www.hataraku.metro.tokyo.lg.jp/senior/shien/index.html</a></li><li>【シニア就業応援プロジェクト】 \| 高齢者の就業支援 - TOKYOはたらくネット,<br><a href="https://www.hataraku.metro.tokyo.lg.jp/senior/shien/project/index.html" target="_blank" rel="noopener">https://www.hataraku.metro.tokyo.lg.jp/senior/shien/project/index.html</a></li><li>研究報告「高齢者の多様な活躍に関する取組 地方自治体等の事例」,<br><a href="https://www.jil.go.jp/event/ro\_forum/20190123/houkoku/04\_kenkyu.html" target="_blank" rel="noopener">https://www.jil.go.jp/event/ro\_forum/20190123/houkoku/04\_kenkyu.html</a></li><li>生涯現役促進地域連携事業について - 厚生労働省,<br><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou\_roudou/koyou/koureisha/koureisha-koyou\_00005.html" target="_blank" rel="noopener">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou\_roudou/koyou/koureisha/koureisha-koyou\_00005.html</a></li><li>地域が一丸となって高齢者に新たな活躍の場を !！ - 厚生労働省,<br><a href="https://www.mhlw.go.jp/content/000505087.pdf" target="_blank" rel="noopener">https://www.mhlw.go.jp/content/000505087.pdf</a></li><li>基調報告「高齢者をめぐる労働市場の動向」｜労働政策フォーラム …,<br><a href="https://www.jil.go.jp/event/ro\_forum/20250115/houkoku/01-keynote-fujimoto.html" target="_blank" rel="noopener">https://www.jil.go.jp/event/ro\_forum/20250115/houkoku/01-keynote-fujimoto.html</a></li><li>企業がこれからのシニアに求める能力と、ミドルシニアのリスキリング意向,<br><a href="https://career-research.mynavi.jp/column/20230616\_52688/" target="_blank" rel="noopener">https://career-research.mynavi.jp/column/20230616\_52688/</a></li><li>ミドルシニアの方こそ、「学び直し」が必要な時代に！？リスキリングの必要性と現状を解説,<br><a href="https://mynavi-ms.jp/magazine/detail/001374.html" target="_blank" rel="noopener">https://mynavi-ms.jp/magazine/detail/001374.html</a></li><li>ミドルシニアのリスキリング - リクルートワークス研究所,<br><a href="https://www.works-i.com/research/report/item/reskillingmiddleaged2024.pdf" target="_blank" rel="noopener">https://www.works-i.com/research/report/item/reskillingmiddleaged2024.pdf</a></li><li>高齢期において就業の選択肢を広げるための リ・スキリング支援等の取組状況等について,<br><a href="https://www8.cao.go.jp/kourei/taikou-kentoukai/k\_2/pdf/s7.pdf" target="_blank" rel="noopener">https://www8.cao.go.jp/kourei/taikou-kentoukai/k\_2/pdf/s7.pdf</a></li><li>高齢者の活躍に取り組む企業の事例を公表します｜厚生労働省,<br><a href="https://www.mhlw.go.jp/stf/newpage\_43828.html" target="_blank" rel="noopener">https://www.mhlw.go.jp/stf/newpage\_43828.html</a></li><li>セカンドキャリア塾,<br><a href="https://second-career-school.dialogueforeveryone.com/" target="_blank" rel="noopener">https://second-career-school.dialogueforeveryone.com/</a></li><li>Q&A \| 会員になるには - 公益社団法人柏市シルバー人材センター,<br><a href="https://kashiwa-sjc.or.jp/members/qa" target="_blank" rel="noopener">https://kashiwa-sjc.or.jp/members/qa</a></li><li>地域と高齢者のニーズの掘り起こし、マッチングを進めている好事例 - 長野県,<br><a href="https://www.pref.nagano.lg.jp/kenko-choju/kenko/koureisha/nimousaku/documents/nimousaku1-5-3.pdf" target="_blank" rel="noopener">https://www.pref.nagano.lg.jp/kenko-choju/kenko/koureisha/nimousaku/documents/nimousaku1-5-3.pdf</a></li><li>リスキリングを通じたキャリアアップ支援事業,<br><a href="https://careerup.reskilling.go.jp/" target="_blank" rel="noopener">https://careerup.reskilling.go.jp/</a></li></ol>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260521_01/index.html">超高齢社会におけるシニア雇用の多角的分析… →</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-22</footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>

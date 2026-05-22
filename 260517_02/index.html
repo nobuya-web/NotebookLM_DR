@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本の地方創生における10年の軌跡と「地方創生2.0」への展望：シンクタンク・有識者の多角的視点に基づく政策評価報告書</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260517_02_地方創生②シンクタンク・有識者</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260517_02_地方創生②シンクタンク・有識者
+      </div>
+      <h1 class="report-title">日本の地方創生における10年の軌跡と「地方創生2.0」への展望：シンクタンク・有識者の多角的視点に基づく政策評価報告書</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　地方創生、４つのフェーズ</a></li><li><a href="#sec-3">第２章　シンクタンクや有識者の主張、提言</a></li><li><a href="#sec-4">第３章　これまでの主張や提言の整理</a></li><li><a href="#sec-5">第４章　今後に向けての論点</a></li></ol></div>
+
+    <article class="article">
+      <div class="summary-box"><p>本報告書は、日本における地方創生施策の<strong>10年間にわたる軌跡</strong>を辿り、最新の指針である\<em>\</em>「地方創生2.0」<strong>への展望を包括的に論じています。これまでの政策を、危機の共有から始まった第1期から、デジタル活用やパンデミックによる価値観の変化を経て、人口減少を前提とした</strong>「積極的適応」<strong>へとシフトする第4期までのプロセスとして整理しています。専門家やシンクタンクによる多角的な分析を通じて、単なる人口維持という</strong>「ゼロサムゲーム」<strong>からの脱却や、経済的自立と</strong>ウェルビーイング<strong>の融合といった持続可能な地域づくりの本質的な課題を浮き彫りにしています。最終的には、自治体間の広域連携や</strong>「新結合」<strong>によるイノベーションを提言し、日本が直面する縮小社会において</strong>独自の豊かさ\<em>\</em>を再定義することを目的としています。</p></div>
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <h3>はじめに</h3>
+
+
+<p>日本における地方創生は、2014年の「まち・ひと・しごと創生法」の成立以来、国家の最重要課題の一つとして位置づけられてきた。当時の「増田レポート」が提示した「消滅可能性都市」という概念は、日本社会に多大な衝撃を与え、人口減少と東京一極集中という構造的問題に対する危機感を共有する決定的な契機となった <sup class="ref">[1, 2]</sup>。それから10年が経過した現在、政府の取り組みは数次の変遷を経て、現在は「デジタル田園都市国家構想」や、2025年6月に閣議決定された「地方創生2.0基本構想」へと進化を遂げている <sup class="ref">[1, 3, 4]</sup>。</p>
+
+<p>この10年間、日本は世界に先駆けて人口減少社会の本格的な到来に直面し、様々な試行錯誤を繰り返してきた。地方創生の第一歩は、データの可視化と自治体による戦略策定の義務付けという形で始まったが、その過程で「人口という限られたパイを奪い合うゼロサムゲーム」に陥ったという厳しい指摘もなされている <sup class="ref">[5]</sup>。一方で、新型コロナウイルス感染症の拡大は、皮肉にもテレワークの普及や地方移住への関心の高まりといった、従来の延長線上にはなかった新たな社会潮流を生み出した <sup class="ref">[6, 7]</sup>。</p>
+
+<p>本報告書では、これまでの政府の地方創生施策を4つのフェーズに区分し、それぞれの特徴と変遷を詳細に整理する。その上で、民間シンクタンクや学術研究者、有識者が提示してきた批判的評価や多角的な提言を抽出し、これまでの議論の到達点を明らかにする。さらに、10年間の取り組みが残した成果と課題を定量・定性の両面から分析し、今後の日本が目指すべき「新しい地方創生」のあり方について、独自の考察を交えて提言を行う。</p>
+
+<p>地方創生は、単なる過疎対策や地域活性化の域を超え、日本の統治機構、産業構造、そして国民のライフスタイルそのものを再定義するプロセスである。10年の節目を迎え、これまでの人口流出抑制という「防衛的」な視点から、人口減少を受け止めた上での「持続可能な豊かさ」をいかに構築するかという「積極的適応」へとパラダイムをシフトさせる必要がある。政府、地方公共団体、民間企業、そして研究者が蓄積してきた膨大な知見を統合し、次なる10年に向けた論点を浮き彫りにすることが、本報告書の目的である。</p>
+
+<hr>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　地方創生、４つのフェーズ</h2>
+          <h3>1.1 第1期：まち・ひと・しごと創生の始動（2014年〜2019年）</h3>
+
+
+<p>地方創生の第1期は、2014年の「まち・ひと・しごと創生長期ビジョン」および「総合戦略」の策定によって幕を開けた。このフェーズの最大の特徴は、人口減少の克服と東京一極集中の是正を数値目標として明確に掲げ、すべての地方公共団体に対して「地方版総合戦略」の策定を強く求めた点にある <sup class="ref">[1, 8]</sup>。当時の背景には、2040年までに896の自治体が消滅する可能性があるとした増田レポートの衝撃があり、国を挙げた危機対応としての側面が強かった。</p>
+
+<p>第1期の戦略体系では、特に「稼ぐ地域をつくる」ことと「安心して働けるようにする」という、経済的基盤の強化が重視された。2016年の改訂版では、生産性が高く収益性のある産業を地方で形成し、若者や女性に魅力的な職場を作ることで「平均所得の向上」を実現する戦略が明確に打ち出された <sup class="ref">[1]</sup>。この時期、政府は地域経済分析システム（RESAS）を導入し、勘や経験に頼らないデータに基づいた客観的な現状把握、すなわちEBPM（Evidence-Based Policy Making）の普及を図った <sup class="ref">[9]</sup>。</p>
+
+<p>また、財政面では「地方創生交付金」が創設され、自治体の先駆的な取り組みを支援する枠組みが整えられた。しかし、このフェーズにおいては、全国の自治体が一斉に人口維持を目指したため、結果として自治体間での住民の奪い合いを招いたという側面も否定できない。</p>
+
+
+<h3>1.2 第2期：SDGsの統合と多角的なアプローチ（2020年〜2022年）</h3>
+
+
+<p>2020年度から始まった第2期では、これまでの経済中心の戦略に「SDGs（持続可能な開発目標）」や「Society 5.0」の理念が本格的に合流した。これにより、地方創生は単なる人口減少対策から、社会的、環境的価値をも包含する持続可能な地域づくりへとその射程を広げることとなった <sup class="ref">[1, 6]</sup>。</p>
+
+<p>このフェーズで顕著になった変化は、アプローチの多様化である。「ひと」起点での関係人口（地域と多様に関わる人々）の創出や、「まち」起点でのスマートシティ推進などが強調されるようになった。興味深いことに、第1期で最重要視されていた「平均所得の向上」に関する記述が政府の基本方針の本文から消えるなど、経済成長一辺倒ではない、ウェルビーイングや多様な価値観を重視する方向へと舵が切られた <sup class="ref">[1]</sup>。</p>
+
+<p>さらに、この時期に発生した新型コロナウイルス感染症のパンデミックは、地方創生の文脈を決定的に書き換えた。リモートワークの急速な普及により、東京都からの転出超過が見られる時期があるなど、「転職なき移住」という新しいライフスタイルが現実的な選択肢として浮上したのである <sup class="ref">[6]</sup>。第2期は、危機対応としての地方創生から、社会変革を伴う持続可能な地域モデルの模索へと移行した時期といえる。</p>
+
+
+<h3>1.3 第3期：デジタル田園都市国家構想：デジタルの力による加速（2023年〜2024年）</h3>
+
+
+<p>岸田政権下で推進された「デジタル田園都市国家構想」は、地方創生の第3フェーズとして位置づけられる。この構想の核心は、デジタルの力を最大限に活用して、地方が抱える社会課題を解決し、都市と地方の格差を縮小することにある <sup class="ref">[7, 10]</sup>。これにより、「全国どこでも誰もが便利で快適に暮らせる社会」の実現が目指された。</p>
+
+<p>具体的には、教育DX、医療・介護分野のDX、地域交通やインフラ、物流の最適化などが重点項目として掲げられた <sup class="ref">[10]</sup>。このフェーズの意義は、これまで「物理的な距離」が最大の障壁であった地方において、デジタル技術がその物理的制約を無効化する可能性を提示したことにある。ドローン配送や遠隔医療、AIを活用したオンデマンド交通などは、その象徴的な取り組みである。</p>
+
+<p>しかし、一方で「デジタル」という手段が前面に出すぎた結果、技術の導入そのものが自己目的化してしまう懸念も指摘された <sup class="ref">[11]</sup>。また、都市部と地方自治体、あるいは自治体間でのデジタル人材の確保やICTリテラシーの格差が、新たな「デジタル格差」として浮き彫りになったのもこの時期の特徴である <sup class="ref">[11, 12]</sup>。</p>
+
+
+<h3>1.4 第4期：地方創生2.0：人口減少を前提とした新たなパラダイム（2025年〜）</h3>
+
+
+<p>2025年6月に閣議決定された「地方創生2.0基本構想」により、地方創生は第4フェーズ、すなわち「地方創生2.0」へと突入した。これは、過去10年の反省に立ち、人口減少という現職を正面から受け止めた上での「新しい日本・楽しい日本」を創ることを目標としている <sup class="ref">[3, 4, 13]</sup>。</p>
+
+<p>「地方創生2.0」の最大の特徴は、人口減少を前提とした「縮小社会への適応」と、多様な主体による「新結合」である <sup class="ref">[14]</sup>。これまでのフェーズが人口維持や流出抑制に重きを置いていたのに対し、2.0では、人口が減少しても生活の質を維持・向上させ、地域経済を持続させるためのイノベーションを重視している。具体的には、以下の5本柱を中心とした政策展開が予定されている。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>政策の柱</strong></th><th><strong>主な内容と目指す姿</strong></th></tr></thead><tbody><tr><td>生活環境の創生</td><td>安心して働き、暮らせる豊かな生活環境の構築</td></tr><tr><td>地方経済の創生</td><td>「稼ぐ力」を高め、付加価値創出型の新しい経済（地方イノベーション）</td></tr><tr><td>人や企業の地方分散</td><td>産官学の地方移転、都市と地方の交流促進</td></tr><tr><td>インフラと新技術</td><td>AI・デジタル・ドローン等の徹底活用による課題解決</td></tr><tr><td>広域リージョン連携</td><td>自治体の枠を超えた広域的な連携による面的展開</td></tr></tbody></table></div>
+
+<p><sup class="ref">[3, 4, 13]</sup></p>
+
+<p>このフェーズでは、「関係人口」を実人数1,000万人、延べ人数1億人に拡大するという野心的な目標や、「AI・デジタル活用による課題解決自治体100％」といった数値目標が掲げられている <sup class="ref">[4, 14]</sup>。</p>
+
+<hr>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　シンクタンクや有識者の主張、提言</h2>
+          <h3>2.1 三菱UFJリサーチ&コンサルティング（MURC）：統治機構と産業のエコシステム</h3>
+
+
+<p>三菱UFJリサーチ&コンサルティング（MURC）は、地方創生を単なる地域振興策としてではなく、日本の「統治機構改革」の端緒として捉える独自の視点を提示している。</p>
+
+<p>特に注目すべきは、指定都市が県から独立した権限を持つ「特別市（特別自治市）」制度の再創設を「地方創生2.0の切り札」として議論している点である <sup class="ref">[6]</sup>。これは、現在の都道府県と市町村の二階建て構造を解消し、基礎自治体に広域事務も集約させる「一層制」への移行を目指すものである。MURCは、人口減少時代において大都市が自らの裁量と責任で経営を行い、その成果を周辺自治体や圏域全体へ波及させることが、日本の持続可能性を高めると主張している。1947年に規定されながら1956年に廃止されたこの制度の復活は、明治以来の中央集権的な仕組みを問い直す契機となる <sup class="ref">[6]</sup>。</p>
+
+<p>また、MURCは産業の実務的な観点からも多くの提言を行っている。「ふるさと納税」を単なる寄付集めではなく、地方における「知的財産経営」の入り口として活用すべきだという提案はその一つである <sup class="ref">[6]</sup>。返礼品市場を約2,700億円の巨大な地域産品マーケットと捉え、中小企業が商標権や著作権を意識し、自社の強みを再定義するプロセスを支援することの重要性を説いている。さらに、農業分野においては、自治体が積極的に企業参入や農業生産法人を誘致し、金融機関やアカデミアと連携して「食」のエコシステムを構築する「シン・農業」へのシフトを提言している <sup class="ref">[6]</sup>。</p>
+
+
+<h3>2.2 大和総研（DIR）：所得向上への回帰と都市圏評価</h3>
+
+
+<p>大和総研（DIR）の主任研究員である鈴木文彦氏は、地方創生10年の変遷を厳しく分析し、当初掲げられていた「所得向上策」の重要性が、第2期以降に希薄化したことを課題として指摘している <sup class="ref">[1]</sup>。</p>
+
+<p>DIRの分析によれば、人口水準を維持できている自治体（5年前比95％以上）の約8割は、平均年収が全国ランキングの上位50％以内に位置している <sup class="ref">[1]</sup>。このデータは、所得水準の高さと人口維持の間に極めて顕著な正の相関があることを示している。鈴木氏は、地方創生がSDGsやウェルビーイングといった多角的な目標にシフトしたことで、本来重視されるべき「稼ぐ力」や「生産性向上」への関心が相対的に弱まったと批判している。そのため、今後の再挑戦に向けては、第1期で重視されていた「所得向上策」への回帰が不可欠であると結論づけている。</p>
+
+<p>さらに、DIRは目標設定の単位についても重要な提言を行っている。個別の市区町村単位での人口維持には限界があるため、今後は「都市圏」単位で人口維持目標を設定すべきだとしている <sup class="ref">[1]</sup>。地方の中核都市を中心に、周辺自治体を含めた経済圏全体で人口を留めるダム機能を果たすという考え方である。インフラ維持の観点からも、水道事業の広域化などは、単なるコスト削減ではなく「技術基盤の強化」というスケールメリットを重視すべきだと論じている <sup class="ref">[1, 6]</sup>。</p>
+
+
+<h3>2.3 増田寛也氏と人口戦略会議：ゼロサムゲームの反省と構造分析</h3>
+
+
+<p>「消滅可能性都市」という言葉で地方創生のムーブメントを作った増田寛也氏（元総務相）は、10年を経た現在、自らの発信を含めた取り組みの総括を行っている。増田氏は、これまでの地方創生が、結果として自治体間での「人口という限られたパイを奪い合うゼロサムゲーム」に陥ってしまったことを認めている <sup class="ref">[5]</sup>。</p>
+
+<p>増田氏が副議長を務める「人口戦略会議」は、2024年に新たな報告書を発表し、分析の視点をアップデートした。ここで提示された新たな概念が「ブラックホール型自治体」である。これは、他地域からの人口流入は多いものの、出生率が極めて低いために、周辺地域の人口を吸い込み、国全体の人口減少を加速させている自治体を指す。東京23区や大阪市、京都市などがこれに該当すると判定された <sup class="ref">[5]</sup>。</p>
+
+<p>増田氏の主張の核心は、大都市側の人口問題が地方の犠牲の上に成り立っている構造を直視すべきだという点にある。今後の方向性として、単なる移住促進ではなく、国全体としての少子化対策や、若者・女性に選ばれる地域づくりへの転換を求めている。また、国立大学の授業料適正化や定員規模の再編など、教育リソースの地方配置の見直しも重要な論点として掲げている <sup class="ref">[5]</sup>。</p>
+
+
+<h3>2.4 日本総合研究所（JRI）と藻谷浩介氏：地方の価値再定義と「ほぼUターン」</h3>
+
+
+<p>日本総合研究所（JRI）の調査主幹を務める藻谷浩介氏は、統計データの緻密な分析に基づき、東京中心の価値観で語られる地方創生の議論を「一顧だにする価値がない」とまで言い切る強い姿勢で批判している <sup class="ref">[15]</sup>。藻谷氏は、過疎化という言葉自体が東京の目線で作られたものであり、地方の人々がその価値観に惑わされるべきではないと説いている。</p>
+
+<p>藻谷氏の提言で特徴的なのは、現場の実態に即した「ほぼUターン」の推進である。これは、周辺市町村出身の若者が地方の中核都市（例えば島根県江津市など）に移住することを指し、この戦略によって実際に社会増を実現した事例を高く評価している <sup class="ref">[15]</sup>。また、藻谷氏は「数字による客観的な事実」の重要性を強調しつつも、地域のビジョン構築には「予習をしない直感」と「本質を突く外部の視点」の組み合わせが重要であると論じている。</p>
+
+<p>地方創生における広告やマーケティングの役割については、それを「塩」に例えている。それ自体が主役ではないが、適度な「さじ加減」で地域の魅力を引き出すために不可欠な要素であるという。藻谷氏の主張は、地方が東京の劣化コピーを目指すのではなく、その土地ならではの人口密度と生活の質を再評価し、独自の循環を作り出すべきだという「地方の自立性」に貫かれている。</p>
+
+
+<h3>2.5 野村総合研究所（NRI）および博報堂：デジタル人材と関係人口のブランディング</h3>
+
+
+<p>野村総合研究所（NRI）は、社会の急速なデジタル化と人口減少が同時進行する中で、変革を生き抜くための戦略的指針を提示している <sup class="ref">[16, 17]</sup>。NRIの議論の焦点は、デジタル技術をいかに地方の生活インフラとして実装し、持続可能性を確保するかにある。特に「デジタル人材の育成・確保」を最大の課題として挙げ、地方において高度なITスキルを持つ人材が活躍できる環境整備の重要性を説いている <sup class="ref">[12]</sup>。</p>
+
+<p>これと呼応するように、博報堂などの民間企業や関連シンクタンクからは、「関係人口」をいかにブランド化し、地域の資産とするかという提言がなされている。関係人口の拡大は、単なる観光客の増加ではなく、地域と継続的な関わりを持つ「ファン」のコミュニティ化を意味する。三菱UFJリサーチ&コンサルティングの研究員も、マイアミの事例を引き合いに、既存のポジティブな都市イメージを活用し、地域資源に「新たな文脈」を付与することで、戦略的に関係人口を創出する手法を提案している <sup class="ref">[6]</sup>。</p>
+
+<p>これらの提言に共通するのは、物理的な定住だけを目標にするのではなく、デジタルの力を活用して「移動」と「関係」の質を高め、多層的な人口構造を地域に持たせるべきだという視点である。これは「地方創生2.0」における「ふるさと住民登録制度」などの政策とも深く共鳴している <sup class="ref">[4]</sup>。</p>
+
+<hr>
+        </section>
+        <section id="sec-4">
+          <h2>第３章　これまでの主張や提言の整理</h2>
+          <h3>3.1 定量的な成果の検証：人口動態と所得水準の相関</h3>
+
+
+<p>これまでの地方創生10年を定量的に振り返ると、政府が掲げた「東京一極集中の是正」と「人口減少の抑制」という二大目標については、依然として厳しい状況が続いていることが分かる。国立国会図書館の調査報告によれば、この10年間の取り組みがなければ現状はより悪化していた可能性があるとの評価はあるものの、大きな流れを変えるには至っていない <sup class="ref">[2]</sup>。</p>
+
+<p>特筆すべきは、人口維持に成功している自治体と、減少が加速している自治体の間の「二極化」である。大和総研の分析によれば、平均所得が高い自治体ほど人口水準を維持しており、人口維持と所得水準には極めて強い相関が認められる <sup class="ref">[1]</sup>。一方で、人口10万人未満の小規模団体において人口を維持できているケースの多くは大都市圏に集中しており、都市圏外の小規模団体、いわゆる「消滅可能性都市」に該当する地域では、依然として減少に歯止めがかかっていない <sup class="ref">[1]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>自治体区分</strong></th><th><strong>2015-2020年の人口動態の傾向</strong></th><th><strong>主要な相関要因</strong></th></tr></thead><tbody><tr><td>東京都特別区</td><td>5％の人口増加</td><td>職種構成、高い平均所得、集積利益</td></tr><tr><td>大都市圏の小規模団体</td><td>比較的維持されている</td><td>圏域内での移動、雇用アクセスの良さ</td></tr><tr><td>都市圏外の小規模団体</td><td>約8割で人口減少、6割で5％超減</td><td>所得水準の低さ、若年女性の流出</td></tr><tr><td>人口維持自治体</td><td>全国上位50％の所得水準</td><td>「稼ぐ力」の有無、魅力的な職場 <sup class="ref">[1]</sup></td></tr></tbody></table></div>
+
+<p><sup class="ref">[1]</sup></p>
+
+
+<h3>3.2 自治体現場の意識と組織的課題：EBPMの浸透と格差</h3>
+
+
+<p>地方創生の取り組みを通じて、自治体現場における「意識」の変革は一定の成果を収めている。内閣官房の調査では、約8割の自治体が、人口減少を踏まえて地域の将来を考え行動する「内部の活性化につながった」と回答している <sup class="ref">[9]</sup>。これは、地方創生という旗印が、自治体職員の危機感を醸成し、主体的な政策立案を促す契機となったことを示している。</p>
+
+<p>しかし、実行段階においては深刻な「格差」が存在する。地域経済分析システム（RESAS）等の統計データを活用したEBPMの取組については、都道府県や政令指定都市では100％近い実施率であるのに対し、町村部では5割程度にとどまっている <sup class="ref">[9]</sup>。特に「強く実感している」とする村は3.1％に過ぎず、データ分析を活用するための専門人材やリソースの不足が浮き彫りになっている。</p>
+
+<p>また、組織体制についても、地方創生の専任部署を設置している自治体は16.9％にとどまり、多くは既存部署が兼務している実態がある <sup class="ref">[9]</sup>。限られた人的資源の中で、外部企業との連携や住民との対話、デジタル化の推進という高度な業務をいかにこなすかが、今後の持続的な推進に向けた最大のボトルネックとなっている。</p>
+
+
+<h3>3.3 施策の変遷に伴う論点の整理：所得かウェルビーイングか</h3>
+
+
+<p>10年間の議論の変遷を整理すると、政策の優先順位を「経済（所得）」に置くか、それとも「生活（ウェルビーイング）」に置くかという、二つの大きな潮流の間での揺れ動きが見て取れる。</p>
+
+<p>第1期においては、大和総研などが指摘するように「所得向上」が中心的なテーマであった <sup class="ref">[1]</sup>。これは、東京への流出の原因が経済的格差にあるという明確な認識に基づいていた。しかし、第2期以降、SDGsやSociety 5.0の導入に伴い、アプローチは多角化した。ここでは「関係人口」や「生活の質」が強調されるようになり、所得水準だけでなく、地方ならではの豊かな暮らしや自然環境が価値として再評価された。</p>
+
+<p>シンクタンク各社の主張を統合すると、これらは二者択一ではなく、相補的な関係にあることが分かる。すなわち、一定の所得水準を確保する「稼ぐ力」がなければ人口流出は止まらないが、一方でデジタルの活用や地域コミュニティの充実による「生活の豊かさ」がなければ、一時的な移住はあっても持続的な定住や深い関わりは生まれない。この「経済的自立」と「情緒的充足」の高度な融合が、これまでの提言から導き出される共通の方向性である。</p>
+
+
+<h3>3.4 デジタル活用と外部連携の成果と限界</h3>
+
+
+<p>「デジタル田園都市国家構想」に代表されるデジタル化の推進は、地方の社会課題解決に新たなツールをもたらした。ドローン配送の社会実装や、オンライン教育、遠隔医療といった取り組みは、低密度社会におけるサービス維持の処方箋として期待されている <sup class="ref">[10]</sup>。また、外部とのコミュニケーション機会が増えたと回答する自治体は78.4％に達しており、企業版ふるさと納税や包括連携協定を通じて、民間の活力を取り込む動きは着実に広がっている <sup class="ref">[9]</sup>。</p>
+
+<p>しかし、これらの取り組みには明確な限界も露呈している。日本総合研究所のレポートが指摘するように、「デジタル」という言葉が独り歩きし、地域の切実な課題解決よりも「技術の導入」そのものに焦点が当たりがちな点が課題である <sup class="ref">[11]</sup>。また、外部連携においても、単なるイベント的な協力に留まり、地域の産業構造を根本から変革するような「新結合」にまで至っているケースはまだ限定的である。デジタル化や外部連携を、いかに「手段」として使いこなし、地域経済の「自立」へと結びつけるかが、次なるフェーズの鍵となる。</p>
+
+<hr>
+        </section>
+        <section id="sec-5">
+          <h2>第４章　今後に向けての論点</h2>
+          <h3>4.1 「縮小社会」への適応とレジリエンスの構築</h3>
+
+
+<p>地方創生10年の最大の教訓は、すべての自治体が人口減少を完全に克服することは不可能であるという現実を直視することにある。これからの「地方創生2.0」における最重要論点は、人口減少を「所与の条件」として受け入れた上で、いかに地域社会の機能と生活の質を維持する「積極的な適応」へとシフトするかである <sup class="ref">[14]</sup>。</p>
+
+<p>これは、単なる消極的な縮小を意味しない。むしろ、人口密度が低下しても持続可能な行政サービス提供体制を再構築するための「レジリエンス（回復力）」の強化である。具体的には、都市機能を拠点に集約する「立地適正化」と、AIや自動運転、ドローン配送といった先端技術を組み合わせた「新時代のインフラ」による生活圏の再編が不可欠となる <sup class="ref">[4, 14]</sup>。人口という「数」を増やすことを唯一の成功指標とする段階から、一人当たりの付加価値とウェルビーイングという「質」の向上をKPIとする社会設計への転換が求められている。</p>
+
+
+<h3>4.2 「新結合」による地域イノベーションの具体像</h3>
+
+
+<p>地方創生2.0が掲げる「新結合」を、単なるスローガンに終わらせないための具体的なメカニズムの構築が論点となる。シュンペーターの定義に立ち返れば、イノベーションは既存の要素の新たな組み合わせから生まれる。今後の施策において重視すべきは、以下の3つの「新結合」の高度化である <sup class="ref">[14]</sup>。</p>
+
+<ol><li><strong>「施策」の新結合：</strong> 観光、農業、福祉、交通といった縦割りの行政分野を、地域の課題解決という一点で融合させる。例えば、農業参入企業と観光コンテンツ、そして教育DXを組み合わせ、働く場と学ぶ場、楽しむ場が一体となった新しい「企業城下町」の形成などが考えられる <sup class="ref">[6, 13]</sup>。</li><li><strong>「人材」の新結合：</strong> 地域に根ざした伝統的担い手と、リモートワークで移住した「転職なき移住者」、そして「ふるさと住民登録制度」によって可視化される関係人口を重層的に結びつける <sup class="ref">[4]</sup>。外部の視点と内部の情熱が交差する場を創出することが、地域資源への「新たな文脈」の付与に繋がる <sup class="ref">[6]</sup>。</li><li><strong>「技術」の新結合：</strong> AI、ドローン、GX（グリーントランスフォーメーション）などの先端技術を、地域の生活課題に徹底的に実装する。これにより、低密度社会特有の高コスト構造を破壊し、新たな産業的価値を創出する <sup class="ref">[13, 14]</sup>。</li></ol>
+<p>これらを促進するためには、自治体が単独で担うのではなく、産官学金労言士の多様なステークホルダーが一体となったプラットフォームとしての「地域経営」への移行が必要である。</p>
+
+
+<h3>4.3 広域リージョン連携と新たな統治機構の検討</h3>
+
+
+<p>個別の自治体単位での人口維持が困難である以上、行政境界を超えた「広域リージョン連携」の実効性をいかに高めるかが喫緊の論点である。大和総研が提言するように、生活圏や経済圏は自治体単位ではなく「都市圏」で形成されている <sup class="ref">[1]</sup>。今後は、中核都市と周辺自治体がそれぞれの強みを活かして機能を分担し、都市圏全体で人口を支えるダム機能を果たす戦略が不可欠となる <sup class="ref">[18]</sup>。</p>
+
+<p>この議論は、必然的に三菱UFJリサーチ&コンサルティングが提唱する「特別市」のような、地方自治のあり方そのものを変革する統治機構改革へと繋がる <sup class="ref">[6]</sup>。現在の都道府県と市町村の枠組みが、人口減少・低成長時代の課題解決に最適であるかを問い直す時期に来ている。大阪における「副首都構想」のように、東京一極集中という国家的な災害リスクに対するバックアップ機能を地方に持たせることは、もはや地方振興の域を超えた国家安全保障上の課題である <sup class="ref">[6]</sup>。</p>
+
+
+<h3>4.4 ジェンダー平等と多様性がもたらす人口ダム機能</h3>
+
+
+<p>地方からの人口流出、特に若年女性の流出が止まらない最大の要因の一つは、地方に根強く残る「保守的な価値観」や「ジェンダーの不平等」にある。三菱UFJリサーチ&コンサルティングの調査でも、地方生活への不安として「地域のしがらみ」や「保守的な価値観」が挙げられている <sup class="ref">[6]</sup>。</p>
+
+<p>今後の地方創生において、「ジェンダー平等」と「多様性の尊重」は、単なる道徳的スローガンではなく、地域の生存をかけた戦略的論点として位置づけられるべきである <sup class="ref">[14]</sup>。若者や女性が、政策形成の場や地域づくりの議論に主体的に参画し、自分たちのライフスタイルに合った環境を自ら創り出せるかどうかが、その地域が「選ばれる」ための絶対条件となる。リモートワークの普及を、単なる仕事の場所の移動に留めず、キャリア形成の多様化と、家事・育児の共同化といった社会構造の変革へと繋げ、多様な人材が能力を発揮できる「包摂的な地域社会」を構築することが、真の人口ダム機能を形成する。</p>
+
+
+<h3>4.5 「シン・農業」と知的財産による産業構造の転換</h3>
+
+
+<p>地方の基幹産業である農業を、人的資源の縮小という逆境を逆手に取っていかに「成長産業」へと転換するかは、地方創生の成否を左右する。基幹的農業従事者が2026年にも100万人を割り込む見通しの中、従来の家族経営に依存したモデルは限界を迎えている <sup class="ref">[6]</sup>。</p>
+
+<p>論点は、自治体がいかに企業や農業生産法人を積極的に誘致し、スマート農業による大規模化と高付加価値化を断行できるかにある。これを支援するための「地域計画」の策定や、金融機関を巻き込んだ「食のサプライチェーン」のプラットフォーム化が求められている <sup class="ref">[6]</sup>。また、ふるさと納税を返礼品の「調達市場」から、地域企業の「知的財産経営」を促進し、自社の強みを全国に訴求するマーケティングの場へと昇華させるべきである。地域の伝統資源に、特許や商標といった現代的な「守りと攻め」の知財戦略を組み合わせることで、地方における「稼ぐ力」を構造的に強化するアプローチが不可欠である。</p>
+
+<hr>
+
+
+<h3>まとめ</h3>
+
+
+<p>日本の地方創生は、2014年の開始から10年という歳月を経て、大きなパラダイムシフトの渦中にある。第1期から第3期までの取り組みは、地域の現状をデータによって可視化し、危機感を共有させ、デジタルの可能性を提示したという点で大きな意義があった。しかし、人口流出と一極集中というマクロな潮流を変えるには至っておらず、これまでの「成長・拡大・維持」を前提とした成功モデルは、もはや通用しない段階に来ている。</p>
+
+<p>2025年度から本格化する「地方創生2.0」が目指すべきは、人口減少という「逃れられない現実」を所与のものとして受け入れ、その中でいかに一人一人が幸せを実感し、持続可能な社会を維持できるかという、新しい「豊かさ」の設計である。そのためには、自治体間の不毛なゼロサムゲームを終わらせ、広域的な連携による効率的かつ創造的なガバナンスへと移行しなければならない。</p>
+
+<p>本報告書で検討したシンクタンクや有識者の主張は、共通して「経済的自立（稼ぐ力）」と「社会的包摂（ウェルビーイング）」の高度な融合を求めている。AIやデジタル技術は、単なる道具ではなく、縮小社会における社会機能を維持するための「生命線」であり、それを使いこなして地域の未来を描くのは、地縁や血縁を超えて地域に関わり続ける「多様な人材」である。</p>
+
+<p>今後の10年、日本は「人口減少下での先進的成功モデル」を世界に示す役割を担っている。東京の劣化コピーではない、その土地ならではの密度と価値観に基づいた「自律的な地方」を創り上げること。そして、ジェンダー平等やデジタルの徹底活用を通じて、若者や女性、そして多様な背景を持つ人々が「ここで生きていきたい」と思えるコミュニティを再編すること。この「新しい日本・楽しい日本」を地方から創り出す挑戦こそが、日本の未来を決定づけるのである。国、地方、民間、そして市民が「新結合」を通じて知恵を結集し、次なる10年に向けた果敢な歩みを進めることを期待して、本報告書の結びとする。</p>
+
+<hr>
+
+<ol class="ref-list"><li>地方創生10年 そして地方は創生したのか \| 大和総研,<br><a href="https://www.dir.co.jp/report/research/policy-analysis/regionalecnmy/20240723\_024524.html" target="_blank" rel="noopener">https://www.dir.co.jp/report/research/policy-analysis/regionalecnmy/20240723\_024524.html</a></li><li>地方創生のこれまでの取組と今後の在り方,<br><a href="https://dl.ndl.go.jp/view/prepareDownload?itemId=info:ndljp/pid/14470071" target="_blank" rel="noopener">https://dl.ndl.go.jp/view/prepareDownload?itemId=info:ndljp/pid/14470071</a></li><li>「地方創生に関する総合戦略」の 概要について,<br><a href="https://www.chisou.go.jp/sousei/meeting/tihousousei\_setumeikai/pdf/r08-01-20-shiryou01.pdf" target="_blank" rel="noopener">https://www.chisou.go.jp/sousei/meeting/tihousousei\_setumeikai/pdf/r08-01-20-shiryou01.pdf</a></li><li>「地方創生2.0基本構想」（概要）,<br><a href="https://www.cas.go.jp/jp/seisaku/atarashii\_chihousousei/pdf/20250613\_gaiyou.pdf" target="_blank" rel="noopener">https://www.cas.go.jp/jp/seisaku/atarashii\_chihousousei/pdf/20250613\_gaiyou.pdf</a></li><li>地方創生の１０年 どう評価するか？ 「統合・再編」欠かせぬ視点 …,<br><a href="https://shidaikyo.or.jp/newspaper/rensai/chikara/post-233.html" target="_blank" rel="noopener">https://shidaikyo.or.jp/newspaper/rensai/chikara/post-233.html</a></li><li>地方創生 \| 三菱UFJリサーチ&コンサルティング,<br><a href="https://www.murc.jp/service/keyword/85/" target="_blank" rel="noopener">https://www.murc.jp/service/keyword/85/</a></li><li>デジタル田園都市国家構想総合戦略 - 内閣官房,<br><a href="https://www.cas.go.jp/jp/seisaku/digitaldenen/sougousenryaku/" target="_blank" rel="noopener">https://www.cas.go.jp/jp/seisaku/digitaldenen/sougousenryaku/</a></li><li>地方創生の全貌。意義、課題、そして未来への展望 \| OFF TOKYO,<br><a href="https://offtokyo.jp/news/rpk5kjvn/" target="_blank" rel="noopener">https://offtokyo.jp/news/rpk5kjvn/</a></li><li>「地方創生10年の振り返りのための各地方公共団体における 地方創 …,<br><a href="https://www.chisou.go.jp/sousei/pdf/ishikiikoucyousa\_r.pdf" target="_blank" rel="noopener">https://www.chisou.go.jp/sousei/pdf/ishikiikoucyousa\_r.pdf</a></li><li>デジタル田園都市国家構想総合戦略、当面の重点検討課題、令和６年度概算要求の概要などについて,<br><a href="https://www.chisou.go.jp/sousei/meeting/digiden\_chisou\_setsumeikai/pdf/r05-09-11-shiryou1.pdf" target="_blank" rel="noopener">https://www.chisou.go.jp/sousei/meeting/digiden\_chisou\_setsumeikai/pdf/r05-09-11-shiryou1.pdf</a></li><li>デ ジ タ ル 田園都市国家構想 を 地域社会 の D X に つ なげ - 日本総研,<br><a href="https://www.jri.co.jp/file/report/other/pdf/15359.pdf" target="_blank" rel="noopener">https://www.jri.co.jp/file/report/other/pdf/15359.pdf</a></li><li>デジタル田園都市国家構想の意義と課題～地方創生をブラッシュアップもデジタル人材確保に課題,<br><a href="https://www.sompo-ri.co.jp/2023/05/16/8224/" target="_blank" rel="noopener">https://www.sompo-ri.co.jp/2023/05/16/8224/</a></li><li>地方創生の「基本構想」について,<br><a href="https://www5.cao.go.jp/keizai-shimon/kaigi/special/reform/wg6/2025/wg6\_1204shiryou2.pdf" target="_blank" rel="noopener">https://www5.cao.go.jp/keizai-shimon/kaigi/special/reform/wg6/2025/wg6\_1204shiryou2.pdf</a></li><li>地方創生2.0とは？取り組みをわかりやすく解説｜コラム｜TOPPAN SOCIAL INNOVATION,<br><a href="https://www.toppan.com/ja/joho/social/column/column29.html" target="_blank" rel="noopener">https://www.toppan.com/ja/joho/social/column/column29.html</a></li><li>【日本タイダン。】第1回ゲスト 藻谷浩介さん（日本総合研究所主席研究員）日本の地方は宝の山 超達人から見る地方創生｜The H magazine - 博報堂,<br><a href="https://www.hakuhodo.co.jp/magazine/54627/" target="_blank" rel="noopener">https://www.hakuhodo.co.jp/magazine/54627/</a></li><li>知的資産創造 2025年10月号 \| 刊行物 \| 野村総合研究所(NRI),<br><a href="https://www.nri.com/jp/knowledge/publication/chitekishisan\_202510/index.html" target="_blank" rel="noopener">https://www.nri.com/jp/knowledge/publication/chitekishisan\_202510/index.html</a></li><li>知的資産創造 2024年12月号 \| 刊行物 \| 野村総合研究所(NRI),<br><a href="https://www.nri.com/jp/knowledge/publication/chitekishisan\_202412/index.html" target="_blank" rel="noopener">https://www.nri.com/jp/knowledge/publication/chitekishisan\_202412/index.html</a></li><li>「地方創生10年の取組と今後の推進方向」及び 令和7年度概算要求の概要などについて,<br><a href="https://www.chisou.go.jp/sousei/meeting/digiden\_chisou\_setsumeikai/pdf/r06-09-12-shiryou1.pdf" target="_blank" rel="noopener">https://www.chisou.go.jp/sousei/meeting/digiden\_chisou\_setsumeikai/pdf/r06-09-12-shiryou1.pdf</a></li></ol>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260517_03/index.html">← 日本の地方創生における人材関連企業の役割…</a><a href="../260516_01/index.html">地方創生：人口減少社会への適応と「強い経… →</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-22</footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>

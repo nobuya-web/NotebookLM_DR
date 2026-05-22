@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沖縄における地方創生と振興政策の構造的変容：2032年に向けた自立的発展と社会課題解決の統合戦略</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260518_01_地方創生と沖縄①国と自治体</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260518_01_地方創生と沖縄①国と自治体
+      </div>
+      <h1 class="report-title">沖縄における地方創生と振興政策の構造的変容：2032年に向けた自立的発展と社会課題解決の統合戦略</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　沖縄振興政策の変遷と時系列による整理</a></li><li><a href="#sec-3">第２章　議論の状況と事実ベースの課題整理</a></li></ol></div>
+
+    <article class="article">
+      <div class="summary-box"><p>本書は、本土復帰50周年を経て新たな局面を迎えた沖縄の<strong>振興政策と地方創生</strong>について、2032年までの展望を交えて包括的に解説した報告書です。これまでのインフラ整備を中心とした「格差是正」から脱却し、<strong>デジタルトランスフォーメーション（DX）や脱炭素、そして深刻な子どもの貧困対策</strong>を法的義務として盛り込んだ、自立的発展のための統合的な戦略を提示しています。内容面では、観光に依存した脆弱な経済構造の改革や離島の持続可能性といった課題をデータに基づき分析しつつ、名護市の住民参画事例などを通じて<strong>官民一体となった社会課題の解決</strong>を促しています。最終的には、沖縄を日本全体の課題解決に向けた<strong>壮大な実験場</strong>と位置づけ、強靭な経済と誰もが取り残されない包摂的な社会の両立を目指すロードマップを描いています。</p></div>
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <h3>はじめに</h3>
+
+
+<p>沖縄県における地方創生は、日本全体の課題である人口減少や地域経済の縮小という文脈に加え、1972年の本土復帰以来、半世紀以上にわたって継続されてきた「沖縄振興策」という独自の法的・財政的枠組みの中で語る必要がある。沖縄は、地理的な遠隔性、広大な米軍基地の存在、歴史的経緯に伴う独自の社会構造といった特殊性を抱えつつ、アジア・太平洋地域の結節点としての高いポテンシャルを有している。</p>
+
+<p>2022年（令和4年）は、沖縄にとって復帰50周年という節目の年であると同時に、沖縄振興特別措置法の10年延長と、それに伴う「新・沖縄21世紀ビジョン基本計画」の策定が行われた、歴史的な転換点であった。これまでの振興策は、本土との格差是正（後追い）に主眼が置かれていたが、今後はデジタルトランスフォーメーション（DX）やグリーン成長を取り込みつつ、沖縄の自立的発展を目指すフェーズへと完全に移行している。</p>
+
+<p>本報告書では、国、沖縄県、および市町村が一体となって取り組む地方創生と沖縄振興政策について、その歴史的背景から現状のデータ分析、そして将来の展望に至るまで、網羅的かつ詳細に整理する。特に、経営者や官僚、自治体職員といった実務家が、沖縄という特異なフィールドにおいて、どのような論点に留意し、どのような機会を見出すべきかという点に焦点を当てる。調査結果と事実ベースのデータを重視し、沖縄の現状を「稼ぐ力の向上」と「誰一人取り残さない社会の構築」という二軸から深く洞察する。</p>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　沖縄振興政策の変遷と時系列による整理</h2>
+          <h3>1.1 復帰から第５次振興計画までの歴史的俯瞰と総括</h3>
+
+
+<p>沖縄の振興政策は、1972年の本土復帰に伴い策定された第1次沖縄振興開発計画に始まる。当初の最大の目標は、米軍統治下で立ち遅れた生活環境や産業基盤を、本土並みに引き上げる「格差是正」であった。第1次から第3次までの計画期間は、主に道路、空港、港湾、ダムといったハードウェアの整備に巨額の公共投資が投じられ、県土の基礎体力を構築するフェーズであった <sup class="ref">[1, 2]</sup>。</p>
+
+<p>2002年度（平成14年度）からの第4次計画、および2012年度（平成24年度）からの第5次計画においては、「依存から自立へ」というパラダイムシフトが明確に打ち出された。この時期、沖縄県は独自の長期構想である「沖縄21世紀ビジョン」を策定し、県民全体で共有する将来像の実現を目指した <sup class="ref">[3, 4]</sup>。特に第5次計画期間中には、観光客数が劇的に増加し、ハワイに匹敵する1,000万人規模の入域を達成するなど、観光産業が沖縄経済の揺るぎない牽引役として確立された <sup class="ref">[5]</sup>。</p>
+
+<p>しかし、過去の計画を総括すると、インフラ整備というハード面での成果は著しいものの、1人当たり県民所得の低迷や、後述する子どもの貧困といった構造的な課題は、期待されたほどには解消されなかった。第5次計画の評価においては、観光客数の量的拡大が必ずしも所得の向上や地域への経済波及効果に結びついていないこと、そして米軍基地跡地の利用が依然として段階的であり、そのポテンシャルを十分に発揮しきれていないことが「未解決の課題」として指摘されている <sup class="ref">[2, 6]</sup>。</p>
+
+
+<h3>1.2 令和４年改正沖縄振興特別措置法と新たな政策の柱</h3>
+
+
+<p>2022年（令和4年）5月、沖縄振興特別措置法の一部を改正する法律が施行された。この法改正は、沖縄の自立的発展を加速させるため、従来の枠組みを大胆に刷新したものである。最大の特徴は、デジタル社会の形成、脱炭素社会の実現、および子どもの貧困対策が、法律上の努力義務として明記された点にある <sup class="ref">[1, 2]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>重点分野</strong></th><th><strong>改正・新設された規定のポイント</strong></th><th><strong>期待される効果</strong></th></tr></thead><tbody><tr><td><strong>デジタル社会の形成</strong></td><td>産業のDX推進、AI・IoT・ビッグデータの活用、デジタル人材の育成を努力義務化。</td><td>離島性の克服、生産性の向上、高付加価値IT産業の集積。 <sup class="ref">[1, 2]</sup></td></tr><tr><td><strong>脱炭素社会の形成</strong></td><td>再生可能エネルギーの利用促進、エネルギー使用の合理化に関する規定を新設。</td><td>クリーンエネルギーのショーケース化、島しょ型エネルギーモデルの確立。 <sup class="ref">[1, 2]</sup></td></tr><tr><td><strong>子どもの貧困対策</strong></td><td>子供の貧困解消に向けた教育支援、保護者への就労支援、居場所づくりを努力義務化。</td><td>貧困の世代間連鎖の遮断、将来の沖縄を担う人材育成。 <sup class="ref">[1, 2]</sup></td></tr><tr><td><strong>駐留軍用地跡地利用</strong></td><td>拠点返還地の指定要件の緩和、返還合意前からの計画策定を可能にする特例の創設。</td><td>迅速かつ効果的な跡地開発、都市機能の高度化、経済効果の最大化。 <sup class="ref">[2]</sup></td></tr><tr><td><strong>税制・金融措置</strong></td><td>沖縄型特定免税店制度のオンライン対応、航空燃料税の軽減措置の延長など。</td><td>観光競争力の維持、物流コストの低減、スタートアップへの投資促進。 <sup class="ref">[2]</sup></td></tr></tbody></table></div>
+
+<p>この改正法は2032年（令和14年）までの10年間を期限としており、この期間内に沖縄が「自立的な発展」の基盤をいかに強固にできるかが、今後の100年を左右すると言える。特に、沖縄科学技術大学院大学（OIST）を核としたイノベーション・エコシステムの形成については、5年ごとの検討規定が設けられ、外部資金調達の拡大を促しつつ、教育研究活動への支援を継続することが確認されている <sup class="ref">[1]</sup>。</p>
+
+
+<h3>1.3 「新・沖縄２１世紀ビジョン」と「ゆがふしまづくり」の現在地</h3>
+
+
+<p>沖縄県は、国の基本方針を具現化するものとして、2022年5月に「新・沖縄21世紀ビジョン基本計画」を策定した。この計画は、SDGs（持続可能な開発目標）の理念を全面的に取り入れ、「誰一人取り残さない社会」の実現を標榜している <sup class="ref">[7]</sup>。</p>
+
+<p>計画の中核となるのは、5つの将来像と、克服すべき4つの固有課題である。</p>
+
+
+<h3>5つの将来像 <sup class="ref">[3, 8]</sup>:</h3>
+
+
+<ol><li><strong>自然・歴史・文化を大切にする島:</strong> 沖縄固有のアイデンティティを保全しつつ、新たな価値を創造する。</li><li><strong>心豊かで安全・安心に暮らせる島:</strong> 福祉セーフティネットの充実と、共助・共創型の地域づくり。</li><li><strong>希望と活力あふれる豊かな島:</strong> 自立型経済の構築、世界水準の観光リゾート地の形成。</li><li><strong>世界に開かれた交流と共生の島:</strong> アジアと日本の架け橋としての国際物流・交流拠点の形成。</li><li><strong>多様な能力を発揮し未来を拓く島:</strong> 沖縄らしい人づくりの推進と、公平な教育機会の確保。</li></ol>
+<p><strong>克服すべき4つの固有課題</strong> <sup class="ref">[4, 7]</sup>: これらは、(1)米軍基地問題の解決と跡地利用、(2)離島・過疎地域の条件不利性の克服、(3)社会リスク（子どもの貧困等）の解消、(4)経済的自立の遅れの是正、を指す。これらの課題は互いに連関しており、個別の対策だけでなく、構造的なアプローチが求められている。</p>
+
+<p>さらに、県は「デジタル田園都市国家構想」の地方版として、「沖縄21世紀ビジョンゆがふしまづくり計画」を策定し、2024年11月にはデジタルの力を活用した一部改訂を行っている <sup class="ref">[9]</sup>。この計画は、離島や過疎地域を含む県全域において、都市部との格差のない情報通信環境を確保し、産業のDXを加速させるためのロードマップである <sup class="ref">[10]</sup>。</p>
+
+
+<h3>1.4 将来への展望：2032年に向けた戦略的ロードマップ</h3>
+
+
+<p>2032年に向けて、沖縄の政策は「強靭な経済」と「包摂的な社会」の両立を目指す。</p>
+
+<p>経済面では、従来の「観光一本足打法」からの脱却ではなく、観光を核とした「産業のクロスオーバー」を狙う。例えば、観光×DX、観光×農業（スマート農業）、観光×医療（ヘルスツーリズム）といった形で、他産業との連携を強化し、地域全体のイノベーションを促進する <sup class="ref">[1]</sup>。また、国際物流拠点としての機能を高めるため、デジタルを活用した物流の効率化・迅速化を図り、高付加価値な製品開発を行う産業イノベーションを推進する方針である <sup class="ref">[1]</sup>。</p>
+
+<p>社会面では、子どもの貧困対策を「最優先の投資」と位置づけ、就学援助率の改善や不登校対策、保護者へのリカレント教育を一体的に進める。これにより、教育と就労が循環する「正のスパイラル」を構築し、2032年には全国平均並みの社会指標を達成することを目指している <sup class="ref">[1, 10]</sup>。</p>
+
+<p>跡地利用については、那覇空港の拡張や、キャンプ・キンザー（牧港補給地区）などの大規模返還を控え、これらを「沖縄の都市構造を根本から変えるチャンス」と捉え、国の責任による適切な環境浄化と、民間活力を活かしたまちづくりが進められる <sup class="ref">[2, 8]</sup>。</p>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　議論の状況と事実ベースの課題整理</h2>
+          <h3>2.1 経済的自立と県民所得：構造的課題と「稼ぐ力」の分析</h3>
+
+
+<p>沖縄経済の最大にして最古の課題は、1人当たり県民所得の低迷である。2024年時点の最新データにおいても、沖縄の所得水準は全国平均の約7割にとどまっており、全国最下位の状態が続いている <sup class="ref">[11]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>指標（2024年最新推計値）</strong></th><th><strong>沖縄県</strong></th><th><strong>全国平均</strong></th><th><strong>格差比率</strong></th></tr></thead><tbody><tr><td><strong>1人あたり県民所得</strong></td><td>2,258千円</td><td>3,330千円</td><td>67.8% <sup class="ref">[11]</sup></td></tr><tr><td><strong>第3次産業就業割合</strong></td><td>71.2% (名護市例)</td><td>\-</td><td>サービス業偏重 <sup class="ref">[12]</sup></td></tr><tr><td><strong>非正規雇用比率</strong></td><td>全国最高水準</td><td>\-</td><td>所得低迷の主因</td></tr></tbody></table></div>
+
+<p>この所得格差の要因を分解すると、単なる「産業の欠如」ではなく、「産業の構造的脆弱性」が浮かび上がる。 第一に、事業所の零細性である。名護市のデータによれば、1事業所あたりの従業員数は平均8.5人であり、特に1〜4人規模の小規模事業所が全体の6割以上（1,761/2,874事業所）を占める <sup class="ref">[12]</sup>。小規模事業所は資本装備率が低く、生産性の向上が困難な傾向にある。</p>
+
+<p>第二に、産業構成の偏りである。製造業の比率が低く、観光・サービス業という、労働集約的で付加価値が分散しやすい第3次産業に依存している <sup class="ref">[12]</sup>。また、観光客のリピーター率は84.2%と極めて高いものの、平均滞在日数は3.5〜4.0日程度で横ばいであり、客単価の向上が課題となっている <sup class="ref">[5]</sup>。</p>
+
+<p>提言として、国と県は「稼ぐ力の向上」を掲げ、デジタル技術を用いた経営効率化や、スタートアップ創出による高付加価値産業の育成に注力している <sup class="ref">[1]</sup>。特に、ハイクラス観光客への対応や、滞在期間を延ばすワーケーションの推進は、所得向上に直結する重要な施策である <sup class="ref">[1]</sup>。</p>
+
+
+<h3>2.2 子どもの貧困と教育格差：統計が示す危機と対策の現状</h3>
+
+
+<p>沖縄の子どもの貧困問題は、単なる経済的指標を超え、社会の持続可能性を脅かす深刻な論点となっている。統計によれば、沖縄の子どもの相対的貧困率は29.9%に達し、全国平均の約2.2倍である <sup class="ref">[13]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>項目</strong></th><th><strong>統計数値</strong></th><th><strong>全国比較・推移</strong></th><th><strong>根拠</strong></th></tr></thead><tbody><tr><td><strong>相対的貧困率（子供）</strong></td><td>29.9%</td><td>全国平均の2.2倍</td><td><sup class="ref">[13]</sup></td></tr><tr><td><strong>高校生世帯の困窮割合</strong></td><td>26.3% (R4)</td><td>H28(29.3%)→R1(20.4%)→R4(26.3%)</td><td><sup class="ref">[14]</sup></td></tr><tr><td><strong>ひとり親世帯の割合</strong></td><td>12.6%</td><td>全国平均（8.8%）を大きく上回る</td><td><sup class="ref">[15]</sup></td></tr><tr><td><strong>生活保護率</strong></td><td>全国3位</td><td>就学援助率は全国2位</td><td><sup class="ref">[13]</sup></td></tr></tbody></table></div>
+
+<p>議論の核心は、この貧困が「世代間連鎖」している点にある。ひとり親世帯の多さ（全国1位）や若年出産の多さが、親の就労機会を制限し、それが子どもの教育機会の喪失につながっている <sup class="ref">[13, 15]</sup>。令和元年度には、国の緊急対策事業の効果もあり改善傾向が見られたものの、コロナ禍の影響で再び悪化したことは、セーフティネットの脆さを露呈した <sup class="ref">[14, 16]</sup>。</p>
+
+<p>官僚や自治体職員の間では、単なる金銭的給付に留まらない「包括的支援」の重要性が共有されている。これには、支援員の配置、子どもの居場所の運営、保護者への就労・リスキリング支援などが含まれる <sup class="ref">[1, 2]</sup>。教育面では、ICTを活用した教育の質向上や、キャリア教育の推進を通じて、子どもたちが将来、自律的な経済主体として自立できる力を養うことが目指されている <sup class="ref">[1]</sup>。</p>
+
+
+<h3>2.3 産業のDXと情報通信基盤の高度化</h3>
+
+
+<p>沖縄は、地理的な「離島性」を克服する手段として、古くから情報通信産業の育成に力を入れてきた。海底光ファイバー網の整備により、沖縄はアジアと日本を結ぶ通信の要衝となっている。第6次振興計画では、これをさらに一歩進め、県内全産業のDXを加速させる「情報通信の高度化」が重点事項となっている <sup class="ref">[1]</sup>。</p>
+
+<p>具体的には、AIやIoT、ビッグデータを活用した製造業の生産性向上、スマート農業の普及、さらには観光分野における「観光DX」が推進されている <sup class="ref">[1]</sup>。一方で、課題として挙げられるのがデジタル人材の不足である。県は「沖縄県DX推進計画」に基づき、産業・行政の両分野においてデジタル人材の確保・育成を急いでいる <sup class="ref">[10]</sup>。</p>
+
+<p>また、デジタル化の推進は、単なる経済成長のためだけでなく、「デジタルデバイド対策」という社会正義の側面も持っている。特に離島や過疎地域において、都市部と格差のない行政・医療サービスを提供するためのインフラ整備が強調されている <sup class="ref">[10]</sup>。</p>
+
+
+<h3>2.4 離島振興と過疎地域の持続可能性</h3>
+
+
+<p>沖縄県は多数の有人離島を抱えており、これら地域の振興は地方創生の最前線である。離島・過疎地域は、人口減少が先行して進んでおり、定住条件の整備が喫緊の課題となっている <sup class="ref">[17]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>分野</strong></th><th><strong>主要な取組・課題</strong></th><th><strong>根拠</strong></th></tr></thead><tbody><tr><td><strong>産業振興</strong></td><td>地域資源（農水産物、自然環境）を活用した6次産業化と地域ブランドの強化。</td><td><sup class="ref">[1, 17]</sup></td></tr><tr><td><strong>移住・定住</strong></td><td>UJIターンの環境整備、事前情報の発信、コミュニティビジネスの構築。</td><td><sup class="ref">[17]</sup></td></tr><tr><td><strong>観光</strong></td><td>離島の魅力を活かした滞在型観光、旅館の新設・増設に係る税制優遇。</td><td><sup class="ref">[2]</sup></td></tr><tr><td><strong>生活基盤</strong></td><td>遠隔医療（ICT活用）、移動手段の確保、再生可能エネルギーの導入。</td><td><sup class="ref">[1, 2]</sup></td></tr></tbody></table></div>
+
+<p>論点となっているのは、離島の「自立」と「公共性」のバランスである。すべてのサービスを市場原理に任せることは不可能であり、国の「沖縄振興一括交付金」を活用した柔軟な事業展開が不可欠である <sup class="ref">[1, 10]</sup>。近年では、オンラインで地域とつながる「関係人口」の創出・拡大に向けたモデル事業が実施されており、物理的な居住に依存しない地域維持のあり方が模索されている <sup class="ref">[18]</sup>。</p>
+
+
+<h3>2.5 市町村の取り組みと住民参画：名護市の事例深掘り</h3>
+
+
+<p>地方創生の主体は市町村であり、国や県の指針をいかに現場の施策に落とし込むかが問われている。名護市の「第2期名護市まち・ひと・しごと創生総合戦略」は、その好例である。</p>
+
+<p>名護市は、2030年に人口ピークを迎えると予測されており、人口減少をいかに食い止めるか、あるいは減少社会にいかに適応するかという岐路にある <sup class="ref">[12, 19]</sup>。名護市の戦略で注目すべきは、徹底した住民参画である。住民基本台帳から無作為抽出した3,000人へのアンケートや、次代を担う「若者向けワークショップ」を通じて、市民の生の声を計画に反映させている <sup class="ref">[20]</sup>。</p>
+
+<p>ワークショップでは、若者ならではのアイディアや、雇用・子育て・教育に関する具体的な課題が提起されており、これが「総合計画」との整合を図る上でのエビデンスとなっている <sup class="ref">[20]</sup>。また、名護市には多くの小規模事業所が存在することから、地域住民や金融機関、教育機関が連携して、地域内経済循環を高める取り組みも重視されている <sup class="ref">[21]</sup>。</p>
+
+
+<h3>まとめ</h3>
+
+
+<p>本報告書における調査と分析を通じて明らかになったのは、沖縄における地方創生が、単なる「地方の活性化」という枠組みを超えた、日本の国家戦略としての重みを持っているという事実である。</p>
+
+<p>第一に、沖縄の政策は、日本が将来直面する「人口減少」「格差拡大」「デジタル化の遅れ」といった課題に対する、一つの壮大な実験場（リビングラボ）としての性格を強めている。OISTでの最先端研究をいかに地域産業に実装するか、あるいは深刻な子どもの貧困をいかにデジタルの力と地域の共助で解決するか、という問いへの答えは、沖縄のみならず日本全国の地方創生に対する示唆に満ちている。</p>
+
+<p>第二に、経営者や事業責任者にとって、現在の沖縄は「変化の激しいフロンティア」である。2022年の法改正による数々の税制優遇や支援措置は、単なるコスト削減の手段ではなく、社会課題の解決を起点とした新規事業（ソーシャルビジネス）を創出するための強力な武器となる。特に、DXやグリーンエネルギー分野での沖縄の優位性は、今後ますます高まることが予想される。</p>
+
+<p>第三に、官僚や自治体職員にとっては、計画の「柔軟性」と「持続可能性」の両立が最大の鍵となる。名護市の事例が示すように、住民の声に裏打ちされた主体的な計画策定と、PDCAサイクルによる着実な実施が、交付金の効果を最大化する。また、子どもの貧困のように一朝一夕には解決しない課題に対しては、10年、20年という長期的なスパンでの一貫した政策執行が求められる。</p>
+
+<p>結論として、沖縄における地方創生は、過去の「依存」という呪縛を断ち切り、自らの足で立ち、かつ世界とつながる「ゆがふしま」の創造へと向かっている。2032年の振興法期限までに、沖縄が達成する成果は、日本という国が21世紀にどのような豊かさを追求すべきかを示す、一つの明確な指標となるであろう。官民が一体となり、この歴史的な転換期において、それぞれの役割を果たすことが期待される。</p>
+
+<hr>
+
+<ol class="ref-list"><li>沖縄振興特別措置法 (概要) - 内閣府,<br><a href="https://www8.cao.go.jp/okinawa/pamphlet/shinkou-2022/2022\_whole\_1\_2.pdf" target="_blank" rel="noopener">https://www8.cao.go.jp/okinawa/pamphlet/shinkou-2022/2022\_whole\_1\_2.pdf</a></li><li>沖縄振興特別措置法等の一部を改正する法律のポイント,<br><a href="https://www.ogb.go.jp/-/media/Files/OGB/Soumu/muribushi/saisin/20220506/0506tokusyu1.pdf" target="_blank" rel="noopener">https://www.ogb.go.jp/-/media/Files/OGB/Soumu/muribushi/saisin/20220506/0506tokusyu1.pdf</a></li><li>沖縄21世紀ビジョンとは,<br><a href="https://www.pref.okinawa.jp/21vision/htmlver2/about21.html" target="_blank" rel="noopener">https://www.pref.okinawa.jp/21vision/htmlver2/about21.html</a></li><li>1 沖縄21世紀ビジョン、基本計画、実施計画等の全体構成 - 沖縄県,<br><a href="https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/019/224/jyuten-siryo.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/019/224/jyuten-siryo.pdf</a></li><li>第5次沖縄県観光振興基本計画,<br><a href="https://www.pref.okinawa.jp/\_res/projects/default\_project/*page*/001/011/752/kankoshinkokihonkeikakukaitei.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.jp/\_res/projects/default\_project/*page*/001/011/752/kankoshinkokihonkeikakukaitei.pdf</a></li><li>沖縄総合事務局50年資料集 - 内閣府 沖縄総合事務局,<br><a href="https://www.ogb.go.jp/-/media/Files/OGB/Soumu/50nensiryousyuu/ogb50siryousyuu.pdf" target="_blank" rel="noopener">https://www.ogb.go.jp/-/media/Files/OGB/Soumu/50nensiryousyuu/ogb50siryousyuu.pdf</a></li><li>新・基本計画と新・実施計画の内容 - 沖縄２１世紀ビジョン,<br><a href="https://21okinawa.com/basic-plan/content/" target="_blank" rel="noopener">https://21okinawa.com/basic-plan/content/</a></li><li>固有課題と対応方向 \| 沖縄21世紀ビジョン \| みんなで創る みんなの美ら島 未来のおきなわ,<br><a href="https://www.pref.okinawa.jp/21vision/htmlver2/problem\_and\_direction\_index.html" target="_blank" rel="noopener">https://www.pref.okinawa.jp/21vision/htmlver2/problem\_and\_direction\_index.html</a></li><li>那覇市まち・ひと・しごと創生総合戦略 第2期（計画期間：2020～2027）,<br><a href="https://www.city.naha.okinawa.jp/admin/plans/1004128/1004130.html" target="_blank" rel="noopener">https://www.city.naha.okinawa.jp/admin/plans/1004128/1004130.html</a></li><li>沖縄２１世紀ビジョンゆがふしまづくり計画 - 沖縄県,<br><a href="https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/014/165/yugafusimakeikaku0224.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/014/165/yugafusimakeikaku0224.pdf</a></li><li>J77：1人あたりの県民所得｜日本の統計 - 帝国書院,<br><a href="https://ict.teikokushoin.co.jp/statistics/japan77.xhtml" target="_blank" rel="noopener">https://ict.teikokushoin.co.jp/statistics/japan77.xhtml</a></li><li>沖縄県 名護市6.4万人 人口動態 第2期名護市まち・ひと・しごと創 人口ビジョン総合戦略,<br><a href="https://4knn.tv/nago/" target="_blank" rel="noopener">https://4knn.tv/nago/</a></li><li>子供の貧困に関する指標（沖縄県の状況）,<br><a href="https://www8.cao.go.jp/okinawa/3/kodomo-hinkon/shiryou/kodomo-genjou2.pdf" target="_blank" rel="noopener">https://www8.cao.go.jp/okinawa/3/kodomo-hinkon/shiryou/kodomo-genjou2.pdf</a></li><li>こどもの貧困に関する指標(沖縄県の状況) - 内閣府,<br><a href="https://www8.cao.go.jp/okinawa/3/kodomo-hinkon/shiryou/kodomo-genjou6" target="_blank" rel="noopener">https://www8.cao.go.jp/okinawa/3/kodomo-hinkon/shiryou/kodomo-genjou6</a></li><li>沖縄県子どもの貧困対策計画（第２期）,<br><a href="https://www.okinawa-child-future.jp/images/about/hinkonkeikaku\_2.pdf" target="_blank" rel="noopener">https://www.okinawa-child-future.jp/images/about/hinkonkeikaku\_2.pdf</a></li><li>沖縄における子供の貧困をめぐる現状と対策 - 参議院,<br><a href="https://www.sangiin.go.jp/japanese/annai/chousa/rippou\_chousa/backnumber/2023pdf/20230928171.pdf" target="_blank" rel="noopener">https://www.sangiin.go.jp/japanese/annai/chousa/rippou\_chousa/backnumber/2023pdf/20230928171.pdf</a></li><li>1 地域再生計画 １ 地域再生計画の名称 沖縄２１世紀ビジョンゆがふしまづくり計画 ２ 地域再 - 地方創生,<br><a href="https://www.chisou.go.jp/tiiki/tiikisaisei/dai63nintei/plan/y813.pdf" target="_blank" rel="noopener">https://www.chisou.go.jp/tiiki/tiikisaisei/dai63nintei/plan/y813.pdf</a></li><li>第２期「まち・ひと・しごと創生総合戦略」 （2020改訂版）について,<br><a href="https://www.chisou.go.jp/sousei/info/pdf/r02-12-21-gaiyou.pdf" target="_blank" rel="noopener">https://www.chisou.go.jp/sousei/info/pdf/r02-12-21-gaiyou.pdf</a></li><li>第2期名護市まち・ひと・しごと創 人口ビジョン総合戦略 - 名護市役所,<br><a href="https://www.city.nago.okinawa.jp/machidukuri/2022040100043/" target="_blank" rel="noopener">https://www.city.nago.okinawa.jp/machidukuri/2022040100043/</a></li><li>第2期名護市まち・ひと・しごと創 人口ビジョン総合戦略策定に向けた取組,<br><a href="https://www.city.nago.okinawa.jp/machidukuri/2021061000028/" target="_blank" rel="noopener">https://www.city.nago.okinawa.jp/machidukuri/2021061000028/</a></li><li>名護市まち・ひと・しごと創生人口ビジョン総合戦略の策定について,<br><a href="https://www.city.nago.okinawa.jp/machidukuri/2018071800205/" target="_blank" rel="noopener">https://www.city.nago.okinawa.jp/machidukuri/2018071800205/</a></li></ol>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260518_02/index.html">← 日本における副業・兼業の変遷と地方創生へ…</a><a href="../260517_04/index.html">地方創生における自治体主導の多角的アプロ… →</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-22</footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>
