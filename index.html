@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Research レポート一覧</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Deep Research <span>/ レポート一覧</span></a>
+    <nav style="margin-left:auto">
+      <a href="index.html" class="active">一覧</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <h1 class="page-title">Deep Research レポート</h1>
+    <p class="page-subtitle">NotebookLM Deep Research で生成されたレポート集 &nbsp;·&nbsp; 11 件</p>
+    <div class="report-grid">
+      
+        <a class="report-card" href="260521_02_ミドルシニア雇用_公的機関/index.html">
+          <div class="card-folder">260521_02_ミドルシニア雇用①公的機関</div>
+          <div class="card-title">我が国におけるミドルシニア雇用の現状、課題、および活性化に向けた展望</div>
+          <div class="card-summary">少子高齢化による労働力不足を背景に、本書は**ミドルシニア層を「保護の対象」から「価値創出の主体」へと転換させる**ための多角的な戦略を論じています。2025年の完全義務化を含む**法制度の変遷**を整理した上で、ホワイトカラー職から現場仕事への押し出しという**労働市場の構造的ミスマッチ**や、役職定年による意欲減退といった組織課題を鋭く指摘しています。その解決策として、年齢ではなく役割を評価す</div>
+          <div class="card-meta">
+            <span class="card-sections-count">7 セクション</span>
+            <span>2026/05/21</span>
+          </div>
+        </a>
+        <a class="report-card" href="260521_01_シニア雇用_公的機関/index.html">
+          <div class="card-folder">260521_01_シニア雇用①公的機関</div>
+          <div class="card-title">超高齢社会におけるシニア雇用の多角的分析と長期的展望</div>
+          <div class="card-summary">本報告書は、少子高齢化が進む日本において**シニア雇用の拡大**をマクロ経済の維持に不可欠な「**社会的善**」と位置づけ、その歴史的変遷から最新の法改正、実務上の課題までを網羅的に分析したものです。主な論点として、2025年の**65歳までの雇用確保の完全義務化**や、2026年に施行される高齢労働者の**労災防止対策の努力義務化**といった制度的転換を挙げ、企業には従来の画一的な再雇用から**</div>
+          <div class="card-meta">
+            <span class="card-sections-count">3 セクション</span>
+            <span>2026/05/21</span>
+          </div>
+        </a>
+        <a class="report-card" href="260519_01_リスキリング/index.html">
+          <div class="card-folder">260519_01_リスキリング</div>
+          <div class="card-title">日本におけるリスキリング施策の変遷と展望：人的資本経営の深化に向けた多角的研究報告</div>
+          <div class="card-summary">本報告書は、日本の深刻な労働力不足とデジタル化の進展を背景に、**リスキリング（学び直し）を単なる教育から国家的な成長戦略**へと再定義し、その現状と課題を多角的に分析したものです。内容は、個人の自律的なキャリア形成を支援する**法的枠組みの整備**や、雇用保険による**経済的支援の拡充**といった制度面から、地方自治体や先進企業における具体的な成功事例までを体系的に網羅しています。特に、従来の企</div>
+          <div class="card-meta">
+            <span class="card-sections-count">7 セクション</span>
+            <span>2026/05/19</span>
+          </div>
+        </a>
+        <a class="report-card" href="260518_02_副業・兼業/index.html">
+          <div class="card-folder">260518_02_副業・兼業</div>
+          <div class="card-title">日本における副業・兼業の変遷と地方創生への波及効果：IT人材不足解消に向けた官民の戦略的アプローチ</div>
+          <div class="card-summary">この報告書は、かつて一般的だった**単一就業モデル**から、**副業・兼業**を成長戦略の柱とする新しい労働制度への転換を詳しく考察しています。特に地方における**IT・デジタル人材の不足**という構造的課題に対し、外部プロフェッショナルのスキルを「小分け」に活用する戦略や、副業を入口とした\*\*「副業転職」**という新たな人材流動化の流れを浮き彫りにしています。塩尻市や広島県の事例を通じて、副</div>
+          <div class="card-meta">
+            <span class="card-sections-count">5 セクション</span>
+            <span>2026/05/18</span>
+          </div>
+        </a>
+        <a class="report-card" href="260518_01_地方創生と沖縄_国と自治体/index.html">
+          <div class="card-folder">260518_01_地方創生と沖縄①国と自治体</div>
+          <div class="card-title">沖縄における地方創生と振興政策の構造的変容：2032年に向けた自立的発展と社会課題解決の統合戦略</div>
+          <div class="card-summary">本書は、本土復帰50周年を経て新たな局面を迎えた沖縄の**振興政策と地方創生**について、2032年までの展望を交えて包括的に解説した報告書です。これまでのインフラ整備を中心とした「格差是正」から脱却し、**デジタルトランスフォーメーション（DX）や脱炭素、そして深刻な子どもの貧困対策**を法的義務として盛り込んだ、自立的発展のための統合的な戦略を提示しています。内容面では、観光に依存した脆弱な経</div>
+          <div class="card-meta">
+            <span class="card-sections-count">3 セクション</span>
+            <span>2026/05/17</span>
+          </div>
+        </a>
+        <a class="report-card" href="260517_04_地方創生_自治体/index.html">
+          <div class="card-folder">260517_04_地方創生④自治体</div>
+          <div class="card-title">地方創生における自治体主導の多角的アプローチ：持続可能な地域社会の構築に向けた実践と戦略的考察</div>
+          <div class="card-summary">この資料は、日本の自治体が主導する地方創生の先進事例を分析し、持続可能な地域社会を築くための具体的な戦略をまとめたレポートです。各地域が直面する人口減少や経済停滞に対し、**デジタル技術の導入（DX）や環境保全（SDGs）**、さらには**関係人口の拡大**といった多角的なアプローチで解決を図る姿が詳述されています。特に、既存の「負の遺産」を独自の資源へと再定義し、民間企業や住民と協力して\*\*</div>
+          <div class="card-meta">
+            <span class="card-sections-count">5 セクション</span>
+            <span>2026/05/17</span>
+          </div>
+        </a>
+        <a class="report-card" href="260517_03_地方創生_人材企業/index.html">
+          <div class="card-folder">260517_03_地方創生③人材企業</div>
+          <div class="card-title">日本の地方創生における人材関連企業の役割と変遷：労働市場の構造転換と地域経営の高度化に関する総合調査報告書</div>
+          <div class="card-summary">この報告書は、過去10年における日本の地方創生が、単なる人口の奪い合いから**デジタル技術と多様な働き方を活用した新社会システムの構築**へと進化した過程を分析しています。当初は都市部からの労働力移動を助ける仲介者であった人材サービス企業が、現在は**地域企業の経営変革パートナー**や自ら雇用を創出する主体へと役割を高度化させている実態を明らかにしています。特にコロナ禍を経て普及した\*\*「転職</div>
+          <div class="card-meta">
+            <span class="card-sections-count">5 セクション</span>
+            <span>2026/05/17</span>
+          </div>
+        </a>
+        <a class="report-card" href="260517_02_地方創生_シンクタンク・有識者/index.html">
+          <div class="card-folder">260517_02_地方創生②シンクタンク・有識者</div>
+          <div class="card-title">日本の地方創生における10年の軌跡と「地方創生2.0」への展望：シンクタンク・有識者の多角的視点に基づく政策評価報告書</div>
+          <div class="card-summary">本報告書は、日本における地方創生施策の**10年間にわたる軌跡**を辿り、最新の指針である\*\*「地方創生2.0」**への展望を包括的に論じています。これまでの政策を、危機の共有から始まった第1期から、デジタル活用やパンデミックによる価値観の変化を経て、人口減少を前提とした**「積極的適応」**へとシフトする第4期までのプロセスとして整理しています。専門家やシンクタンクによる多角的な分析を通じて</div>
+          <div class="card-meta">
+            <span class="card-sections-count">5 セクション</span>
+            <span>2026/05/17</span>
+          </div>
+        </a>
+        <a class="report-card" href="260516_01_地方創生_内閣府・関連省庁/index.html">
+          <div class="card-folder">260516_01_地方創生①内閣府・関連省庁</div>
+          <div class="card-title">地方創生：人口減少社会への適応と「強い経済」の構築に向けた政府の総合戦略と将来展望</div>
+          <div class="card-summary">この資料は、日本の「地方創生」政策が過去10年の歩みを経て、新たなステージである**地方創生2.0**へと転換する姿を描いた包括的なレポートです。これまでは人口減少を食い止めることに主眼が置かれてきましたが、現在はデジタル技術を駆使して**持続可能な社会への適応**を目指す、より現実的かつ攻めの戦略へと進化しています。特に若年層や女性が地方に定着できるよう、**デジタル田園都市国家構想**を通じた</div>
+          <div class="card-meta">
+            <span class="card-sections-count">5 セクション</span>
+            <span>2026/05/17</span>
+          </div>
+        </a>
+        <a class="report-card" href="260513_02_東京都における女性活躍推進政策の構造的変遷と次世代戦略__東京都における女性活躍推進政策の構造的変遷と次世代戦略__産業労働局三課連携に/index.html">
+          <div class="card-folder">260513_02_東京都における女性活躍推進政策の構造的変遷と次世代戦略</div>
+          <div class="card-title">東京都における女性活躍推進政策の構造的変遷と次世代戦略：産業労働局三課連携による多角的アプローチの現状と展望</div>
+          <div class="card-summary">本資料は、東京都が推進する女性活躍政策を**単なる福祉的支援から都市の競争力を高める経営戦略へと再定義**し、その構造的な進化を論じた報告書です。歴史的な変遷を辿る第1章に始まり、**L字カーブや男女間賃金格差**といった東京都固有の統計的課題を分析した上で、産業労働局の三課が連携して取り組む具体的な支援スキームを提示しています。特に、透明性の高い労働市場を構築するための**情報開示の義務化**や</div>
+          <div class="card-meta">
+            <span class="card-sections-count">7 セクション</span>
+            <span>2026/05/17</span>
+          </div>
+        </a>
+        <a class="report-card" href="260513_02_東京都における女性活躍推進政策の構造的変遷と次世代戦略__東京都における女性活躍推進政策の構造的変遷と次世代戦略__NLMの事業案/index.html">
+          <div class="card-folder">260513_02_東京都における女性活躍推進政策の構造的変遷と次世代戦略</div>
+          <div class="card-title">東京都における女性活躍推進政策の構造的変遷と次世代戦略：NLMの事業提案</div>
+          <div class="card-summary"></div>
+          <div class="card-meta">
+            <span class="card-sections-count">5 セクション</span>
+            <span>2026/05/17</span>
+          </div>
+        </a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-21</footer>
+</body>
+</html>
