@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東京都における女性活躍推進政策の構造的変遷と次世代戦略：NLMの事業提案</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260513_02_東京都における女性活躍推進政策</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260513_02_東京都における女性活躍推進政策
+      </div>
+      <h1 class="report-title">東京都における女性活躍推進政策の構造的変遷と次世代戦略：NLMの事業提案</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　雇用推進課：就業の壁を打破し、経済的自立を促すマッチング支援</a></li><li><a href="#sec-3">第２章　労働環境課：職場の「OS」を書き換え、マインドチェンジを主導</a></li><li><a href="#sec-4">第３章　能力開発課：人的資本の価値を高めるスキル習得支援</a></li><li><a href="#sec-5">まとめ</a></li></ol></div>
+
+    <article class="article">
+      
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <p>東京都産業労働局の雇用推進課、労働環境課、能力開発課という雇用・労働・スキルの三軸を担う各部署に対し、提供された資料に基づく<strong>具体的かつ効果的な事業案</strong>を以下に提案します。</p>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　雇用推進課：就業の壁を打破し、経済的自立を促すマッチング支援</h2>
+          <p>雇用推進課は、求職者と企業の最適なマッチングと直接的な就労支援を担います。</p>
+
+<ul><li><strong>1.1　「生涯収入2億円の差」可視化による正規雇用転換促進事業</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 非正規雇用と正規雇用の生涯賃金の差（約2億円）を具体的にシミュレーションできるツールを活用し、キャリアカウンセリングを行う。</p>
+
+<p>-   <strong>狙い:</strong> 「L字カーブ」の解消を目指し、非正規で働く女性やひとり親層に対し、経済的自律に向けた強い動機付けを行う。</p>
+
+<ul><li><strong>1.2　子育てNPO・地域団体と連携したハイブリッド・アウトリーチ支援</strong></li></ul>
+
+<p>-   <strong>内容:</strong> マザーズハローワークの機能を地域に出張させ、子育て支援団体と連携して、潜在的な就業希望層を掘り起こす。</p>
+
+<p>-   <strong>狙い:</strong> 待機児童解消後も労働市場に戻っていない層へ、個々の状況に合わせたきめ細かな復職支援を行う。</p>
+
+<ul><li><strong>1.3　成長産業（STEM/IT）特化型マッチングジョブフェアの開催</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 女性の参画が少ないSTEM分野やDX推進企業を対象とした、大規模な合同就職面接会を実施する。</p>
+
+<p>-   <strong>狙い:</strong> 職域拡大を図り、人手不足が深刻な成長産業への労働移動を加速させる。</p>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　労働環境課：職場の「OS」を書き換え、マインドチェンジを主導</h2>
+          <p>労働環境課は、企業の受け入れ体制や社会全体の意識改革を担います。</p>
+
+<ul><li><strong>2.1　男女間賃金格差解消に向けた「ジョブ・リデザイン」支援奨励金</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 短時間労働者などの非正規従業員でも登用可能な役職の新設や、賃金体系の見直しを行う中小企業に対し、専門家派遣と奨励金をセットで提供する。</p>
+
+<p>-   <strong>狙い:</strong> 賃金格差の要因分析と手順のコンサルティングを行い、実効性のある処遇改善を促す。</p>
+
+<ul><li><strong>2.2　「ウェルネス経営」導入支援パッケージ（Femtech活用）</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 生理、更年期、不妊治療などの健康課題と仕事の両立を支援するため、フェムテック製品の導入や社内制度整備（休暇取得の工夫等）を助成する。</p>
+
+<p>-   <strong>狙い:</strong> 健康課題による労働損失を可視化し、離職防止と生産性向上につなげる。</p>
+
+<ul><li><strong>2.3　男性経営者・管理職向け「女性リーダー育成」実践塾</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 「東京女性未来フォーラム」等のネットワークを活用し、男性役職者が女性リーダーを育成するノウハウを学ぶ研修を拡充する。</p>
+
+<p>-   <strong>狙い:</strong> 経営層の意識改革（アンコンシャス・バイアスの払拭）を促し、組織文化そのものを変革する。</p>
+        </section>
+        <section id="sec-4">
+          <h2>第３章　能力開発課：人的資本の価値を高めるスキル習得支援</h2>
+          <p>能力開発課は、女性が高い市場価値を持ち、主体的にキャリアを選択できる教育機会を提供します。</p>
+
+<ul><li><strong>3.1　ITエンジニア育成と就職支援の一体型リスキリングプログラム</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 非正規雇用で働く女性等を対象に、eラーニングによる高度なスキル習得と、就職支援をシームレスに提供する。</p>
+
+<p>-   <strong>狙い:</strong> 単なる学び直しで終わらせず、確実なキャリアチェンジと高付加価値な職務への就業を実現する。</p>
+
+<ul><li><strong>3.2　「時間効率重視」のケア・リテラシー配慮型職業訓練</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 育児や介護中の女性が受講しやすいよう、1日の訓練時間が短いコースの設定や、託児サービス付きの訓練を拡大する。</p>
+
+<p>-   <strong>狙い:</strong> ライフイベントによるキャリアブランクを最小限に抑え、再就職へのハードルを下げる。</p>
+
+<ul><li><strong>3.3　異業種交流型「次世代女性リーダー・ネットワーク」構築事業</strong></li></ul>
+
+<p>-   <strong>内容:</strong> 企業の垣根を超えた女性リーダー候補者同士のネットワーク形成を支援し、マネジメント能力を磨く実践的研修を実施する。</p>
+
+<p>-   <strong>狙い:</strong> ロールモデルの提示と孤独感の解消により、意思決定層への女性登用を強力に後押しする。</p>
+        </section>
+        <section id="sec-5">
+          <h2>まとめ</h2>
+          <p>これらの事業は、\<em>\</em>「新条例」の制定を見据えた都の政策目標（管理職比率向上、賃金格差解消等）\<em>\</em>と密接にリンクしており、各課が連携して「横串」で展開することで、より大きな相乗効果が期待できます。</p>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260513_02__f01/index.html">← 東京都における女性活躍推進政策の構造的変…</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-22  <div style="margin-top:20px;padding-top:16px;border-top:1px solid #dde3ea;font-size:11px;color:#8a939e;line-height:1.8;text-align:left;max-width:760px;margin-left:auto;margin-right:auto;">【免責事項】本資料は生成AIを使用して収集・整理した情報に基づき作成したものです。内容が不正確であったり最新でない可能性があります。あくまでも参考情報としてご活用いただき、重要事項については必ず一次情報にあたり事実関係をご確認ください。本資料の利用により生じた損害について、作成者は一切の責任を負いません。</div></footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>

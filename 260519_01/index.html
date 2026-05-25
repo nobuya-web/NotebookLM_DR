@@ -1,0 +1,861 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本におけるリスキリング施策の変遷と展望：人的資本経営の深化に向けた多角的研究報告</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260519_01_リスキリング</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260519_01_リスキリング
+      </div>
+      <h1 class="report-title">日本におけるリスキリング施策の変遷と展望：人的資本経営の深化に向けた多角的研究報告</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　リスキリングを巡る法的枠組みと行政指針</a></li><li><a href="#sec-3">第２章　リスキリング施策の時系列推移：過去・現状・未来</a></li><li><a href="#sec-4">第３章　リスキリングを巡る論点と事実ベースの議論</a></li><li><a href="#sec-5">第４章　先進的事例の深掘り：自治体と企業の挑戦</a></li><li><a href="#sec-6">第５章　調査データに見るリスキリング市場の現在地</a></li><li><a href="#sec-7">第６章　研究報告に基づく総合的示唆</a></li></ol></div>
+
+    <article class="article">
+      <div class="summary-box"><p>本報告書は、日本の深刻な労働力不足とデジタル化の進展を背景に、<strong>リスキリング（学び直し）を単なる教育から国家的な成長戦略</strong>へと再定義し、その現状と課題を多角的に分析したものです。内容は、個人の自律的なキャリア形成を支援する<strong>法的枠組みの整備</strong>や、雇用保険による<strong>経済的支援の拡充</strong>といった制度面から、地方自治体や先進企業における具体的な成功事例までを体系的に網羅しています。特に、従来の企業主導型から<strong>個人主導の「学びの好循環」へのパラダイムシフトが強調されており、スキルの可視化とジョブ型雇用</strong>の連動が不可欠であると説いています。最終的には、経営者がリスキリングを将来への<strong>人的資本投資</strong>と位置づけ、組織全体の変革を推進するための指針を提供することを目的としています。</p></div>
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <h3>はじめに</h3>
+
+
+<p>現代の日本経済は、急速な少子高齢化に伴う労働力人口の減少と、生成AIを含むデジタル技術の指数関数的な進展という、二つの構造的変化の渦中にある。こうした背景から、労働者が新しいスキルを習得し、付加価値の高い業務へとシフトする「リスキリング（学び直し）」は、単なる教育訓練の枠を超え、国家の存亡を左右する重要な成長戦略へと昇華した。本報告書では、日本政府が推進する「新しい資本主義」の核心である労働市場改革の進展状況、東京都をはじめとする自治体の独自の支援策、そして企業の最前線における取り組みと直面する課題を、膨大な調査データと事実関係に基づき体系的に整理する。読み手として想定される経営者、政策立案者、研究者に対し、今後の意思決定に資する深い洞察と具体的データを提供することが本稿の目的である。</p>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　リスキリングを巡る法的枠組みと行政指針</h2>
+          <h3>1.1 国の法的基盤：職業能力開発促進法の変遷と改正</h3>
+
+
+<p>日本の職業訓練政策の根幹を成すのは、昭和44年に制定された「職業能力開発促進法」である。この法律は、その時代の産業構造と労働需要を反映し、幾度もの重大な改正を経てきた。</p>
+
+<p>制定当初、本法は「職業訓練法」として発足し、高度経済成長期における技能労働者の計画的な養成を主眼としていた。当時の日本型雇用慣行においては、企業内での長期的なオン・ザ・ジョブ・トレーニング（OJT）が中心であり、法的な支援もまた、特定の技能習得を目的とした集中的な訓練に焦点が当てられていた。</p>
+
+<p>その後、産業のサービス化や知識集約化が進む中で、昭和60年に「職業能力開発促進法」へと改称された。この段階で、生涯を通じて職業能力を開発するという「生涯学習」の視点が導入された。さらに、平成27年の改正では、キャリアコンサルティングの法制化が行われ、労働者が自らのキャリアを主体的に設計する重要性が法的に位置づけられた。</p>
+
+<p>決定的な転換点となったのは、令和4年の改正である <sup class="ref">[1, 2]</sup>。この改正では、デジタル化の進展やSociety 5.0の実現を見据え、労働者が自律的・主体的に学び直しに取り組む「学びの好循環」の創出が明確に謳われた <sup class="ref">[1]</sup>。改正の核心は以下の3点に集約される。第一に、キャリアコンサルティングの実施体制の強化、第二に、地域の産業ニーズに即した柔軟な職業訓練の推進、第三に、デジタルスキル等の高度な能力開発に対する財政支援の根拠の明確化である。</p>
+
+
+<h3>1.2 雇用保険法と経済的支援の抜本的拡充</h3>
+
+
+<p>リスキリングの実効性を担保するため、政府は雇用保険法を改正し、労働者個人に対する直接的な支援を劇的に強化している <sup class="ref">[3]</sup>。これは、従来の「企業経由の支援」から、個人の自律性を重視した「個人経由の支援」へのパラダイムシフトを意味する。</p>
+
+<p>令和6年から令和7年にかけて施行される改正内容は、リスキリングのハードルとなっている時間的・経済的な制約を直接的に緩和するものである <sup class="ref">[3]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>改正項目</strong></th><th><strong>施行時期</strong></th><th><strong>改正内容の詳細</strong></th></tr></thead><tbody><tr><td>自己都合離職者の給付制限解除</td><td>令和7年4月</td><td>リスキリングのために教育訓練を受ける場合、待機期間なしで失業給付を受給可能 <sup class="ref">[3]</sup></td></tr><tr><td>教育訓練給付金の支援拡充</td><td>令和6年10月</td><td>専門実践教育訓練の給付率を受講費用の最大70%から80%へ引き上げ <sup class="ref">[3]</sup></td></tr><tr><td>教育訓練休暇給付金の創設</td><td>令和7年10月</td><td>無給の教育訓練休暇を取得した場合、基本手当と同等の給付を支給（90～150日間） <sup class="ref">[3]</sup></td></tr><tr><td>賃金助成の単価引き上げ</td><td>令和7年度</td><td>人材開発支援助成金における賃金助成を1時間あたり960円から1,000円へ増額 <sup class="ref">[4]</sup></td></tr></tbody></table></div>
+
+<p>特に、教育訓練休暇給付金の創設は画期的であり、雇用保険被保険者期間が5年以上ある労働者が、生活費の不安なく学びに従事できる環境を整備するものである <sup class="ref">[3]</sup>。これにより、働きながらの学びでは困難であった「フルタイムの集中訓練」が可能となる。</p>
+
+
+<h3>1.3 東京都における独自条例と「第11次計画」の展開</h3>
+
+
+<p>東京都は、日本最大の労働市場を抱える自治体として、国の方針をさらに加速させる独自の「第11次東京都職業能力開発計画」を策定している（令和5年3月改訂） <sup class="ref">[5, 6]</sup>。本計画は、コロナ禍による雇用環境の激変と、東京の産業競争力を維持するためのDX推進を背景としている。</p>
+
+<p>東京都の施策の特徴は、中小企業の支援に特化した手厚い財政投下と、デジタル人材の数値目標の設定にある <sup class="ref">[5]</sup>。都は、離職者や中小企業従業員を対象に、年間1万人のデジタル人材を育成するという意欲的な目標を掲げている。</p>
+
+<p>また、公益財団法人東京しごと財団を通じて実施される「DX実践人材リスキリング支援事業」は、都内の中小企業がリスキリングに取り組む際の強力な推進力となっている <sup class="ref">[7]</sup>。本事業では、受講費用の3/4を助成し、1人あたり最大75,000円、1社あたり年間100万円の上限額を設定している <sup class="ref">[7]</sup>。特筆すべきは、同一従業員が複数回の研修を受講することも可能であり、組織全体のスキルセットを段階的に引き上げる柔軟な運用が認められている点である。</p>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　リスキリング施策の時系列推移：過去・現状・未来</h2>
+          <h3>2.1 過去：企業内OJTの限界と「リカレント」への胎動</h3>
+
+
+<p>2010年代半ばまでの日本では、リスキリングという言葉は一般的ではなかった。代わりに語られていたのは「リカレント教育（学び直し）」である。しかし、この時期の議論は、大学等での生涯学習や個人の教養を高めるというニュアンスが強く、企業の事業戦略やデジタル変革と直結したものではなかった。</p>
+
+<p>当時の人材育成は、高度成長期以来の「メンバーシップ型雇用」を前提とした、企業内での長期的な育成（OJT）が主流であった。企業は自社に特化したスキルを持つ人材を育てることには長けていたが、外部労働市場でも通用する汎用的なスキルや、既存の事業領域を破壊するような新しいデジタル技術の習得には消極的であった。この「内部育成への過度な依存」が、後のDX対応の遅れを招く一因となった。</p>
+
+<p>2020年、新型コロナウイルス感染症のパンデミックが、この状況を一変させた。対面コミュニケーションが制限され、テレワークや非対面ビジネスへの急激なシフトを余儀なくされたことで、全産業におけるデジタルスキルの欠如が致命的な課題として認識されるに至った <sup class="ref">[5, 8]</sup>。</p>
+
+
+<h3>2.2 現状：三位一体の改革と「5年1兆円」の国家プロジェクト</h3>
+
+
+<p>現在（2022年〜2026年）、日本は「人への投資」を成長のエンジンと位置づける、歴史的な転換期の真っ只中にある。岸田政権が掲げる「新しい資本主義」の下で、5年間で1兆円を投じるリスキリング支援パッケージが実行されている <sup class="ref">[2, 9]</sup>。</p>
+
+<p>この政策の根底にあるのは、「リスキリング」「ジョブ型職務給」「成長分野への労働移動」を三位一体で進めるという思想である <sup class="ref">[9]</sup>。</p>
+
+<ol><li><strong>リスキリングによる能力向上</strong>: 個人が主体的にスキルを習得し、自らの市場価値を高めることを支援する。</li><li><strong>ジョブ型職務給の導入</strong>: 年功序列ではなく、職務（ジョブ）の内容や必要なスキルに基づいて賃金を決定する仕組みへ移行し、学びのインセンティブを高める。</li><li><strong>労働移動の円滑化</strong>: 成長が停滞する分野から、ITやグリーン産業などの成長分野へ、失業を経ることなく円滑に人材が移動できる労働市場を構築する。</li></ol>
+<p>現状、企業のリスキリング実施率は約40%に達しており、特に製造業では69.3%と極めて高い水準にある <sup class="ref">[10, 11]</sup>。一方で、中小企業の実施率は31.9%にとどまり、企業規模間での「リスキリング格差」が顕在化していることも事実である <sup class="ref">[10]</sup>。</p>
+
+
+<h3>2.3 今後：AI共生時代と「スキルベース」の定着</h3>
+
+
+<p>2026年以降の近未来において、リスキリングの主眼は「生成AIの使いこなし」と「スキル情報のデータ化」へと移っていく。パーソルの調査では、2025年度に強化したいスキルの第1位として、多くの職種で「AI活用」が挙げられている <sup class="ref">[10]</sup>。もはやデジタルスキルは専門職だけのものではなく、事務、営業、企画など全ての職種において必須の「読み書き算盤」となることが予想される。</p>
+
+<p>また、個人のスキルを証明する「オープンバッジ」や、AIが個人の経歴と学習履歴から最適なポジションを提案する「タレントマーケットプレイス」の導入が加速するだろう <sup class="ref">[2, 12]</sup>。これにより、従来の「会社に属する」という帰属意識から、「スキルを持ってプロジェクトに参画する」という、より柔軟でダイナミックな労働形態が一般化していくと考えられる。</p>
+        </section>
+        <section id="sec-4">
+          <h2>第３章　リスキリングを巡る論点と事実ベースの議論</h2>
+          <h3>3.1 構造的な課題：リソース不足とモチベーションの壁</h3>
+
+
+<p>リスキリングの重要性が叫ばれる一方で、現場では深刻な課題が噴出している。帝国データバンクの調査によれば、リスキリングに取り組んでいない企業の最大の理由は「時間、人材、費用などのリソース不足」である <sup class="ref">[13, 14]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>課題の分類</strong></th><th><strong>詳細な内容</strong></th><th><strong>議論されている対策・提言</strong></th></tr></thead><tbody><tr><td>リソース不足</td><td>従業員に学ぶ余裕がない、教育担当者がいない、予算が確保できない <sup class="ref">[13, 14]</sup></td><td>助成率の引き上げ（最大80%）、業務時間内学習の義務化検討 <sup class="ref">[3, 7]</sup></td></tr><tr><td>モチベーション</td><td>従業員が新しいスキルの必要性を感じない、学習が継続しない <sup class="ref">[13]</sup></td><td>学習と報酬（昇給・昇進）の連動、キャリアコンサルティングの義務化 <sup class="ref">[1, 2]</sup></td></tr><tr><td>ノウハウ不足</td><td>何を学ばせれば良いか分からない、適切な研修機関が見つからない <sup class="ref">[14]</sup></td><td>業界団体によるスキル定義の標準化、自治体によるコンサルティング支援 <sup class="ref">[5, 15]</sup></td></tr></tbody></table></div>
+
+<p>特に中小企業においては、「教育した人材が他社に引き抜かれる（レミングス現象）」ことへの懸念が根強く、これが投資を躊躇させる一因となっている。これに対し、研究者や官僚の間では、個別の企業が抱え込むのではなく、地域や業界全体で人材を育成・活用する「地域人材エコシステム」の構築が提言されている。</p>
+
+
+<h3>3.2 論点：企業主導か個人主導か</h3>
+
+
+<p>現在、最も激しく議論されている論点の一つが、「リスキリングの主体をどちらに置くべきか」という点である。</p>
+
+<p>従来の日本型モデルは「企業主導」であった。企業が教育費用を負担し、業務命令として研修を受けさせる。このモデルは、従業員の足並みを揃えるのには有効だが、個人の創造性や自発性を削ぐという批判がある。</p>
+
+<p>一方、政府が推進しようとしているのは「個人主導」への転換である。5年以内に個人への直接支援を過半に引き上げるという目標は、労働者の「キャリアオーナーシップ（自律性）」を促すためのものである <sup class="ref">[2]</sup>。しかし、これには「自ら学ぶ意欲のある層」と「そうでない層」の二極化を招くリスクがあり、教育訓練給付金の引き上げなどの経済的インセンティブがどこまで効果を発揮するかが、今後の検証ポイントとなる。</p>
+
+
+<h3>3.3 論点：ジョブ型雇用の日本的受容</h3>
+
+
+<p>リスキリングの「出口」としてのジョブ型雇用についても、多くの議論がなされている。欧米型のジョブ型をそのまま導入すれば、スキルのない労働者の解雇が容易になるのではないかという懸念がある。</p>
+
+<p>これに対し、現在の議論の主流は「日本型ジョブ型」の模索である。つまり、解雇の自由度を上げるのではなく、社内における職務記述書（ジョブディスクリプション）を明確にすることで、労働者が「どのスキルを習得すればどのポストに就けるか、いくら給料が上がるか」を予見可能にすることを目指している <sup class="ref">[2]</sup>。この透明性の確保こそが、リスキリングに対する最大のモチベーション・ブースターになると考えられている。</p>
+        </section>
+        <section id="sec-5">
+          <h2>第４章　先進的事例の深掘り：自治体と企業の挑戦</h2>
+          <h3>4.1 地方自治体によるリスキリングの「地域モデル」</h3>
+
+
+<p>地方自治体は、その土地の主要産業を守り、発展させるためのリスキリング支援を行っている。</p>
+
+<ol><li><strong>広島県：リスキリング推進宣言制度</strong> 広島県は、製造業や介護業など、人手不足が深刻な業種を対象に「リスキリング推進宣言制度」を展開している <sup class="ref">[15]</sup>。これは、企業がトップの決意として「全社を挙げてリスキリングに取り組む」ことを内外に宣言するもので、2022年度から開始された。宣言企業に対しては、専門のコンサルタントを派遣し、事業戦略に直結した人材育成計画の策定を支援している。単なる費用の助成にとどまらず、経営者のマインドセットを変えるというアプローチが全国から注目されている。</li><li><strong>山陰合同銀行：地域金融機関による「人的資本の再配置」</strong> 島根・鳥取両県を拠点とする山陰合同銀行の事例は、地方企業におけるリスキリングの可能性を鮮やかに示している <sup class="ref">[16]</sup>。同行では、事務職の女性行員に対し、大規模なリスキリングを実施して法人営業職へと配置転換した。2020年には47名だった女性法人営業担当者が、2024年には128名へと急増し、そのうち81名がリスキリング対象者であった。これは、既存人材の潜在能力をデジタルの力と教育で引き出し、収益部門へシフトさせた人的資本経営の好例である。</li><li><strong>茨城県つくば市：行政DXの基盤としての職員リスキリング</strong> つくば市では、全職員を対象としたデータ利活用研修を受講必須とした <sup class="ref">[17]</sup>。行政運営における意思決定を「経験と勘」から「データ」へと転換するため、職員自らがPythonなどのプログラミング言語や統計学を学ぶ環境を整えている。これにより、自治体DXの推進スピードが飛躍的に向上している。</li></ol>
+<h3>4.2 先行企業におけるリスキリングの成果指標</h3>
+
+
+<p>大規模な投資を行っている先進企業では、リスキリングの成果を具体的な数値で管理し始めている。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>企業名</strong></th><th><strong>主要な取り組み</strong></th><th><strong>成果指標・数値データ</strong></th></tr></thead><tbody><tr><td><strong>富士通</strong></td><td>全社員12万人対象のLXP（Edge）導入、Udemy全社提供 <sup class="ref">[12]</sup></td><td>受講率90%超。累計25万個以上のデジタルバッジ発行。DXリテラシー認定ほぼ100% <sup class="ref">[12]</sup></td></tr><tr><td><strong>日立製作所</strong></td><td>社内大学「Hitachi University」設立、デジタルサービス事業「Lumada」への人材シフト <sup class="ref">[18, 19]</sup></td><td>2019年からデジタル人材の育成を加速。営業利益率の高いDXサービス事業の成長に寄与 <sup class="ref">[19]</sup></td></tr><tr><td><strong>ソニーグループ</strong></td><td>全社員対象AI研修、業務時間の20%を他部署経験に充てる制度 <sup class="ref">[18]</sup></td><td>高い従業員エンゲージメントを実現。異なる背景を持つ社員の混在によるイノベーション創出 <sup class="ref">[18]</sup></td></tr><tr><td><strong>西川コミュニケーションズ</strong></td><td>印刷業からデジタル（3DCG等）へのピボット。社内アカデミー設立 <sup class="ref">[18]</sup></td><td>売上の約50%を非印刷事業が占める。習得したスキルを外販サービス化して収益向上 <sup class="ref">[18, 20]</sup></td></tr><tr><td><strong>キヤノン</strong></td><td>ハードウェアからソフトウェアへの大規模な職種転換教育 <sup class="ref">[18]</sup></td><td>急激な市場変化に対応し、解雇することなく内部人材のスキルセットを入れ替え <sup class="ref">[18]</sup></td></tr></tbody></table></div>
+
+<p>特に富士通の事例において注目すべきは、リスキリングと「社内公募制度（ポスティング）」の完全な連動である。年間1万人規模の社員が、自律的に学んだスキルを武器に希望のポストへ挑戦しており、これが組織の硬直化を防ぐダイナミズムとなっている <sup class="ref">[12]</sup>。</p>
+
+
+<h3>4.3 中小企業の「生存戦略」としてのリスキリング</h3>
+
+
+<p>リソースの限られた中小企業においても、独自の工夫でリスキリングを成功させているケースがある。</p>
+
+<ul><li><strong>株式会社陣屋（旅館）</strong>: IT化により生産性を向上させ、自社開発したシステムを他旅館へ外販する事業へと多角化 <sup class="ref">[20]</sup>。従業員は「仲居」としての接客スキルに加え、ITツールの運用スキルを習得し、賃金向上と週休3日制を実現した。</li></ul>
+
+<ul><li><strong>久野金属工業</strong>: 自動車部品製造から、デジタル技術を駆使した新規事業へ参入。現場の職人がタブレットを使いこなし、データを活用した工程改善を行うことで、伝統的な製造業を「データ駆動型産業」へと変貌させた <sup class="ref">[20]</sup>。</li></ul>
+        </section>
+        <section id="sec-6">
+          <h2>第５章　調査データに見るリスキリング市場の現在地</h2>
+          <h3>5.1 eラーニング市場の爆発的成長と法人需要</h3>
+
+
+<p>リスキリングの有力な手段として、eラーニングの重要性が増している。2024年度の国内eラーニング市場規模は3,812億円と予測されており、その伸びを牽引しているのはBtoB（法人向け）市場である <sup class="ref">[21]</sup>。</p>
+
+<p>市場の特徴的な動きとして、単に講義動画を視聴するだけのLMS（学習管理システム）から、AIが個々の学習者に最適なコンテンツをレコメンドするLXP（学習体験プラットフォーム）への移行が挙げられる <sup class="ref">[21]</sup>。学習者一人ひとりのレベルや職種に応じた「個別最適化された学び」が提供できるようになったことが、リスキリングの効率を劇的に高めている。</p>
+
+
+<h3>5.2 業種・年齢層による実施率の乖離</h3>
+
+
+<p>調査データは、日本の労働市場におけるリスキリングの「濃淡」を浮き彫りにしている。</p>
+
+<ul><li><strong>業種別</strong>: 製造業が69.3%と突出しており、これに次いで通信・情報サービス業（34.6%）となっている <sup class="ref">[11]</sup>。製造現場における自動化・省人化への対応が、いかに切実であるかが伺える。</li></ul>
+
+<ul><li><strong>年齢別</strong>: ミドルシニア層においては、40代の実施率が最も高い。一方で、定年を間近に控えた層や、逆に基礎スキルの習得に追われる若年層において、戦略的なリスキリングの実施率が低下する傾向が見られる <sup class="ref">[11]</sup>。</li></ul>
+
+<ul><li><strong>予算規模</strong>: 2025年度のリスキリング予算について、500万円〜1000万円未満とする企業が約40%で最多である一方、1億円以上の巨額投資を行う企業も8.5%存在する <sup class="ref">[10]</sup>。投資を惜しまないトップ企業と、コストとして抑制する企業の差が拡大している。</li></ul>
+
+
+<h3>5.3 助成金活用の実態とボトルネック</h3>
+
+
+<p>政府の積極的な支援策にもかかわらず、給付金・助成金の申請・受給を行っている企業は17.5%にとどまっているという事実は重い <sup class="ref">[14]</sup>。 企業の意見を分析すると、「手続きが煩雑である」「対象となる訓練の基準が厳しすぎる」といった不満が根強い。特に、オンライン研修において「受講者が本当に画面の前にいたか」という出席証明の要件が厳格すぎることが、利用を妨げる壁となっている <sup class="ref">[4]</sup>。</p>
+
+<p>これを受け、厚生労働省は令和7年度から「計画届の受理プロセスの廃止（事後審査への移行）」や「賃金助成の加算制度」を導入し、使い勝手の向上を図っている <sup class="ref">[4]</sup>。行政側には、不正受給の防止と利便性の向上の間で、極めて高度なバランス感覚が求められている。</p>
+        </section>
+        <section id="sec-7">
+          <h2>第６章　研究報告に基づく総合的示唆</h2>
+          <h3>6.1 経営責任としての「学びの環境整備」</h3>
+
+
+<p>本調査を通じて得られた最大の示唆は、リスキリングの成否は「教育プログラムの質」以上に、「経営陣のコミットメント」に依存するという点である。 リスキリングに取り組んでいる企業において、従業員のモチベーション維持が最大の課題となっている事実は、多くの労働者が「学んだところで何が変わるのか」という疑問を抱いていることを示唆している <sup class="ref">[13]</sup>。経営者は、リスキリングを福利厚生の一部と捉えるのではなく、事業の存続に必要な「投資」として位置づけ、学んだスキルが明確に評価され、昇給や望むキャリアに繋がることを社内に明示すべきである。</p>
+
+
+<h3>6.2 スキルの可視化と外部労働市場とのリンク</h3>
+
+
+<p>第２の示唆は、自社内だけで通用するスキル（社内特殊スキル）から、外部でも通用するスキル（汎用スキル）への転換である。 富士通やソニーが導入しているデジタルバッジやオープンバッジの仕組みは、労働者の市場価値を可視化する <sup class="ref">[12]</sup>。これは一見、人材流出のリスクを高めるように思えるが、実際には「市場価値を高められる会社」としての魅力を高め、優秀な人材を引き寄せることに成功している。労働移動が活性化するこれからの時代、企業は「囲い込み」ではなく、「魅力的な挑戦の場」を提供し続けることでしか人材を繋ぎ止められない。</p>
+
+
+<h3>6.3 公的支援を「呼び水」とした大胆な投資</h3>
+
+
+<p>第３の示唆は、国や東京都の助成金・支援策を単なる「コスト削減手段」ではなく、「実験の軍資金」として活用することである。 東京都のDX実践人材リスキリング支援事業のように、費用の3/4が戻ってくる制度は、リスクを最小限に抑えつつ新しい教育手法を試す絶好の機会である <sup class="ref">[7]</sup>。特に中小企業は、最初から自前で全てを整えようとせず、外部のeラーニングプラットフォームやコンサルティングを公的支援で積極的に導入し、まずは「成功体験」を積み上げることが肝要である。</p>
+
+
+<h3>まとめ</h3>
+
+
+<p>日本におけるリスキリングは、かつての「個人の趣味的な学び直し」から、国家・自治体・企業が一体となって推進する「労働市場の構造改革」へと、その位相を決定的に変えた。</p>
+
+<p>法的枠組みにおいては、職業能力開発促進法や雇用保険法の改正を通じて、個人の自律性を支えるセーフティネットとインセンティブが着実に整備されている <sup class="ref">[1, 3]</sup>。東京都をはじめとする自治体も、地域経済のDX化を強力にバックアップしており、活用可能なリソースはかつてないほど充実している <sup class="ref">[5, 7]</sup>。</p>
+
+<p>一方で、現場におけるリソース不足やモチベーションの乖離といった課題も鮮明になっている <sup class="ref">[13, 14]</sup>。これらの壁を突破するためには、単なる教育スキームの導入に留まらず、ジョブ型雇用への移行、報酬制度の改革、そして何よりも「人的資本を最大化することが持続可能な成長の唯一の道である」という経営者の確固たる信念が不可欠である。</p>
+
+<p>2026年、そしてその先の生成AI共生時代に向け、リスキリングは企業の競争優位性を決定づける最大の変数となるだろう。本報告書で提示したデータと事例が、変化を恐れず新たな一歩を踏み出すための羅針盤となれば幸いである。</p>
+
+<hr>
+
+<ol class="ref-list"><li>キャリアコンサルティングの機会確保を求める「職業能力開発促進法」の改正 ｜note,<br><a href="https://co-development.persol-career.co.jp/insight/note/445/" target="_blank" rel="noopener">https://co-development.persol-career.co.jp/insight/note/445/</a></li><li>1 三位一体の労働市場改革の指針 令 和 ５ 年 ５ 月 １ ６ 日 新 しい資 …,<br><a href="https://www.cas.go.jp/jp/seisaku/atarashii\_sihonsyugi/pdf/roudousijou.pdf" target="_blank" rel="noopener">https://www.cas.go.jp/jp/seisaku/atarashii\_sihonsyugi/pdf/roudousijou.pdf</a></li><li>改正雇用保険法（第2回）---教育訓練やリスキリングの支援拡充について,<br><a href="https://j-net21.smrj.go.jp/solution/law/20250620.html" target="_blank" rel="noopener">https://j-net21.smrj.go.jp/solution/law/20250620.html</a></li><li>【令和7年度】人材開発支援助成金（リスキリングコース）完全ガイド！助成率75%を獲得する手順と「不支給」を防ぐ3つの鉄則 - グロウライフ社会保険労務士法人,<br><a href="https://growlife-sr.com/2026/04/21/reskilling-course/" target="_blank" rel="noopener">https://growlife-sr.com/2026/04/21/reskilling-course/</a></li><li>第11次東京都職業能力開発計画 (概 要 版),<br><a href="https://www.hataraku.metro.tokyo.lg.jp/plan/%E7%AC%AC11%E6%AC%A1%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%81%B7%E6%A5%AD%E8%83%BD%E5%8A%9B%E9%96%8B%E7%99%BA%E8%A8%88%E7%94%BB%EF%BC%88%E6%A6%82%E8%A6%81%E7%89%88%EF%BC%89%E3%80%90%E4%BB%A4%E5%92%8C5%E5%B9%B43%E6%9C%88%E6%94%B9%E8%A8%82%E3%80%91%20.pdf" target="_blank" rel="noopener">https://www.hataraku.metro.tokyo.lg.jp/plan/%E7%AC%AC11%E6%AC%A1%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%81%B7%E6%A5%AD%E8%83%BD%E5%8A%9B%E9%96%8B%E7%99%BA%E8%A8%88%E7%94%BB%EF%BC%88%E6%A6%82%E8%A6%81%E7%89%88%EF%BC%89%E3%80%90%E4%BB%A4%E5%92%8C5%E5%B9%B43%E6%9C%88%E6%94%B9%E8%A8%82%E3%80%91%20.pdf</a></li><li>第11次東京都職業能力開発計画 - TOKYOはたらくネット,<br><a href="https://www.hataraku.metro.tokyo.lg.jp/plan/noukaikeikaku11/index.html" target="_blank" rel="noopener">https://www.hataraku.metro.tokyo.lg.jp/plan/noukaikeikaku11/index.html</a></li><li>【東京都】DXリスキリング助成金とは？中小企業向けに最大100万円支給！令和8年度制度を解説,<br><a href="https://hojyokin-portal.jp/columns/tokyo\_dx\_reskilling" target="_blank" rel="noopener">https://hojyokin-portal.jp/columns/tokyo\_dx\_reskilling</a></li><li>第11次職業能力開発基本計画（第1部総説）【まとめ編】,<br><a href="https://www.career-consultant.info/11\_1\_matome/" target="_blank" rel="noopener">https://www.career-consultant.info/11\_1\_matome/</a></li><li>リスキリング（学び直し）とは？意味・事例や導入メリットを解説 \| DOORS DX - ブレインパッド,<br><a href="https://www.brainpad.co.jp/doors/contents/reskilling\_1/" target="_blank" rel="noopener">https://www.brainpad.co.jp/doors/contents/reskilling\_1/</a></li><li>2025年度リスキリング予算1億円以上の企業は8.5%(パーソルイノベーション『Reskilling Camp』調べ),<br><a href="https://reskilling.com/article/110/" target="_blank" rel="noopener">https://reskilling.com/article/110/</a></li><li>リスキリング支援サービス『Reskilling Camp』企業におけるリスキリング施策の実態調査（2025年12月版） - パーソルイノベーション,<br><a href="https://www.persol-innovation.co.jp/news/2026-0108-1" target="_blank" rel="noopener">https://www.persol-innovation.co.jp/news/2026-0108-1</a></li><li>富士通 統合レポート - Fujitsu,<br><a href="https://global.fujitsu/-/media/Project/Fujitsu/Fujitsu-HQ/about/integrated-report/2025/integrated-report-2025-jp.pdf" target="_blank" rel="noopener">https://global.fujitsu/-/media/Project/Fujitsu/Fujitsu-HQ/about/integrated-report/2025/integrated-report-2025-jp.pdf</a></li><li>テーマ:省力化投資の効果を高める現場社員のリスキリングの兆し - 中部経済産業局,<br><a href="https://www.chubu.meti.go.jp/a32kikaku/kizashi/20250416/20250416\_kizashi\_report8.pdf" target="_blank" rel="noopener">https://www.chubu.meti.go.jp/a32kikaku/kizashi/20250416/20250416\_kizashi\_report8.pdf</a></li><li>リスキリングに関する企業の意識調査（2024年） - 帝国データバンク,<br><a href="https://www.tdb.co.jp/report/economic/20241120-reskilling2024/" target="_blank" rel="noopener">https://www.tdb.co.jp/report/economic/20241120-reskilling2024/</a></li><li>広島県「「自治体主導型リスキリング」で 地域企業の変革を後押し」 - 日本能率協会コンサルティング,<br><a href="https://www.jmac.co.jp/case/detail/202512\_04.html" target="_blank" rel="noopener">https://www.jmac.co.jp/case/detail/202512\_04.html</a></li><li>女性法人営業が４年で約3倍に。リスキリングで地方銀行が人材難を突破（前編）,<br><a href="https://www.ntt.com/bizon/d/00757.html" target="_blank" rel="noopener">https://www.ntt.com/bizon/d/00757.html</a></li><li>自治体が今取り組むべきリスキリングとは？先行事例3選も紹介 - リスキリングナビ,<br><a href="https://reskilling-navi.com/column/municipality-reskilling" target="_blank" rel="noopener">https://reskilling-navi.com/column/municipality-reskilling</a></li><li>リスキリングの導入事例10選｜成功企業に学ぶ導入プロセスと成果を出すポイント,<br><a href="https://www.e-coms.co.jp/column/reskilling\_success\_story" target="_blank" rel="noopener">https://www.e-coms.co.jp/column/reskilling\_success\_story</a></li><li>リスキリングとは？DX推進に求められる理由と導入のポイントを解説,<br><a href="https://www.persol-bd.co.jp/service/product/s-miteras/column/reskillingdx/" target="_blank" rel="noopener">https://www.persol-bd.co.jp/service/product/s-miteras/column/reskillingdx/</a></li><li>【リスキリング事例12選】大企業・中小企業それぞれのヒントが満載 \| 株式会社LDcube,<br><a href="https://ldcube.jp/blog/reskilling234" target="_blank" rel="noopener">https://ldcube.jp/blog/reskilling234</a></li><li>eラーニング市場に関する調査を実施（2025年） \| 市場調査とマーケティングの矢野経済研究所,<br><a href="https://www.yano.co.jp/press-release/show/press\_id/3795" target="_blank" rel="noopener">https://www.yano.co.jp/press-release/show/press\_id/3795</a></li></ol>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260521_01/index.html">← 超高齢社会におけるシニア雇用の多角的分析…</a><a href="../260518_02/index.html">日本における副業・兼業の変遷と地方創生へ… →</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-05-22  <div style="margin-top:20px;padding-top:16px;border-top:1px solid #dde3ea;font-size:11px;color:#8a939e;line-height:1.8;text-align:left;max-width:760px;margin-left:auto;margin-right:auto;">【免責事項】本資料は生成AIを使用して収集・整理した情報に基づき作成したものです。内容が不正確であったり最新でない可能性があります。あくまでも参考情報としてご活用いただき、重要事項については必ず一次情報にあたり事実関係をご確認ください。本資料の利用により生じた損害について、作成者は一切の責任を負いません。</div></footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>
