@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沖縄のデジタル政策における構造的変遷と自立型共創エコシステム</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+  --navy:       #1a2744;
+  --teal:       #1d6a72;
+  --teal-light: #e8f4f5;
+  --accent:     #c8973a;
+  --text:       #2d2d2d;
+  --muted:      #666666;
+  --border:     #d4dde6;
+  --bg:         #f7f9fb;
+  --white:      #ffffff;
+  --radius: 8px;
+  --font-heading: 'Noto Serif JP', 'Georgia', serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  border-bottom: 1px solid #0e1a32;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+}
+
+body { padding-top: 56px; }
+
+header a.logo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header a.logo span { color: #c8d6e8; font-weight: 400; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { color: #c8d6e8; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+nav a:hover, nav a.active { color: #ffffff; }
+
+/* ── LAYOUT ── */
+.page-wrapper { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+/* ── INDEX PAGE ── */
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.report-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+}
+
+.report-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(29,106,114,.12);
+}
+
+.card-folder {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.card-summary {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-sections-count {
+  background: var(--teal-light);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ── REPORT PAGE ── */
+.report-header {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: var(--bg);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.report-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.report-breadcrumb a { color: var(--teal); text-decoration: none; }
+
+.report-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+}
+
+.summary-box {
+  background: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.93rem;
+  color: #1d3a3d;
+  line-height: 1.8;
+}
+
+.summary-box strong { color: var(--navy); }
+
+/* ── TOC ── */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+.toc a:hover { color: var(--teal); }
+
+/* ── ARTICLE ── */
+.article h1 { font-family: var(--font-heading); font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--navy); }
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
+}
+.article h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 .6rem;
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.article p { margin: .75rem 0; color: var(--text); padding-left: calc(0.8rem + 3px); }
+.article ul { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); }
+.article ol { margin: .75rem 0; padding-left: calc(0.8rem + 3px + 1.2rem); list-style-position: outside; }
+.article li { margin: .3rem 0; }
+.article strong { color: var(--navy); }
+.article hr { border: none; border-top: 2px solid var(--navy); margin: 2rem 0; }
+.article code { background: var(--teal-light); border-radius: 4px; padding: 1px 6px; font-size: .85em; }
+.article a { color: var(--teal); }
+.article sup.ref { color: var(--muted); font-size: .7em; }
+
+.ref-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--teal);
+}
+.ref-list { list-style: none; counter-reset: ref-counter; margin: 0; padding: 0; }
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+  line-height: 1.7;
+}
+.ref-list li::before {
+  content: '[' counter(ref-counter) ']';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ref-list a { color: var(--teal); word-break: break-all; text-decoration: none; font-size: 0.8rem; }
+.ref-list a:hover { text-decoration: underline; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; background: var(--white); }
+thead { background: var(--navy); }
+th { text-align: left; padding: .75rem 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #0e1a32; }
+th strong { color: #ffffff !important; }
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+tbody tr:nth-child(even) { background: #f1f6f8; }
+tbody tr:hover { background: var(--teal-light); }
+td:first-child { font-weight: 600; color: var(--navy); }
+tr:last-child td { border-bottom: none; }
+
+/* ── TTS BAR (ヘッダー内) ── */
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.5);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.tts-btn.playing { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.7); }
+
+.tts-stop {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: transparent;
+  color: #c8d6e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.tts-stop:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
+
+.tts-select {
+  padding: 0.28rem 0.6rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,214,232,0.3);
+  background: rgba(255,255,255,0.08);
+  color: #c8d6e8;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+}
+.tts-select:focus { border-color: rgba(255,255,255,0.5); }
+
+.tts-label {
+  font-size: 0.75rem;
+  color: rgba(200,214,232,0.7);
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+  </style>
+    <style>
+  /* ========== iPhone / スマホ向け ========== */
+  @media (max-width: 640px) {
+    header { padding: 5px 0.75rem; gap: 0.4rem; height: auto; min-height: 48px; flex-wrap: nowrap; }
+    body { padding-top: 48px; }
+    header nav { display: none; }
+    .tts-bar { gap: 0.25rem; }
+    .tts-btn { font-size: 0.73rem; padding: 0.2rem 0.6rem; }
+    .tts-stop { font-size: 0.73rem; padding: 0.2rem 0.5rem; }
+    .tts-select { font-size: 0.7rem; max-width: 95px; padding: 0.18rem 0.35rem; }
+    .tts-label { display: none; }
+    .page-wrapper { padding: 1rem 0.875rem 3rem; }
+    .report-header { top: 48px; padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 0.75rem; }
+    .report-title { font-size: clamp(1.15rem, 4.5vw, 1.5rem); margin-bottom: 0.5rem; }
+    .page-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    .summary-box { padding: 0.875rem 1rem; font-size: 0.88rem; }
+    .toc { padding: 0.875rem 1rem; margin-bottom: 1.5rem; }
+    .article h2 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+    .article h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    .article p { font-size: 0.92rem; padding-left: 0; }
+    .article ul, .article ol { padding-left: calc(3px + 1.2rem); }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.45rem 0.6rem; }
+    .ref-list li { font-size: 0.82rem; padding: 0.4rem 0 0.4rem 2rem; }
+    .report-card { padding: 0.875rem; gap: 0.5rem; }
+    .card-title { font-size: 0.92rem; }
+    .card-summary { font-size: 0.78rem; -webkit-line-clamp: 3; }
+    .card-meta { font-size: 0.7rem; }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../index.html">Deep Research <span>/ レポート一覧</span></a>
+    <div class="tts-bar">
+      <button class="tts-btn" id="tts-btn">▶ 読み上げ</button>
+      <button class="tts-stop" id="tts-stop">■ 停止</button>
+      <select class="tts-select" id="tts-voice"></select>
+      <select class="tts-select" id="tts-rate" style="max-width:80px">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1.0" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.75">1.75×</option>
+        <option value="2.0">2.0×</option>
+      </select>
+      <span class="tts-label" id="tts-label"></span>
+    </div>
+    <nav>
+      <a href="../index.html">一覧</a>
+      <a href="#" class="active">260601_01_沖縄のデジタル政策</a>
+    </nav>
+  </header>
+  <div class="page-wrapper">
+    <div class="report-header">
+      <div class="report-breadcrumb">
+        <a href="../index.html">一覧</a> › 260601_01_沖縄のデジタル政策
+      </div>
+      <h1 class="report-title">沖縄のデジタル政策における構造的変遷と自立型共創エコシステム</h1>
+    </div>
+
+    <div class="toc"><div class="toc-title">目次</div><ol><li><a href="#sec-1">はじめに</a></li><li><a href="#sec-2">第１章　国の沖縄振興法制とデジタル政策の時系列展開</a></li><li><a href="#sec-3">第２章　沖縄県の条例・政策とDX推進体制の時系列展開</a></li><li><a href="#sec-4">第３章　主要自治体の条例・政策における時系列展開と先進モデル</a></li><li><a href="#sec-5">第４章　これまでのデジタル政策を巡る議論と構造的課題</a></li><li><a href="#sec-6">第５章　これまでの政策を踏まえた今後の示唆と提言</a></li></ol></div>
+
+    <article class="article">
+      <div class="summary-box"><p>この報告書は、沖縄県がこれまでの<strong>外部企業誘致に頼る労働集約型モデル</strong>を脱却し、<strong>全産業のデジタル・トランスフォーメーション（DX）を通じて自立した経済を構築するまでの変遷を詳細に解説しています。過去のコールセンター中心の産業構造から、AIやビッグデータを活用して「稼ぐ力」を向上させる新たなパラダイムシフト</strong>への移行を、法制度の改正や主要自治体の成功事例をもとに体系化しています。特に、地場企業のデジタルへの無関心や人材不足といった<strong>構造的課題を克服するための具体的な解決策</strong>として、産官学金が連携した<strong>共創エコシステムの構築</strong>や、利用者視点に立ったサービスデザインの重要性を提言しています。最終的には、沖縄が有利性を克服するだけでなく、<strong>東アジアをリードするデジタルイノベーションの先進地</strong>へと成長するための持続可能なロードマップを提示することが、本資料の主たる目的です。</p></div>
+        <section id="sec-1">
+          <h2>はじめに</h2>
+          <h3>はじめに</h3>
+
+
+<p>沖縄における情報通信産業およびデジタル政策は、地理的不利性の克服と自主的雇用の創出を二大目標として、1990年代末から独自の軌跡を辿ってきた <sup class="ref">[1, 2, 3]</sup>。本土とアジアの結節点としての地理的優位性や、独立した電力系統および国内被災リスクの極めて低いバックアップ拠点としての優位性を活かし、国と沖縄県は強力なインセンティブ措置を伴う振興策を推し進めてきた歴史がある <sup class="ref">[2]</sup>。しかし、これまでの政策はコールセンターや低付加価値BPO（ビジネス・プロセス・アウトソーシング）を中心とした「外部誘致型・労働集約型」の産業構造を構築するにとどまり、県内他産業への波及効果や自立的な経済付加価値の創出という観点においては未だ多くの構造的論点を残している <sup class="ref">[4, 5]</sup>。</p>
+
+<p>2020年代に突入し、デジタル技術の爆発的進化（AI、IoT、ビッグデータ）や国全体の「デジタル田園都市国家構想」の推進、さらには深刻化する深刻な労働力不足といった社会潮流を背景に、沖縄のデジタル政策は従来の単一的な「IT産業の振興」から「全産業のデジタル・トランスフォーメーション（DX）を通じた『稼ぐ力』の向上」へと大きなパラダイムシフトを迎えている <sup class="ref">[3, 6, 7]</sup>。</p>
+
+<p>本報告書は、沖縄の自立的発展に向けたデジタル化に携わる県・市町村職員、地盤企業、地域金融機関、人材会社などのステークホルダーに向けて、国の基本法制から沖縄県、さらには主要市町村のデジタル関連政策を時系列（過去・現状・今後）に沿って整理する。そのうえで、これまでの実践プロセスから顕在化した地場企業のDX無関心層、データ利活用インセンティブの欠如、人材流出といった構造的論点を浮き彫りにし、産官学金連携の高度化やサービスデザイン思考に基づく自立型共創エコシステムの構築に関する具体的示唆を提示する。</p>
+
+<hr>
+        </section>
+        <section id="sec-2">
+          <h2>第１章　国の沖縄振興法制とデジタル政策の時系列展開</h2>
+          <h3>1.1 法改正と振興基本方針の変遷（過去・現状・今後）</h3>
+
+
+<p>国の沖縄振興政策は、沖縄振興特別措置法（以下「沖振法」）に基づき、約10年単位の法改正とこれに伴う「沖縄振興基本方針」の策定を通じて推進されてきた歴史がある <sup class="ref">[8]</sup>。</p>
+
+<p>過去の法制下においては、主に1999年（平成11年）に開始された「情報通信産業振興地域」制度、および2002年（平成14年）の沖振法制定に伴う「情報通信産業特別地区」制度が政策推進の主軸を担ってきた <sup class="ref">[3]</sup>。この時期は「マルチメディアアイランド構想」のもと、県外のIT企業や大規模コールセンターの誘致を急速に進め、安価で豊富な若年労働力を活用した雇用の創出が急ピッチで進められた <sup class="ref">[1, 9]</sup>。</p>
+
+<p>現状の法制環境としては、2022年（令和4年）3月に成立した「沖縄振興特別措置法等の一部を改正する法律」によって、法の有効期限が2032年（令和13年）3月31日までの10年間延長されたことが大きな画期となっている <sup class="ref">[8, 10]</sup>。これに基づき、国は2022年5月に新たな「沖縄振興基本方針」を閣議決定した <sup class="ref">[8]</sup>。現行方針における最大の変更点は、デジタル社会の形成や脱炭素（グリーン社会）への移行を「不利性の克服」から「成長・深化への好機」へと位置づけ直した点にある <sup class="ref">[3, 6, 10]</sup>。特に法改正に伴い、情報通信技術を用いた情報の活用による「事業者の経営の効率化」「事業の高度化」「生産性の向上」の促進に向けた努力義務が新設され、各省庁および自治体の施策執行においてデジタル適応の優先度が格段に高まった <sup class="ref">[10]</sup>。</p>
+
+<p>今後の展望として、国は予算や独自税制を通じて地方の取り組みを後押ししつつ、沖縄科学技術大学院大学（OIST）等を核としたスタートアップ・エコシステムの形成や、国際物流拠点産業のデジタル化、観光産業の高付加価値化など、2031年度末に向けた「自立型経済の確立」を多角的に支援していく方針を示している <sup class="ref">[3, 6]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>区分（時系列）</strong></th><th><strong>根拠法制・政策方針</strong></th><th><strong>デジタル政策の主要フォーカス・方向性</strong></th></tr></thead><tbody><tr><td><strong>過去（〜2021年度）</strong></td><td>2002年策定の旧沖振法、情報通信産業振興地域・特区制度の創設 <sup class="ref">[3, 8]</sup></td><td>コールセンター、BPO等を中心とした「外部IT企業の誘致」および初期情報インフラ、IT系研修施設の整備 <sup class="ref">[2, 9]</sup></td></tr><tr><td><strong>現状（2022〜2026年度）</strong></td><td>2022年法改正（10年間延長）、新たな「沖縄振興基本方針」の決定 <sup class="ref">[8, 10]</sup></td><td>全産業のDX推進、AI・IoT・ビッグデータ活用、デジタル社会形成・経営効率化への努力義務の新設 <sup class="ref">[6, 10]</sup></td></tr><tr><td><strong>今後（2027〜2031年度）</strong></td><td>延長された沖振法に基づく自立経済確立期の深化（令和13年度末まで） <sup class="ref">[8, 10]</sup></td><td>OISTを核としたイノベーション・スタートアップ創出、国際物流拠点産業の高度化、観光高付加価値化の定着 <sup class="ref">[3, 6]</sup></td></tr></tbody></table></div>
+
+
+<h3>1.2 特区・地域制度の構造的推移と情報通信産業の実態（過去・現状・今後）</h3>
+
+
+<p>沖縄に付与された国レベルの最大の優遇措置は、税制や融資の特例を伴う「特区・地域制度」の展開である <sup class="ref">[2, 9, 11]</sup>。</p>
+
+<p>過去から現状に至るまで、沖振法に基づき「情報通信産業振興地域（那覇市等24市町村指定）」および「情報通信産業特別地区（那覇・浦添、名護・宜野座、うるまの3地区指定）」が展開され、多大な税制メリットを提供してきた <sup class="ref">[9]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>特区・地域名称</strong></th><th><strong>対象区域</strong></th><th><strong>主な特例措置の内容</strong></th></tr></thead><tbody><tr><td><strong>情報通信産業振興地域</strong></td><td>那覇市、宜野湾市、浦添市、名護市、沖縄市等24市町村 <sup class="ref">[9]</sup></td><td>1,000万円超の情報通信業務用設備を新増設した際、事業税（5年間免除）、不動産取得税（課税免除）、固定資産税の減免等 <sup class="ref">[9]</sup></td></tr><tr><td><strong>情報通信産業特別地区</strong></td><td>那覇市・浦添市・名護市・うるま市・宜野座村の指定地区 <sup class="ref">[9, 12]</sup></td><td>設立10年以内の青色申告法人に対する所得控除（40%控除）または投資税額控除（機械等15%、建物等8%）の選択適用 <sup class="ref">[2, 11]</sup></td></tr><tr><td><strong>経済金融活性化特別地区</strong></td><td>名護市全域 <sup class="ref">[2, 12]</sup></td><td>従来の金融特区を改組し、情報通信関連産業も対象に含む多様な産業の集積を図るための所得控除、投資税額控除等の適用 <sup class="ref">[2]</sup></td></tr><tr><td><strong>産業イノベーション促進地域</strong></td><td>沖縄県全域 <sup class="ref">[12]</sup></td><td>製造業やデジタル技術を活用した新事業創出企業の設備投資における税制優遇措置等 <sup class="ref">[12]</sup></td></tr></tbody></table></div>
+
+<p>このような特例措置の存在は、沖縄の情報通信産業の規模を飛躍的に拡大させた <sup class="ref">[1]</sup>。かつて「マルチメディアアイランド構想」等で掲げられた「企業数580社、雇用40,000人」といった初期目標値は <sup class="ref">[1]</sup>、時系列的な見直しを経て上方修正されてきた。</p>
+
+<p>直近の統計（令和7年3月末時点の調査結果）に基づく沖縄県の情報通信関連産業の実態は以下の通りである <sup class="ref">[5]</sup>。</p>
+
+<ul><li><strong>企業数</strong>: 899社 <sup class="ref">[5]</sup></li></ul>
+
+<ul><li><strong>雇用者数</strong>: 36,004人（推計値を含む） <sup class="ref">[5]</sup></li></ul>
+
+<ul><li><strong>売上高</strong>: 4,749億円（推計値を含む） <sup class="ref">[5]</sup></li></ul>
+
+<p>これら全体の約60%を「コンテンツ制作」と「ソフトウェア開発」の企業数が占める一方、雇用面では依然として「コールセンター」と「情報サービス（受託）」が約55%を擁する労働集約的な構造を残している <sup class="ref">[5]</sup>。また売上高の約60%は「通信・ITインフラ」と「ソフトウェア開発」に集中しており、企業数・雇用数で上回る立地企業（県外進出企業）に対し、売上高シェアでは県内企業（53%）が立地企業（47%）を僅かに上回る構造へと推移している <sup class="ref">[5]</sup>。</p>
+
+<p>今後の特区・地域制度の運用においては、単なる設備投資や雇用のボリュームのみならず、沖縄特産品振興や環境負荷軽減等への貢献といった「沖縄公庫（沖縄振興開発金融公庫）」独自の政策融資制度（産業開発資金、資本性劣後ローン特例など）とも密接に連携し、地場企業の財務体質強化と高付加価値化を一体的に推進する動きが加速している <sup class="ref">[13, 14]</sup>。</p>
+
+<hr>
+        </section>
+        <section id="sec-3">
+          <h2>第２章　沖縄県の条例・政策とDX推進体制の時系列展開</h2>
+          <h3>2.1 21世紀ビジョンからDX推進計画への移行（過去・現状・今後）</h3>
+
+
+<p>沖縄県におけるデジタル政策の基本方針は、県の最上位計画である「沖縄21世紀ビジョン」に即して策定・改定が繰り返されてきた <sup class="ref">[15, 16]</sup>。</p>
+
+<p>過去において、県はインフラ整備とアウトソーシング（立地企業）の呼び込みに特化した情報通信関連計画を推進してきた。しかし、2022年（令和4年）5月に「新・沖縄21世紀ビジョン基本計画」が策定されたことに伴い、従来のIT政策は大幅にアップデートされた <sup class="ref">[15, 16]</sup>。同基本計画が描く「安全・安心で幸福が実感できる島」の将来像を、デジタル技術の側面から支えるために策定されたのが、令和4年度から令和13年度までの10年間を計画期間とする「沖縄県DX推進計画」である <sup class="ref">[15, 16]</sup>。</p>
+
+<p>現在、県は「沖縄県DX推進本部」の主導のもと、全部局が主体的にDX推進に取り組む体制を整備している <sup class="ref">[15]</sup>。特徴的なのは、知事や副知事（CDO）のリーダーシップに加え、外部デジタル専門家である「CDO補佐官」や「DXアドバイザチーム」を積極的に活用し、各部局が企画する施策に民間の先進的な知見を取り入れている点にある <sup class="ref">[15]</sup>。</p>
+
+<p>今後の展開として、本計画は令和13年度までの長期ロードマップの中で、計画中期にあたる5年目（2026〜2027年度を目途）に中間評価を実施し、国のデジタル原則の改定やAI等の最先端の技術動向を踏まえた計画のアップデート（施策集の毎年度PDCA改定）を行うことを予定している <sup class="ref">[15, 17]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>計画分野</strong></th><th><strong>主な施策の基本方向と具体的ターゲット <sup class="ref">[15, 16]</sup></strong></th></tr></thead><tbody><tr><td><strong>生活分野</strong></td><td>教育現場におけるICT環境整備（教員の情報活用能力向上）、遠隔医療・福祉サービス向上のためのインフラ構築、自動運転・MaaSの導入やスマートシティ形成 <sup class="ref">[6, 15, 16]</sup></td></tr><tr><td><strong>産業分野</strong></td><td>情報通信関連産業と一次産業（スマート農業）、観光、物流の連携・共創によるDX促進、DXを牽引するデジタル人材の育成、データビジネスの普及 <sup class="ref">[6, 15, 16]</sup></td></tr><tr><td><strong>行政分野</strong></td><td>自治体情報システムの標準化・共通化、住民手続きのオンライン化推進、離島・過疎地域への都市部と同等な情報通信インフラの整備 <sup class="ref">[16]</sup></td></tr></tbody></table></div>
+
+
+<h3>2.2 オンライン化推進方針と「DX推進の心得」による庁内変革（過去・現状・今後）</h3>
+
+
+<p>行政内部における業務および手続きのデジタル化については、過去の紙書類中心のやり取りから、「沖縄県電子申請サービス」等の運用開始を経て、段階的にオンライン対応の検証が進められてきた <sup class="ref">[18]</sup>。</p>
+
+<p>現在、県は「沖縄県電子申請サービスオンライン化推進方針」に基づき、全ての手続きを対象とする網羅的なオンライン化のスクリーニングを実施している <sup class="ref">[18]</sup>。調査において「完全オンライン化可能」あるいは「条件付きで可能」と分類された手続きについては優先順位をつけて順次オンライン化を進める一方、法令等の制約で原本の紙提出が求められる手続きについても、国や関係省庁との間で添付書類省略に向けた個別調整を行っている <sup class="ref">[18]</sup>。</p>
+
+<p>このような行政のサービス改革を本質的に進めるため、単に新しい情報システムを調達・構築して満足するこれまでの「システムありきの行政手法」を打破するための行動規範として、県は「沖縄県DX推進の心得」を定義し、庁内での浸透・定着を図っている <sup class="ref">[19]</sup>。この心得は、以下の7つの基本原則から構成されている <sup class="ref">[19]</sup>。</p>
+
+<ol><li><strong>利用者視点でデザインする</strong>: 県民、事業者、現場職員の視点を起点にサービスを構築する。</li><li><strong>業務プロセスを見直す</strong>: 単なるデジタル化ではなく、行政内部の不合理な業務プロセスそのものをBPRで再構築する。</li><li><strong>データを公開する・活用する</strong>: 価値創出の源泉であるデータを共有し、新たな官民サービスへ繋げる。</li><li><strong>システムではなくサービスをつくる</strong>: システムは手段にすぎず、提供する「サービス」こそが目的であることを意識する。</li><li><strong>改善プロセスを繰り返す</strong>: アジャイル開発のように、提供開始後もニーズに合わせて柔軟に改定を繰り返す。</li><li><strong>多様な主体と共創する</strong>: 複雑化する地域ニーズに対し、外部企業や金融機関、市町村等と横断的に共創する。</li><li><strong>スキルアップとチャレンジ</strong>: 職員一人ひとりのリテラシー底上げと、DXリーダーの育成・挑戦を支援する。</li></ol>
+<p>今後の方向性としては、知事・副知事や外部専門家によるトップダウンの発信と、定期的な職員へのアンケート測定を実施しつつ、国の進める4万件以上のアナログ規制見直しプラン（デジタル原則への適合）と完全に同期させたデジタルガバメントの確立を目指している <sup class="ref">[17, 19]</sup>。</p>
+
+<hr>
+        </section>
+        <section id="sec-4">
+          <h2>第３章　主要自治体の条例・政策における時系列展開と先進モデル</h2>
+          <h3>3.1 名護市「スマートシティ名護モデル」の共創構造と実証成果（過去・現状・今後）</h3>
+
+
+<p>沖縄県内の基礎自治体において、他地域への水平展開モデルとして際立った成果と独自の歩みを示しているのが名護市である。同市の取り組みは「企業誘致」とデジタルを用いた「地域課題の解決（事業創発）」を車の両輪とする「スマートシティ名護モデル」として知られる <sup class="ref">[20]</sup>。</p>
+
+<h3>3.1.1 過去から現在への計画策定と推進体制</h3>
+
+<p>過去において名護市は、総合計画に基づき個別のシステム化を図ってきたが、2022年度（令和4年度）から2023年度（令和5年度）にかけて、デジタルを前提とした「目指すべき姿」を再定義するため「スマートシティ名護モデルマスタープラン」および「スマートシティ名護モデルアクションプラン」を相次いで策定した <sup class="ref">[7, 21]</sup>。</p>
+
+<p>これを民間で力強く推進するため、一般社団法人名護経済特区スマートシティ推進機構（旧：一般社団法人名護スマートシティ推進協議会、2025年9月に名称および体制を変更・統合）が市と包括連携協定を締結して活動している <sup class="ref">[20]</sup>。さらに、その下部組織として約80〜90の会員企業、学術機関、地方公共団体からなる有料会員制組織「名護スマートシティコンソーシアム」を設立した <sup class="ref">[20, 22]</sup>。</p>
+
+<div class="table-wrap"><table><thead><tr><th><strong>会員区分</strong></th><th><strong>年会費</strong></th><th><strong>対象・位置づけ <sup class="ref">[22]</sup></strong></th></tr></thead><tbody><tr><td><strong>大企業会員</strong></td><td>300,000円</td><td>コンソーシアムの中核を担う全国規模の大手企業 <sup class="ref">[22]</sup></td></tr><tr><td><strong>中小企業会員</strong></td><td>100,000円</td><td>資本金3億円以下または従業員300人以下の地域に根差した地場企業等 <sup class="ref">[22]</sup></td></tr><tr><td><strong>新興企業会員</strong></td><td>30,000円</td><td>法人設立後15年以内の未上場スタートアップ企業等 <sup class="ref">[22]</sup></td></tr><tr><td><strong>特別会員</strong></td><td>無料</td><td>地方公共団体、学術機関（大学等）、その他公的団体 <sup class="ref">[22]</sup></td></tr></tbody></table></div>
+
+<h3>3.1.2 ワーキンググループ（WG）の実証・実装成果</h3>
+
+<p>コンソーシアム内に設立された8つのWG（観光、交通、農業、ヘルスケア、まちなか再開発、教育、データ基盤、市民サービス）は、実質的な「社会実装の実験場」として、以下のような具体的取り組みを時系列で遂行している <sup class="ref">[20, 22]</sup>。</p>
+
+<ul><li><strong>ヘルスケアWG（PHR実証プロジェクト）</strong>: 2024年8月から2025年2月にかけて、レイ・フロンティア社と連携し、スマートフォン向けパーソナル・ヘルス・レコード（PHR）アプリ「T-Karte」を用いたウォーキング実証を実施 <sup class="ref">[20]</sup>。歩行による位置情報や活動データをお客様の同意の上でAI解析し、個別の健康管理機能を提供する一方で、スタンプラリー参加によって付与されるNFTやポイントが地場ECサイトで活用できる地域経済の好循環モデルを実証した <sup class="ref">[20]</sup>。</li></ul>
+
+<ul><li><strong>観光WG（次世代モビリティ避難訓練・実証）</strong>: 2024年10月、沖縄トヨタ自動車等と共同で、次世代電動車椅子「WHILL」を用いた津波警告時の避難訓練を名護市観光情報センターで実施（WHILLを用いた災害避難訓練としては日本初） <sup class="ref">[20]</sup>。あわせて観光客や市民を対象としたWHILLの無料体験レンタルプログラム（名護漁港やホテルゆがふいんおきなわ等）も順次展開された <sup class="ref">[20]</sup>。</li></ul>
+
+<ul><li><strong>農業WG（スマート農業の4者包括協定）</strong>: 2024年10月、名護市、農業ロボット開発スタートアップAGRIST、JTB沖縄、および推進機構の4者間で包括連携協定を締結 <sup class="ref">[20]</sup>。自動収穫ロボットの検証や、農業体験を組み込んだ観光コンテンツ（交流人口の拡大）の開発、デジタルを活用した農業の「稼げるモデル」の創出に挑んでいる <sup class="ref">[20]</sup>。</li></ul>
+
+<ul><li><strong>交通WG（XRモビリティ人材育成プログラム）</strong>: 国土交通省の「共創・MaaS実証プロジェクト」の採択を受け、KPMGコンサルティング、ホロラボ、MEDIAFLAG、PUREWORKS等と連携 <sup class="ref">[20]</sup>。XR（クロスリアリティ）技術によるデジタルツインを用いて、若手企業人や学生がバーチャル空間上で名護市の公共交通課題（公共交通空白地域の移動課題など）を視覚的に理解し、具体的な事業計画やビジネスモデルを立案する「コーディネーター人材」を継続的に養成している <sup class="ref">[20]</sup>。</li></ul>
+
+<p>今後の展開として、推進機構は「スマートシティ名護モデルプロモーション補助金」の2回目（2026年選定・交付）をスタートさせ、実証のみで終わらせず、持続可能な自立型ビジネス（社会実装）へとステップアップさせるステージへと移行している <sup class="ref">[20]</sup>。また毎年2月に「TSUNAGU CITY」と題した最先端デジタル体験＆地方創生カンファレンスを開催し、全国の自治体からの視察や意見交換を受け入れる先進モデル都市としての地位を確立しつつある <sup class="ref">[20, 23]</sup>。</p>
+
+
+<h3>3.2 宜野湾市・那覇市等におけるデジタルファースト戦略の展開（過去・現状・今後）</h3>
+
+
+<p>他の主要自治体においても、過去の個別情報化計画から、最新の国の方針に準拠した計画変更をドラスティックに行っている。</p>
+
+<p>宜野湾市では、従来の「宜野湾市第三次電子自治体推進計画」を廃止し、2020年代以降の官民連携データの高度化を主眼とした総合デジタル計画を新たに策定した <sup class="ref">[24]</sup>。同計画では、以下に示す「3つのデジタルファースト戦略」を定義している <sup class="ref">[24]</sup>。</p>
+
+<ul><li><strong>「市民生活」へのデジタルファースト</strong>: 行政窓口のオンライン化、書かない窓口、キャッシュレス決済、スマホ教室によるリテラシー底上げ <sup class="ref">[24]</sup>。</li></ul>
+
+<ul><li><strong>「行政経営」へのデジタルファースト</strong>: 国が定める自治体システム標準化への適合、BPRの推進、AI・RPAやノーコードツールの積極導入による内部業務効率化 <sup class="ref">[24]</sup>。</li></ul>
+
+<ul><li><strong>「地域振興」へのデジタルファースト</strong>: 官民データおよびオープンデータの積極的な公開・解放を通じ、地域企業が新たなサービスや活性化策を創出できる基盤の提供 <sup class="ref">[24]</sup>。</li></ul>
+
+<p>那覇市においては、「デジタルで変わり続けるまち・那覇」を基本理念とする「那覇市DX推進計画」を策定し運用している <sup class="ref">[25]</sup>。那覇市の特徴は、現在の延長線上の未来ではなく、高速通信、セキュリティ、マイナンバー個人認証といった「デジタルインフラ」を強固に構築したうえで、将来的にはメタバース、シェアリングエコノミー、リモートコミュニケーションといった次世代「ソリューション」を段階的に融合させ、多様な市民生活のWell-being向上を狙う点にある <sup class="ref">[25]</sup>。</p>
+
+<p>今後（2026年以降）は、各自治体ともにシステム標準化の最終期限を意識しながら、地域固有のデジタル施策（防災、観光、子育て支援など）にいかに独自性（ローカルカラー）を織り込めるかが共通の課題となっている <sup class="ref">[16, 17, 24]</sup>。</p>
+
+<hr>
+        </section>
+        <section id="sec-5">
+          <h2>第４章　これまでのデジタル政策を巡る議論と構造的課題</h2>
+          <h3>4.1 地場産業のDX普及実態とデータ利活用を阻む論点・課題</h3>
+
+
+<p>沖縄のデジタル振興策を総括するうえで、最も活発に議論が戦わされ、かつ今なお克服すべき「壁」として残されているのが、地場産業におけるDXの「普及の遅れ」と「デジタルデバイド（格差）」である <sup class="ref">[4]</sup>。</p>
+
+<p>外部から進出した大手IT企業（立地企業）が高度なデジタル開発や通信インフラ売上（全体の売上の約47%）を上げているのに対し <sup class="ref">[5]</sup>、観光、建設、飲食、小売、農林水産業といった県内の伝統的産業を担う中小企業においては、DXへの「無関心」や「取り残され感」が顕著に現れている <sup class="ref">[4]</sup>。</p>
+
+<p>沖縄県および外部諮問機関による実態調査において、「DXに関心がない、または全く関心がない」と回答した企業の経営者や担当者からは、以下のような構造的理由が上位を占める結果となった <sup class="ref">[4]</sup>。</p>
+
+<ul><li><strong>「DXの意味や本質」が分からない</strong>: 単なるIT化やパッケージツールの導入、あるいは社内手続きの電子化と、本質的な「ビジネスモデルの変革（DX）」が混同され、自社への投資効果や必要性が不透明であるため、二の足を踏んでいる <sup class="ref">[4]</sup>。</li></ul>
+
+<ul><li><strong>「推進人材」が決定的に不足している</strong>: 社内にITスキルを持った人物が一人もおらず、外部のITコンサルタントやベンダーに相談しようにも、足元を見られる不安や相談プロセス自体が分からない <sup class="ref">[4]</sup>。</li></ul>
+
+<ul><li><strong>「データ利活用」におけるデータ共有インセンティブの欠如</strong>: DXを深化させるプロセスにおいて、各社の持つ営業データや人流データの連携プラットフォーム（ISCOの進めるODPF等）の構築が議論されているが、地場企業側からすれば「自社が苦労して得た顧客データなどを、何故他社（競合）も利用可能なプラットフォームへ無償で提供しなければならないのか」という、データ開示に対する見返り（インセンティブ）の設計がなされていないことが、データ連携を停滞させる要因となっている <sup class="ref">[4]</sup>。</li></ul>
+
+<p>従来の政策は、このような「地場経営者の心理的ハードル」や「投資対効果の不透明さ」を無視した、システムやツールの導入補助金という「手段の提供」に偏りがちであったことが反省点として共有されている <sup class="ref">[4]</sup>。</p>
+
+
+<h3>4.2 地域金融機関および支援機関による伴走型支援と人材育成の在り方</h3>
+
+
+<p>前述した地場企業の「DX無関心層」「進め方が分からない」というボトルネックを克服するため、現在、沖縄県内の支援機関（ISCO等）や地域金融機関による「伴走型」の支援アプローチ、および実践型の人材育成プログラムの有効性について議論が集約されつつある。</p>
+
+<p>中核支援機関である沖縄ITイノベーション・戦略センター（ISCO）は、地場企業、行政、ベンダーの「ハブ」となるシンクタンクとして、2022年度（令和4年度）から2031年度（令和13年度）にわたる長期ビジョンを定めている <sup class="ref">[26]</sup>。ISCOにおいては、単に「システム開発を直接請け負う（民業との競合）」ことを厳格に禁じており、特定企業に偏らない公平なマッチング（Industlinkの運営等）を心がけている <sup class="ref">[26]</sup>。さらに、ISCO等の支援組織において優秀なITコーディネーター等の専門人材を長期雇用（無期雇用・契約長期化による頭脳流出の抑止）するための雇用改善も、支援の「質」を担保するうえで極めて重要な論点となっている <sup class="ref">[26]</sup>。</p>
+
+<p>また、2022年度（令和4年度）から県が実施している「DX推進リーダー研修／伴走支援」は、これまでの単一的なスキル研修から脱却し、以下の「3つのプレイヤーが一体となった経営計画づくり」へとフォーカスを移行させた <sup class="ref">[27]</sup>。</p>
+
+<ul><li><strong>経営者層</strong>: 自社の経営課題を洗い出し、自らデジタル投資の費用対効果（ROI）を検証できる体制を整える <sup class="ref">[27]</sup>。</li></ul>
+
+<ul><li><strong>推進担当者（現場リーダー）</strong>: 経営者のビジョンを理解し、実際の業務フロー（BPR）に落とし込む <sup class="ref">[27, 28]</sup>。</li></ul>
+
+<ul><li><strong>支援機関（地域金融機関、ITコーディネーター等）</strong>: ベンダーにすべてを丸投げせず、主体的かつ中立的な立場で伴走支援できる知見を獲得する <sup class="ref">[27]</sup>。</li></ul>
+
+<p>この動きを最も強く後押ししているのが、地域の金融機関である。</p>
+
+<p>琉球銀行においては、地域の発展が自行の成長に直結するとの認識から、2025年4月より「DX診断サービス」を開始した <sup class="ref">[29, 30]</sup>。これは対話を通じて取引先のデジタル化ニーズを可視化し、人手不足を解決するためのソリューションを具体的に提案するものである <sup class="ref">[30]</sup>。具体的には、沖縄シャープ電機株式会社と業務マッチング契約を締結し、深刻な労働力不足に悩むクリニックや、自治体窓口の業務効率化（省人化）を図るため、自動精算機の共同提案を皮切りに、ホテル業界など多業種へDX商材を展開している <sup class="ref">[30]</sup>。ネットスターズ等のFinTechベンダーとの協働もこれを補完する <sup class="ref">[31]</sup>。</p>
+
+<p>沖縄銀行においては、株式会社みらいおきなわや沖縄県中小企業診断士協会と共同で、県の補助金（最大9割補助、事業主負担10万円、最大90万円補助）を活用した「DX推進計画策定に伴走するサービス」を展開している <sup class="ref">[32]</sup>。原則5回にわたる膝を突き合わせた面談を通じ、SWOT分析、業務フロー設計、ソリューション選定、ロードマップ作成まで、実際の事業者が自立して実行に移せる「計画書（青写真）」を共に策定する支援体制を敷いている <sup class="ref">[32]</sup>。</p>
+
+<p>さらに政府系金融である「沖縄振興開発金融公庫（沖縄公庫）」は、地域活性化や生産性向上を目指す地場企業の財務体質を強化するため、「資本性劣後ローン」や、特区制度と連動した「特区等無担保貸付利率特例」等の独自制度を活用し、民間金融機関と協調しながら、調剤ロボットの導入や電気バス導入に伴う長期資金を低金利かつ長期で供給することで、民業補完・奨励機能を果たす役割を担っている <sup class="ref">[13, 14]</sup>。</p>
+
+<hr>
+        </section>
+        <section id="sec-6">
+          <h2>第５章　これまでの政策を踏まえた今後の示唆と提言</h2>
+          <h3>5.1 インセンティブ設計に基づく自立型産業エコシステムの構築</h3>
+
+
+<p>これまでの沖縄のデジタル政策および産業誘致の実績を踏まえた最大の示唆は、\<em>\</em>「外部から立地企業を補助金・税制で誘致し、低単価のコールセンター等で雇用ボリュームを稼ぐ依存型・追従型のモデル」から、「地場産業自らが自社経営課題を起点として、デジタルの力を使い『稼ぐ力』を極大化する自立的産業エコシステムへの転換」\<em>\</em>である。</p>
+
+<p>国が提供する特区・地域制度の多大な税制特例や、一括交付金（沖縄振興交付金）という極めて貴重な政策財源は、単なる「個別企業の設備導入の穴埋め」に浪費されるべきではない <sup class="ref">[3]</sup>。複数の企業、あるいは一次・二次・三次産業を横断する「ResorTech」の共創事業にこそ、重点的な「選択と集中」を実施すべきである <sup class="ref">[3, 26, 33]</sup>。</p>
+
+<p>特に第4章で論じられた「データ利活用のインセンティブ欠如」に対する提言としては、プラットフォーム（ODPF等）へのデータ提供企業に対し、単に共通データを使える権利を付与するだけでなく、以下のような「具体的な経済的価値・経営改善への還元サイクル」を政策的に組み込むことが求められる <sup class="ref">[4, 26]</sup>。</p>
+
+<ul><li><strong>データ提供量に応じた独自の金融優遇・融資審査優遇</strong>: データをオープンにし、生産性改善にコミットする企業の信用格付を、地域金融機関や沖縄公庫と連携して評価する仕組みの構築 <sup class="ref">[13, 14]</sup>。</li></ul>
+
+<ul><li><strong>顧客連携・マッチング支援の自動還元</strong>: データをプラットフォームに提供することで、名護市の観光周遊サイネージやPHRアプリのように、自店舗や自社サービスに観光客や地域住民が自動的に誘導される「目に見える集客効果」のシステム連動 <sup class="ref">[20]</sup>。</li></ul>
+
+
+<h3>5.2 サービスデザイン思考の徹底と行政・データの共通化基盤整備</h3>
+
+
+<p>第二の示唆は、行政および民間サービス設計における「サービスデザイン思考（利用者視点）」の徹底と、自治体システムの「標準化・共通化」の早期活用である <sup class="ref">[16, 19, 24]</sup>。</p>
+
+<p>名護市が実証した「スマートシティ名護モデル」が極めて優秀な実績を収めている要因は、「スマートシティにしたいからシステムを入れる」のではなく、「市民の津波避難（交通WG）」「長寿県の復権に向けた健康寿命増進（ヘルスケアWG）」「高齢化・後継者不足における農業の収益化（農業WG）」など、<strong>「地域における市民生活の本質的な課題（ニーズ）」を最初に特定し、それを解決するために最適なテクノロジーやスタートアップ企業を外部からマッチングした「バックキャスティング手法」をとったこと</strong>にある <sup class="ref">[16, 20]</sup>。</p>
+
+<p>沖縄県内の各市町村担当者は、自自治体単独で独自のシステムをスクラッチ開発すること（これによるシステム予算の逼迫や業者ロックイン）を避け、国が推進する「地方自治体システムの標準化・共通化」を好機と捉えるべきである <sup class="ref">[16, 24]</sup>。標準化によって浮いた予算やシステム運用リソースを、そのまま地域住民への直接的なオンライン化、BPRを前提とした「書かない窓口」「行政プロセスの徹底的な簡素化」へと注ぎ込む必要がある <sup class="ref">[18, 19, 24]</sup>。</p>
+
+<p>さらに、人材会社とも緊密に連携し、県内IT人材のスキルアップだけでなく、県内IT企業で活躍した高度専門人材を自治体のデジタル推進アドバイザーとして一時的に受け入れる「リボルビングドア（人材の還流）」を推進することで、官民の間の見えない壁を無くし、対等なパートナーシップの下で強靭な「デジタル社会・沖縄」を時系列の持続可能性をもって構築していくことが可能となる <sup class="ref">[15, 19, 26]</sup>。</p>
+
+<hr>
+
+<p>おわりに</p>
+
+<p>沖縄のデジタル政策は、かつての孤立した「マルチメディアアイランド」の構築から、あらゆる産業と住民生活がデジタルを介して世界とシームレスに「響鳴」し合う、「ResorTechおきなわ」の体現に向けて力強く前進している <sup class="ref">[1, 22, 33]</sup>。これまでの時系列的な発展プロセスは、地場企業のDX推進、地域金融機関による伴走支援、名護市等の先駆的なスマートシティ・コ・クリエーションモデルを通じて、着実な成功パターンを蓄積してきた <sup class="ref">[20, 30, 32]</sup>。</p>
+
+<p>今後、沖縄のデジタル化を持続的なものとし、一時の補助金バブルに終わらせないためには、県・市町村・金融機関・地場企業・人材会社などの多様なステークホルダーが共通の目標像を持ち、「沖縄県DX推進の心得」に象徴されるアジャイルで徹底した利用者視点の実践、そして公正なデータシェアリング精神のもとに寄り集まることが不可欠である <sup class="ref">[4, 19, 26]</sup>。</p>
+
+<p>有利性の克服に留まらず、日本列島、そして東アジアの先端を走る「デジタルイノベーションのショーケース」として、すべてのステークホルダーが主体となって変わり続ける変革の時代に一歩を踏み出すこと。その継続的な挑戦こそが、安全・安心で幸福が実感できる島の価値を極限まで高める唯一のロードマップとなる <sup class="ref">[15, 16]</sup>。</p>
+
+<hr>
+
+<ol class="ref-list"><li>**第２章　これまでの成果 - 沖縄県, https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/page/001/010/253/03\_dai2shou.pdf**<br><a href="https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/010/253/03\_dai2shou.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/010/253/03\_dai2shou.pdf</a></li><li>沖縄の情報通信産業振興税制(1/2) - 総務省,<br><a href="https://www.soumu.go.jp/main\_content/000302592.pdf" target="_blank" rel="noopener">https://www.soumu.go.jp/main\_content/000302592.pdf</a></li><li>沖縄振興特別措置法 (概要) - 内閣府,<br><a href="https://www8.cao.go.jp/okinawa/pamphlet/shinkou-2025/2025\_whole\_2.pdf" target="_blank" rel="noopener">https://www8.cao.go.jp/okinawa/pamphlet/shinkou-2025/2025\_whole\_2.pdf</a></li><li>令和４年度 第４回 「稼ぐ力の強化に向けた産業ＤＸの加速」に関する万国津梁会議 - 沖縄県,<br><a href="https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/010/176/shidai-4.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/010/176/shidai-4.pdf</a></li><li>令和７年度 おきなわ IT センサス 報告書 - 沖縄県,<br><a href="https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/010/254/okinawaitcensus\_r8\_04.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/010/254/okinawaitcensus\_r8\_04.pdf</a></li><li>沖縄振興特別措置法 (概要) - 内閣府,<br><a href="https://www8.cao.go.jp/okinawa/pamphlet/shinkou-2022/2022\_whole\_1\_2.pdf" target="_blank" rel="noopener">https://www8.cao.go.jp/okinawa/pamphlet/shinkou-2022/2022\_whole\_1\_2.pdf</a></li><li>スマートシティ名護モデル マスタープラン概要版,<br><a href="https://smartcity.kyoto/expo2024/cms/file/%E3%80%90SC%E5%90%8D%E8%AD%B7%E3%83%A2%E3%83%87%E3%83%AB%E3%80%91%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%97%E3%83%A9%E3%83%B3%E6%A6%82%E8%A6%81.pdf" target="_blank" rel="noopener">https://smartcity.kyoto/expo2024/cms/file/%E3%80%90SC%E5%90%8D%E8%AD%B7%E3%83%A2%E3%83%87%E3%83%AB%E3%80%91%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%97%E3%83%A9%E3%83%B3%E6%A6%82%E8%A6%81.pdf</a></li><li>新たな沖縄振興基本方針と沖縄振興計画 - 参議院常任委員会調査室・特別調査室,<br><a href="https://www.sangiin.go.jp/japanese/annai/chousa/rippou\_chousa/backnumber/2022pdf/20220708125.pdf" target="_blank" rel="noopener">https://www.sangiin.go.jp/japanese/annai/chousa/rippou\_chousa/backnumber/2022pdf/20220708125.pdf</a></li><li>情報通信産業振興地域・情報通信産業特別地区制度 - 沖縄県,<br><a href="https://www.pref.okinawa.jp/shigoto/keizai/1009879/1010203/1010205/1010210.html" target="_blank" rel="noopener">https://www.pref.okinawa.jp/shigoto/keizai/1009879/1010203/1010205/1010210.html</a></li><li>沖縄振興特別措置法等の一部を改正する法律のポイント,<br><a href="https://www.ogb.go.jp/-/media/Files/OGB/Soumu/muribushi/saisin/20220506/0506tokusyu1.pdf" target="_blank" rel="noopener">https://www.ogb.go.jp/-/media/Files/OGB/Soumu/muribushi/saisin/20220506/0506tokusyu1.pdf</a></li><li>情報通信産業振興地域・情報通信産業特別地区 - 沖縄政策 - 内閣府,<br><a href="https://www8.cao.go.jp/okinawa/seisaku/okishinhou/2014kaisei/joho.html" target="_blank" rel="noopener">https://www8.cao.go.jp/okinawa/seisaku/okishinhou/2014kaisei/joho.html</a></li><li>沖縄振興特別措置法に基づく沖縄の特区・地域制度について - 内閣府,<br><a href="https://www8.cao.go.jp/okinawa/seisaku/okishinhou/2014kaisei/toc.html" target="_blank" rel="noopener">https://www8.cao.go.jp/okinawa/seisaku/okishinhou/2014kaisei/toc.html</a></li><li>令和７年度 政策金融評価報告書 - 沖縄振興開発金融公庫,<br><a href="https://www.okinawakouko.go.jp/userfiles/files/autoupload/2026/01/1769750397.pdf" target="_blank" rel="noopener">https://www.okinawakouko.go.jp/userfiles/files/autoupload/2026/01/1769750397.pdf</a></li><li>融資・出資制度の概要 - 沖縄振興開発金融公庫,<br><a href="https://www.okinawakouko.go.jp/userfiles/files/disclosure/2023\_yuusisyussiseidonogaiyou3.pdf" target="_blank" rel="noopener">https://www.okinawakouko.go.jp/userfiles/files/disclosure/2023\_yuusisyussiseidonogaiyou3.pdf</a></li><li>沖縄県DX推進計画｜沖縄県公式ホームページ,<br><a href="https://www.pref.okinawa.jp/machizukuri/johoif/1013564/1013570.html" target="_blank" rel="noopener">https://www.pref.okinawa.jp/machizukuri/johoif/1013564/1013570.html</a></li><li>沖縄県DX推進計画,<br><a href="https://www.pref.okinawa.jp/\_res/projects/default\_project/*page*/001/013/570/00\_dx\_gaiyo1.4prov\_250925.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.jp/\_res/projects/default\_project/*page*/001/013/570/00\_dx\_gaiyo1.4prov\_250925.pdf</a></li><li>名護市 DX 推進計画,<br><a href="https://www.city.nago.okinawa.jp/articles/2025050200017/file\_contents/DXsuishinkeikaku.pdf" target="_blank" rel="noopener">https://www.city.nago.okinawa.jp/articles/2025050200017/file\_contents/DXsuishinkeikaku.pdf</a></li><li>沖縄県電子申請サービスにおける 行政手続オンライン化拡充方針,<br><a href="https://www.pref.okinawa.jp/\_res/projects/default\_project/*page*/001/013/548/onlinepolicy.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.jp/\_res/projects/default\_project/*page*/001/013/548/onlinepolicy.pdf</a></li><li>DX推進の心得7箇条｜沖縄県公式ホームページ,<br><a href="https://www.pref.okinawa.lg.jp/machizukuri/johoif/1013564/1027111.html" target="_blank" rel="noopener">https://www.pref.okinawa.lg.jp/machizukuri/johoif/1013564/1027111.html</a></li><li>【お知らせ】スマートシティ名護モデルの取り組み紹介について …,<br><a href="https://www.city.nago.okinawa.jp/articles/2024111300062/" target="_blank" rel="noopener">https://www.city.nago.okinawa.jp/articles/2024111300062/</a></li><li>スマートシティ名護モデルアクションプランの策定について - 名護市役所,<br><a href="https://www.city.nago.okinawa.jp/articles/2024050100013/" target="_blank" rel="noopener">https://www.city.nago.okinawa.jp/articles/2024050100013/</a></li><li>名護スマートシティコンソーシアムの紹介 \| 一般社団法人名護経済特区スマートシティ推進機構,<br><a href="https://smart-nago.or.jp/consortium\_introduction/" target="_blank" rel="noopener">https://smart-nago.or.jp/consortium\_introduction/</a></li><li>デジタル技術を活用した名護の未来を聞いて・見て・感じる２日間 「TSUNAGU CITY 2026 in NAGO」,<br><a href="https://nagomun.or.jp/info/22125/" target="_blank" rel="noopener">https://nagomun.or.jp/info/22125/</a></li><li>宜野湾市DX（デジタル・トランスフォーメーション）推進計画,<br><a href="https://www.city.ginowan.lg.jp/soshiki/kikaku/digitalsuishin/2/1/1/14257.html" target="_blank" rel="noopener">https://www.city.ginowan.lg.jp/soshiki/kikaku/digitalsuishin/2/1/1/14257.html</a></li><li>那覇市DX推進計画を策定しました,<br><a href="https://www.city.naha.okinawa.jp/admin/kaikaku/1008233/1004100/1004108.html" target="_blank" rel="noopener">https://www.city.naha.okinawa.jp/admin/kaikaku/1008233/1004100/1004108.html</a></li><li>ISCO 経営戦略 - 沖縄県,<br><a href="https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/014/373/35\_isco\_keikaku.pdf" target="_blank" rel="noopener">https://www.pref.okinawa.lg.jp/\_res/projects/default\_project/*page*/001/014/373/35\_isco\_keikaku.pdf</a></li><li>DXを「やりたいけど進まない」沖縄の企業へ。2026年度 DX人材養成講座、受講者募集開始／6月10日オープニングセミナー開催決定 \| 株式会社レキサスのプレスリリース - PR TIMES,<br><a href="https://prtimes.jp/main/html/rd/p/000000010.000007769.html" target="_blank" rel="noopener">https://prtimes.jp/main/html/rd/p/000000010.000007769.html</a></li><li>沖縄DX人材養成講座2026,<br><a href="https://okinawa-dx.com/" target="_blank" rel="noopener">https://okinawa-dx.com/</a></li><li>株式会社 琉球銀行様の導入事例 - IIJ,<br><a href="https://www.iij.ad.jp/svcsol/case/ryugin.html" target="_blank" rel="noopener">https://www.iij.ad.jp/svcsol/case/ryugin.html</a></li><li>沖縄シャープ電機株式会社との業務提携で沖縄の医療・公共DXを …,<br><a href="https://www.ryugin.co.jp/corporate/news/91830/" target="_blank" rel="noopener">https://www.ryugin.co.jp/corporate/news/91830/</a></li><li>【パートナー紹介】キャッシュレスに長年取り組む琉球銀行が推進するDX戦略とは？ - NETSTARS,<br><a href="https://www.netstars.co.jp/blog/8929/" target="_blank" rel="noopener">https://www.netstars.co.jp/blog/8929/</a></li><li>「令和7年度 DX支援機関連携促進事業補助金」事業の開始について …,<br><a href="https://www.okinawa-bank.co.jp/news\_release/2025112000012/" target="_blank" rel="noopener">https://www.okinawa-bank.co.jp/news\_release/2025112000012/</a></li><li>ANNUAL REPORT 2024 - ISCO,<br><a href="https://isc-okinawa.org/wp-content/uploads/ANNUAL2024.pdf" target="_blank" rel="noopener">https://isc-okinawa.org/wp-content/uploads/ANNUAL2024.pdf</a></li></ol>
+        </section>
+    </article>
+
+    <div style="display:flex; gap:1rem; justify-content:space-between; margin-top:3rem; flex-wrap:wrap;">
+      <a href="../260521_02/index.html">我が国におけるミドルシニア雇用の現状、課… →</a>
+    </div>
+  </div>
+  <footer>Generated by build_site.py · 2026-06-01</footer>
+
+  <script>
+  (function() {
+    const btn      = document.getElementById('tts-btn');
+    const stopBtn  = document.getElementById('tts-stop');
+    const select   = document.getElementById('tts-voice');
+    const label    = document.getElementById('tts-label');
+    const article  = document.querySelector('.article');
+    if (!btn || !article || !window.speechSynthesis) return;
+
+    const sections = article.querySelectorAll('section');
+    const rawText = sections.length
+      ? Array.from(sections).map(s => s.innerText).join('\n\n')
+      : (article.innerText || article.textContent || '');
+    let allVoices = [];
+    let chunks = [];
+    let resumeIdx = 0;
+    let currentIdx = 0;
+    let intentionalStop = false;
+    let keepAliveTimer = null;
+
+    const ALLOW_VOICES = ['七海', '圭太', 'Nanami', 'Keita'];
+
+    /* ── 音声セレクト ── */
+    function populateSelect(voices) {
+      const ja = voices.filter(v => v.lang.startsWith('ja') && ALLOW_VOICES.some(n => v.name.includes(n)));
+      if (!ja.length) { select.style.display = 'none'; return; }
+      allVoices = ja;
+      select.innerHTML = '';
+      const sorted = [...ja.filter(v => v.localService), ...ja.filter(v => !v.localService)];
+      sorted.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = (v.localService ? '🔒 ' : '☁ ') + v.name.replace('Microsoft ', '').replace(' - Japanese (Japan)', '');
+        opt.dataset.voiceName = v.name;
+        select.appendChild(opt);
+      });
+      allVoices = sorted;
+    }
+    function loadVoices() {
+      const v = speechSynthesis.getVoices();
+      if (v.length) { populateSelect(v); return; }
+      speechSynthesis.addEventListener('voiceschanged', () => populateSelect(speechSynthesis.getVoices()), { once: true });
+    }
+    loadVoices();
+    function getSelectedVoice() { return allVoices[parseInt(select.value)] || null; }
+
+    /* ── テキスト分割 ── */
+    function splitChunks(text) {
+      return text.split(/\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+
+    /* ── keepAlive (Chrome バグ対策) ── */
+    function startKeepAlive() {
+      stopKeepAlive();
+      keepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        }
+      }, 10000);
+    }
+    function stopKeepAlive() {
+      if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+    }
+
+    /* ── UI 状態 ── */
+    function setIdle() {
+      stopKeepAlive();
+      if (resumeIdx > 0 && resumeIdx < chunks.length) {
+        const pct = Math.round(resumeIdx / chunks.length * 100);
+        btn.textContent = '▶ 途中から再開';
+        label.textContent = pct + '% 地点〜';
+      } else {
+        btn.textContent = '▶ 読み上げ';
+        label.textContent = '';
+      }
+      btn.classList.remove('playing');
+      btn.dataset.state = 'idle';
+      stopBtn.style.display = 'none';
+    }
+
+    /* ── 段落を順に読む ── */
+    function speakFrom(index) {
+      if (index >= chunks.length) { resumeIdx = 0; setIdle(); return; }
+      currentIdx = index;
+      const voice = getSelectedVoice();
+      const rateSelect = document.getElementById('tts-rate');
+      const utt = new SpeechSynthesisUtterance(chunks[index]);
+      utt.lang = 'ja-JP';
+      utt.rate = rateSelect ? parseFloat(rateSelect.value) : 1.0;
+      if (voice) utt.voice = voice;
+      utt.onend = () => { resumeIdx = index + 1; speakFrom(index + 1); };
+      utt.onerror = (e) => { if (!intentionalStop) resumeIdx = index; setIdle(); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startSpeech(fromIndex) {
+      intentionalStop = false;
+      chunks = splitChunks(rawText);
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voice = getSelectedVoice();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+        stopBtn.style.display = 'inline-flex';
+        label.textContent = voice && voice.localService ? 'ローカル' : voice ? 'クラウド' : '';
+        startKeepAlive();
+        speakFrom(fromIndex);
+      }, 100);
+    }
+
+    /* ── 読み上げボタン ── */
+    btn.addEventListener('click', () => {
+      const state = btn.dataset.state || 'idle';
+      if (state === 'idle') {
+        startSpeech(resumeIdx);
+      } else if (state === 'playing') {
+        window.speechSynthesis.pause();
+        btn.textContent = '▶ 再開';
+        btn.classList.remove('playing');
+        btn.dataset.state = 'paused';
+      } else {
+        window.speechSynthesis.resume();
+        btn.textContent = '⏸ 一時停止';
+        btn.classList.add('playing');
+        btn.dataset.state = 'playing';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      intentionalStop = true;
+      resumeIdx = 0;
+      stopKeepAlive();
+      window.speechSynthesis.cancel();
+      setIdle();
+    });
+
+    /* ══════════════════════════════════════════════════
+       選択箇所から読み上げ機能
+    ══════════════════════════════════════════════════ */
+    let selTip = null;
+
+    function getOrCreateTip() {
+      if (selTip) return selTip;
+      selTip = document.createElement('button');
+      selTip.id = 'tts-sel-tip';
+      selTip.textContent = '▶ ここから読み上げ';
+      Object.assign(selTip.style, {
+        position: 'fixed', zIndex: '9999',
+        background: '#1a56a0', color: '#fff',
+        border: 'none', borderRadius: '6px',
+        padding: '6px 14px', fontSize: '13px',
+        cursor: 'pointer', display: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+        whiteSpace: 'nowrap'
+      });
+      document.body.appendChild(selTip);
+      return selTip;
+    }
+
+    function hideTip() { if (selTip) selTip.style.display = 'none'; }
+
+    /* 選択開始ノードからチャンクインデックスを特定 */
+    function chunkIndexFromSelection(sel) {
+      if (!chunks.length) chunks = splitChunks(rawText);
+      const range = sel.getRangeAt(0);
+      let node = range.startContainer;
+      if (node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+
+      /* ブロック要素まで上がる */
+      const BLOCK = new Set(['P','H1','H2','H3','H4','H5','H6','LI','BLOCKQUOTE','TD','TH']);
+      while (node && node !== article) {
+        if (node.nodeType === 1 && BLOCK.has(node.tagName)) break;
+        node = node.parentNode;
+      }
+
+      /* ブロックのテキストで検索 */
+      const blockText = node && node !== article
+        ? (node.innerText || node.textContent || '').trim()
+        : sel.toString().trim();
+
+      const key = blockText.substring(0, 40).replace(/\s+/g, ' ');
+      let best = -1;
+      for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i].substring(0, 40).replace(/\s+/g, ' ');
+        if (c === key || chunks[i].includes(key.substring(0, 20))) { best = i; break; }
+      }
+      return best >= 0 ? best : 0;
+    }
+
+    /* mouseup: 記事内テキストが選択されたらツールチップを出す */
+    document.addEventListener('mouseup', (e) => {
+      if (e.target === selTip) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideTip(); return; }
+      try {
+        const range = sel.getRangeAt(0);
+        if (!article.contains(range.commonAncestorContainer)) { hideTip(); return; }
+      } catch(err) { hideTip(); return; }
+
+      chunks = splitChunks(rawText);
+      const idx = chunkIndexFromSelection(sel);
+
+      const tip = getOrCreateTip();
+      /* 選択範囲の末尾を基準に表示 */
+      const rect = sel.getRangeAt(0).getBoundingClientRect();
+      const tipLeft = Math.min(rect.left, window.innerWidth - 220);
+      tip.style.left = Math.max(4, tipLeft) + 'px';
+      tip.style.top  = (rect.top - 44) + 'px';
+      tip.style.display = 'block';
+
+      tip.onclick = () => {
+        hideTip();
+        window.getSelection().removeAllRanges();
+        resumeIdx = idx;
+        startSpeech(idx);
+      };
+    });
+
+    /* 別の場所をクリックしたらツールチップを消す */
+    document.addEventListener('mousedown', (e) => {
+      if (selTip && e.target !== selTip) hideTip();
+    });
+    document.addEventListener('scroll', hideTip, { passive: true });
+
+    window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+
+  })();
+  </script>
+</body>
+</html>
